@@ -5,14 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
   Check,
-  Mail,
   Send,
   Sparkles,
 } from "lucide-react";
 
 const services = [
   "Long-Form Video Editing",
-  "Podcast Video Editing",
   "Thumbnail Designing",
   "Shorts / Reel Video Editing",
   "YouTube Channel Management",

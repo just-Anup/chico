@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
   Film,
-  Headphones,
   Image,
   Smartphone,
   PlaySquare,
@@ -22,15 +21,6 @@ const services = [
   },
   {
     number: "02",
-    title: "Podcast Video Editing",
-    description:
-      "Multi-camera podcast editing with dynamic cuts, clean audio, captions, punch-ins and visual moments that keep viewers watching.",
-    tag: "PODCAST • MULTI-CAM • AUDIO",
-    icon: Headphones,
-    visual: "podcast",
-  },
-  {
-    number: "03",
     title: "Thumbnail Designing",
     description:
       "Eye-catching thumbnails built around strong visual hierarchy, curiosity and clear messaging to help your videos earn the click.",
@@ -39,7 +29,7 @@ const services = [
     visual: "thumbnail",
   },
   {
-    number: "04",
+    number: "03",
     title: "Shorts / Reel Video Editing",
     description:
       "Fast, engaging vertical edits designed for retention — from the opening hook to captions, sound effects, transitions and the final frame.",
@@ -48,7 +38,7 @@ const services = [
     visual: "shorts",
   },
   {
-    number: "05",
+    number: "04",
     title: "YouTube Channel Management",
     description:
       "Take the editing burden off your shoulders with end-to-end YouTube support including uploads, thumbnails, optimization and content management.",
@@ -68,7 +58,7 @@ export default function Services() {
 
       {/* Background decoration */}
       <div className="services-bg-number">
-        05
+        04
       </div>
 
       <div className="services-container">
@@ -385,67 +375,6 @@ function ServiceVisual({ type }) {
 
         <div className="graphic-floating-tag">
           24 FPS
-        </div>
-
-      </div>
-    );
-  }
-
-
-  if (type === "podcast") {
-    return (
-      <div className="service-graphic podcast-graphic">
-
-        <div className="podcast-frame">
-
-          <div className="podcast-person one">
-            <div className="person-head" />
-            <div className="person-body" />
-          </div>
-
-          <div className="podcast-person two">
-            <div className="person-head" />
-            <div className="person-body" />
-          </div>
-
-          <div className="podcast-center">
-            <div className="podcast-mic">
-              🎙
-            </div>
-
-            <strong>
-              THE
-              <br />
-              CONVERSATION
-            </strong>
-          </div>
-
-        </div>
-
-        <div className="podcast-wave">
-
-          {Array.from({
-            length: 34,
-          }).map((_, i) => (
-
-            <motion.span
-              key={i}
-              animate={{
-                height: [
-                  `${10 + (i % 5) * 4}px`,
-                  `${22 + (i % 8) * 5}px`,
-                  `${10 + (i % 5) * 4}px`,
-                ],
-              }}
-              transition={{
-                duration:
-                  0.8 + (i % 4) * 0.12,
-                repeat: Infinity,
-              }}
-            />
-
-          ))}
-
         </div>
 
       </div>

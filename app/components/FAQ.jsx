@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "What type of videos do you edit?",
     answer:
-      "We work on a wide range of creator content including YouTube videos, podcasts, reaction videos, educational content, talking-head videos, Shorts, Reels and other social media content.",
+      "We work on a wide range of creator content including YouTube videos, reaction videos, educational content, talking-head videos, Shorts, Reels and other social media content.",
   },
   {
     question: "How do I send you my footage?",
@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "How long does an edit usually take?",
     answer:
-      "Turnaround depends on the length and complexity of the project. Simple short-form content can be completed quickly, while larger YouTube or podcast projects may require more time. We'll confirm the expected turnaround before starting.",
+      "Turnaround depends on the length and complexity of the project. Simple short-form content can be completed quickly, while larger long-form YouTube projects may require more time. We'll confirm the expected turnaround before starting.",
   },
   {
     question: "Can you follow my existing editing style?",
@@ -62,7 +62,10 @@ export default function FAQ() {
   };
 
   return (
-    <main className="faq-page">
+    <section
+      id="faq"
+      className="faq-section"
+    >
 
       {/* =====================================
           BACKGROUND
@@ -100,18 +103,25 @@ export default function FAQ() {
       <div className="faq-container">
 
         {/* =====================================
-            HERO
+            HEADING
         ===================================== */}
 
-        <motion.section
-          className="faq-hero"
+        <motion.div
+          className="faq-heading"
 
           initial={{
             opacity: 0,
+            y: 40,
           }}
 
-          animate={{
+          whileInView={{
             opacity: 1,
+            y: 0,
+          }}
+
+          viewport={{
+            once: true,
+            amount: 0.3,
           }}
 
           transition={{
@@ -119,54 +129,22 @@ export default function FAQ() {
           }}
         >
 
-          <div className="faq-hero-number">
+          <div className="faq-heading-watermark">
             FAQ
           </div>
 
-          <div className="faq-hero-content">
+          <div className="faq-heading-content">
 
-            <motion.div
-              className="section-eyebrow faq-eyebrow"
-
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-              }}
-            >
+            <div className="section-eyebrow faq-eyebrow">
 
               <span />
 
               GOT QUESTIONS?
 
-            </motion.div>
+            </div>
 
 
-            <motion.h1
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              transition={{
-                duration: 0.9,
-                delay: 0.25,
-              }}
-            >
+            <h2>
 
               We've got
               <br />
@@ -175,76 +153,26 @@ export default function FAQ() {
                 answers.
               </span>
 
-            </motion.h1>
+            </h2>
 
 
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              transition={{
-                duration: 0.7,
-                delay: 0.4,
-              }}
-            >
+            <p>
 
               Everything you need to know
               before sending your footage our way.
 
-            </motion.p>
+            </p>
 
           </div>
 
-
-          <motion.div
-            className="faq-scroll-indicator"
-
-            initial={{
-              opacity: 0,
-            }}
-
-            animate={{
-              opacity: 1,
-            }}
-
-            transition={{
-              delay: 1,
-            }}
-          >
-
-            <span>
-              SCROLL
-            </span>
-
-            <div>
-              <motion.i
-                animate={{
-                  y: [0, 20, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                }}
-              />
-            </div>
-
-          </motion.div>
-
-        </motion.section>
+        </motion.div>
 
 
         {/* =====================================
             FAQ LIST
         ===================================== */}
 
-        <section className="faq-list-section">
+        <div className="faq-list-section">
 
           <div className="faq-list-header">
 
@@ -314,9 +242,9 @@ export default function FAQ() {
                           ).padStart(2, "0")}
                         </span>
 
-                        <h2>
+                        <h3>
                           {faq.question}
-                        </h2>
+                        </h3>
 
                       </div>
 
@@ -407,14 +335,14 @@ export default function FAQ() {
 
           </div>
 
-        </section>
+        </div>
 
 
         {/* =====================================
             FAQ CTA
         ===================================== */}
 
-        <motion.section
+        <motion.div
           className="faq-cta"
 
           initial={{
@@ -445,19 +373,19 @@ export default function FAQ() {
               STILL HAVE QUESTIONS?
             </span>
 
-            <h2>
+            <h3>
               Let's talk
               <br />
               about your <em>project.</em>
-            </h2>
+            </h3>
 
           </div>
 
 
-         <a
-  href="/contact"
-  className="faq-cta-button magnetic-button"
->
+          <a
+            href="/contact"
+            className="faq-cta-button magnetic-button"
+          >
 
             Get in Touch
 
@@ -465,10 +393,10 @@ export default function FAQ() {
 
           </a>
 
-        </motion.section>
+        </motion.div>
 
       </div>
 
-    </main>
+    </section>
   );
 }

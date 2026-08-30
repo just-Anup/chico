@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   ArrowDown,
-  ArrowUpRight,
   Play,
   Scissors,
   Sparkles,
@@ -153,18 +151,6 @@ export default function Hero() {
               duration: 0.6,
             }}
           >
-
-            <Link
-              href="/contact"
-              className="hero-primary-button"
-            >
-              <span>Get in Touch</span>
-
-              <span className="hero-button-icon">
-                <ArrowUpRight size={17} />
-              </span>
-            </Link>
-
 
             <a
               href="#work"

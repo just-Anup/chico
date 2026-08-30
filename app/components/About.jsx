@@ -41,27 +41,6 @@ const processSteps = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "The editing completely changed the way our content feels. Everything is faster, cleaner and much more engaging.",
-    name: "Creator Name",
-    role: "YouTube Creator",
-  },
-  {
-    quote:
-      "We finally found an editing team that understands our style instead of making us explain every little thing.",
-    name: "Creator Name",
-    role: "Podcast Host",
-  },
-  {
-    quote:
-      "The turnaround, communication and quality have been incredible. It genuinely feels like having an in-house editor.",
-    name: "Creator Name",
-    role: "Content Creator",
-  },
-];
-
 export default function About() {
   return (
     <section
@@ -137,35 +116,6 @@ export default function About() {
           </div>
 
         </motion.div>
-
-
-        {/* =====================================
-            STATS
-        ===================================== */}
-
-        <div className="about-stats">
-
-          <Stat
-            number="500+"
-            label="VIDEOS EDITED"
-          />
-
-          <Stat
-            number="50M+"
-            label="VIEWS GENERATED"
-          />
-
-          <Stat
-            number="100+"
-            label="CREATORS HELPED"
-          />
-
-          <Stat
-            number="24H"
-            label="FAST TURNAROUND"
-          />
-
-        </div>
 
 
         {/* =====================================
@@ -290,111 +240,6 @@ export default function About() {
 
 
         {/* =====================================
-            TESTIMONIALS
-        ===================================== */}
-
-        <div className="testimonials-section">
-
-          <motion.div
-            className="testimonials-heading"
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-          >
-
-            <div className="section-eyebrow">
-              <span />
-              CREATOR LOVE
-            </div>
-
-            <h3>
-              Don't take our
-              <br />
-              <span>word for it.</span>
-            </h3>
-
-          </motion.div>
-
-
-          <div className="testimonial-grid">
-
-            {testimonials.map(
-              (testimonial, index) => (
-
-                <motion.article
-                  className="testimonial-card"
-                  key={index}
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.2,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay:
-                      index * 0.12,
-                  }}
-                  whileHover={{
-                    y: -8,
-                  }}
-                >
-
-                  <div className="testimonial-stars">
-                    ★★★★★
-                  </div>
-
-                  <blockquote>
-                    "{testimonial.quote}"
-                  </blockquote>
-
-                  <div className="testimonial-person">
-
-                    <div className="testimonial-avatar">
-                      {testimonial.name
-                        .charAt(0)}
-                    </div>
-
-                    <div>
-                      <strong>
-                        {testimonial.name}
-                      </strong>
-
-                      <span>
-                        {testimonial.role}
-                      </span>
-                    </div>
-
-                  </div>
-
-                </motion.article>
-
-              )
-            )}
-
-          </div>
-
-        </div>
-
-
-        {/* =====================================
             FINAL ABOUT CTA
         ===================================== */}
 
@@ -476,45 +321,5 @@ export default function About() {
       </div>
 
     </section>
-  );
-}
-
-
-/* =========================================
-   STAT COMPONENT
-========================================= */
-
-function Stat({
-  number,
-  label,
-}) {
-  return (
-    <motion.div
-      className="about-stat"
-      initial={{
-        opacity: 0,
-        y: 25,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-      }}
-      transition={{
-        duration: 0.6,
-      }}
-    >
-
-      <strong>
-        {number}
-      </strong>
-
-      <span>
-        {label}
-      </span>
-
-    </motion.div>
   );
 }

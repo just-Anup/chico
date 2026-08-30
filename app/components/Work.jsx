@@ -54,11 +54,11 @@ const projects = [
 
   {
     id: 4,
-    title: "The Podcast",
-    creator: "Podcast Project",
-    category: "Podcast Editing",
+    title: "Talking Head",
+    creator: "Educational Project",
+    category: "Talking Head Editing",
     description:
-      "Multi-camera podcast editing with dynamic cuts, captions and audio polish.",
+      "Clean talking-head editing with punch-ins, captions, b-roll and audio polish.",
     youtubeUrl: "",
     accent: "light",
   },

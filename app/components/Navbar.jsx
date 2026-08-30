@@ -11,7 +11,6 @@ import {
 
 const services = [
   "Long-Form Video Editing",
-  "Podcast Video Editing",
   "Thumbnail Designing",
   "Shorts/Reel Video Editing",
   "YouTube Channel Management",
@@ -114,7 +113,7 @@ export default function Navbar() {
           {/* FAQ */}
 
           <Link
-            href="/faq"
+            href="/#faq"
             className="nav-link"
           >
             FAQ
@@ -233,7 +232,7 @@ export default function Navbar() {
 
 
         <Link
-          href="/faq"
+          href="/#faq"
           className="mobile-nav-link"
           onClick={() =>
             setMobileOpen(false)
@@ -260,7 +259,6 @@ export default function Navbar() {
               marginLeft: 8,
             }}
           />
- vc
         </Link>
 
       </div>

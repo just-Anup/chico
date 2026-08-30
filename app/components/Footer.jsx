@@ -7,7 +7,6 @@ import {
 
 const services = [
   "Long-Form Editing",
-  "Podcast Editing",
   "Thumbnail Design",
   "Shorts / Reels",
   "Channel Management",
@@ -24,7 +23,7 @@ const pages = [
   },
   {
     name: "FAQ",
-    href: "/faq",
+    href: "/#faq",
   },
   {
     name: "Contact",
