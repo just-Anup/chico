@@ -9236,3 +9236,1415 @@ body {
   }
 
 }
+
+
+/* =========================================================
+   NEW CINEMATIC HERO ANIMATION
+   RIGHT SIDE ONLY
+========================================================= */
+
+.hero-cinema-glow {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(137, 118, 253, 0.18) 0%,
+      rgba(137, 118, 253, 0.08) 35%,
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.hero-cinema-orbit {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.09);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.hero-cinema-orbit::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 55px;
+
+  border:
+    1px dashed
+    rgba(137, 118, 253, 0.08);
+
+  border-radius: 50%;
+}
+
+.hero-cinema-orbit::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 125px;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.07);
+
+  border-radius: 50%;
+}
+
+.hero-cinema-orbit span {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  top: 7%;
+
+  left: 25%;
+
+  border-radius: 50%;
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 20px
+    rgba(137, 118, 253, 0.9);
+}
+
+
+/* =========================================================
+   RAW / STATUS LABEL
+========================================================= */
+
+.hero-cinema-label {
+  position: absolute;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    10px
+    14px;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.16);
+
+  border-radius: 100px;
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  backdrop-filter:
+    blur(15px);
+
+  box-shadow:
+    0 20px 45px
+    rgba(0, 0, 0, 0.1);
+
+  color: #696970;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.hero-cinema-raw {
+  top: 95px;
+
+  left: -5px;
+}
+
+.hero-cinema-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 12px
+    rgba(137, 118, 253, 0.9);
+}
+
+
+/* =========================================================
+   MAIN EDITOR
+========================================================= */
+
+.hero-cinema-editor {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(650px, 100%);
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #18161f,
+      #08080b
+    );
+
+  box-shadow:
+    0 50px 100px
+    rgba(0, 0, 0, 0.24),
+
+    0 0 90px
+    rgba(137, 118, 253, 0.08);
+
+  transform-style: preserve-3d;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.hero-cinema-topbar {
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 15px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  color: #696971;
+
+  font-size: 7px;
+
+  letter-spacing: 0.08em;
+}
+
+.hero-cinema-window-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.hero-cinema-window-buttons span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #45454d;
+}
+
+.hero-cinema-window-buttons span:first-child {
+  background: #8976FD;
+}
+
+.hero-cinema-file {
+  color: #898992;
+
+  font-weight: 700;
+}
+
+.hero-cinema-resolution {
+  color: #8976FD;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   VIDEO PREVIEW
+========================================================= */
+
+.hero-cinema-preview {
+  position: relative;
+
+  height: 310px;
+
+  overflow: hidden;
+
+  background: #111015;
+}
+
+.hero-cinema-preview-bg {
+  position: absolute;
+
+  inset: 28px;
+
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      125deg,
+      #111016 0%,
+      #27203e 48%,
+      #100e14 100%
+    );
+
+  box-shadow:
+    inset 0 0 80px
+    rgba(0, 0, 0, 0.5);
+}
+
+
+/* Moving light */
+
+.hero-cinema-light-one {
+  position: absolute;
+
+  width: 180px;
+  height: 500px;
+
+  top: -180px;
+  left: 5%;
+
+  transform:
+    rotate(25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(137, 118, 253, 0.25),
+      transparent
+    );
+
+  filter: blur(20px);
+
+  animation:
+    heroCinemaLightMove
+    6s
+    ease-in-out
+    infinite;
+}
+
+@keyframes heroCinemaLightMove {
+  0% {
+    left: -30%;
+  }
+
+  50% {
+    left: 90%;
+  }
+
+  100% {
+    left: -30%;
+  }
+}
+
+
+/* Second glow */
+
+.hero-cinema-light-two {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -120px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(137, 118, 253, 0.16);
+
+  filter: blur(50px);
+
+  animation:
+    heroCinemaGlowMove
+    5s
+    ease-in-out
+    infinite;
+}
+
+@keyframes heroCinemaGlowMove {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(-80px, -40px);
+  }
+}
+
+
+/* =========================================================
+   FAKE SUBJECT
+========================================================= */
+
+.hero-cinema-person {
+  position: absolute;
+
+  left: 50%;
+  bottom: -30px;
+
+  width: 190px;
+  height: 270px;
+
+  transform:
+    translateX(-50%);
+}
+
+.hero-cinema-head {
+  position: absolute;
+
+  top: 15px;
+  left: 50%;
+
+  width: 72px;
+  height: 72px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8976FD,
+      #4D3EAE
+    );
+
+  box-shadow:
+    0 0 70px
+    rgba(137, 118, 253, 0.3);
+}
+
+.hero-cinema-body {
+  position: absolute;
+
+  left: 50%;
+  bottom: -35px;
+
+  width: 155px;
+  height: 200px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:
+    75px
+    75px
+    15px
+    15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8976FD,
+      #30265f
+    );
+}
+
+
+/* =========================================================
+   FRAME LINES
+========================================================= */
+
+.hero-cinema-frame-lines {
+  position: absolute;
+
+  inset: 28px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 9px;
+
+  pointer-events: none;
+}
+
+.hero-cinema-frame-lines::before,
+.hero-cinema-frame-lines::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+.hero-cinema-frame-lines::after {
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+  height: 1px;
+}
+
+
+/* =========================================================
+   PREVIEW COPY
+========================================================= */
+
+.hero-cinema-preview-copy {
+  position: absolute;
+
+  left: 50px;
+  top: 52px;
+
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  color: white;
+}
+
+.hero-cinema-preview-copy span {
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+.hero-cinema-preview-copy strong {
+  font-size: 27px;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05em;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.hero-cinema-play {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 5;
+
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.3);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.09);
+
+  backdrop-filter:
+    blur(12px);
+
+  color: white;
+}
+
+
+/* =========================================================
+   VIDEO TIME
+========================================================= */
+
+.hero-cinema-timecode {
+  position: absolute;
+
+  right: 42px;
+  bottom: 42px;
+
+  z-index: 5;
+
+  padding:
+    6px
+    9px;
+
+  border-radius: 5px;
+
+  background:
+    rgba(0, 0, 0, 0.55);
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-family:
+    monospace;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   EDITING STATUS
+========================================================= */
+
+.hero-cinema-editing {
+  position: absolute;
+
+  left: 42px;
+  bottom: 42px;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding:
+    6px
+    9px;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.35);
+
+  border-radius: 5px;
+
+  background:
+    rgba(137, 118, 253, 0.12);
+
+  color: #c2baff;
+
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.hero-cinema-editing span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 8px
+    rgba(137, 118, 253, 0.9);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.hero-cinema-timeline {
+  position: relative;
+
+  padding:
+    13px
+    15px
+    18px;
+
+  background:
+    #0b0b0e;
+}
+
+.hero-cinema-timeline-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+
+  color: #56565e;
+
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.hero-cinema-timeline-header span:last-child {
+  color: #8976FD;
+}
+
+.hero-cinema-ruler {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-left: 32px;
+  margin-bottom: 4px;
+
+  color: #3f3f47;
+
+  font-size: 5px;
+
+  font-family: monospace;
+}
+
+
+/* =========================================================
+   TIMELINE TRACK
+========================================================= */
+
+.hero-cinema-track {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 31px;
+
+  margin-bottom: 4px;
+}
+
+.hero-cinema-track-name {
+  width: 30px;
+
+  flex-shrink: 0;
+
+  color: #4c4c54;
+
+  font-size: 6px;
+
+  font-weight: 800;
+}
+
+.hero-cinema-clips {
+  display: flex;
+
+  gap: 3px;
+
+  width:
+    calc(100% - 30px);
+
+  height: 23px;
+}
+
+.hero-cinema-clip {
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 7px;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 5px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+}
+
+.hero-cinema-clip-main {
+  width: 35%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4c3b9a,
+      #8976FD
+    );
+}
+
+.hero-cinema-clip-two {
+  width: 23%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #292348,
+      #5749a0
+    );
+}
+
+.hero-cinema-clip-three {
+  width: 17%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #382f70,
+      #6759c2
+    );
+}
+
+.hero-cinema-clip-four {
+  width: 22%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #463985,
+      #7666dc
+    );
+}
+
+
+/* =========================================================
+   WAVEFORM
+========================================================= */
+
+.hero-cinema-waveform {
+  display: flex;
+
+  align-items: center;
+
+  gap: 2px;
+
+  width:
+    calc(100% - 30px);
+
+  height: 20px;
+
+  padding:
+    0 7px;
+
+  border-radius: 3px;
+
+  background:
+    rgba(137, 118, 253, 0.08);
+}
+
+.hero-cinema-waveform span {
+  flex: 1;
+
+  min-width: 1px;
+
+  border-radius: 2px;
+
+  background:
+    rgba(137, 118, 253, 0.62);
+}
+
+
+/* =========================================================
+   PLAYHEAD
+========================================================= */
+
+.hero-cinema-playhead {
+  position: absolute;
+
+  top: 38px;
+  bottom: 15px;
+
+  width: 1px;
+
+  z-index: 20;
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 12px
+    rgba(137, 118, 253, 0.8);
+}
+
+.hero-cinema-playhead span {
+  position: absolute;
+
+  top: -4px;
+  left: -3px;
+
+  width: 7px;
+  height: 7px;
+
+  transform:
+    rotate(45deg);
+
+  background: #8976FD;
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
+
+.hero-cinema-floating-card {
+  position: absolute;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: 135px;
+
+  padding:
+    12px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  background:
+    rgba(15, 14, 20, 0.88);
+
+  box-shadow:
+    0 25px 60px
+    rgba(0, 0, 0, 0.2);
+
+  backdrop-filter:
+    blur(15px);
+
+  color: white;
+}
+
+.hero-cinema-cut-card {
+  left: -35px;
+  bottom: 100px;
+}
+
+.hero-cinema-audio-card {
+  right: -25px;
+  top: 145px;
+}
+
+.hero-cinema-floating-card strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+}
+
+.hero-cinema-floating-card span {
+  display: block;
+
+  color: #777780;
+
+  font-size: 6px;
+}
+
+.hero-cinema-card-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background:
+    rgba(137, 118, 253, 0.16);
+
+  color: #8976FD;
+}
+
+.hero-cinema-card-dark {
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color: white;
+}
+
+
+/* =========================================================
+   FINAL CUT
+========================================================= */
+
+.hero-cinema-final {
+  position: absolute;
+
+  right: -15px;
+  bottom: 72px;
+
+  z-index: 35;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    9px
+    12px;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.25);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.86);
+
+  box-shadow:
+    0 20px 45px
+    rgba(0, 0, 0, 0.13);
+
+  backdrop-filter:
+    blur(14px);
+}
+
+.hero-cinema-final > span {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #8976FD;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+.hero-cinema-final strong {
+  display: block;
+
+  color: #141419;
+
+  font-size: 7px;
+
+  letter-spacing: 0.08em;
+}
+
+.hero-cinema-final small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #8a8a92;
+
+  font-size: 5px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   FLOATING FRAME CARD
+========================================================= */
+
+.hero-cinema-frame-card {
+  position: absolute;
+
+  right: 15px;
+  top: 45px;
+
+  z-index: 25;
+
+  width: 85px;
+  height: 105px;
+
+  padding: 6px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  border-radius: 9px;
+
+  background:
+    rgba(12, 11, 16, 0.8);
+
+  box-shadow:
+    0 20px 45px
+    rgba(0, 0, 0, 0.2);
+
+  backdrop-filter:
+    blur(12px);
+}
+
+.hero-cinema-frame-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #8976FD,
+      #27203f
+    );
+}
+
+.hero-cinema-frame-inner > span {
+  position: absolute;
+
+  top: 7px;
+  left: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 6px;
+
+  font-weight: 800;
+}
+
+.hero-cinema-frame-inner div {
+  position: absolute;
+
+  left: 50%;
+  bottom: -15px;
+
+  width: 55px;
+  height: 75px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:
+    30px
+    30px
+    8px
+    8px;
+
+  background:
+    rgba(10, 9, 14, 0.65);
+}
+
+.hero-cinema-frame-inner small {
+  position: absolute;
+
+  bottom: 7px;
+  left: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 5px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   DECORATIVE DOTS
+========================================================= */
+
+.hero-cinema-dot {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 14px
+    rgba(137, 118, 253, 0.8);
+
+  z-index: 5;
+}
+
+.hero-cinema-dot-one {
+  top: 65px;
+  right: 100px;
+}
+
+.hero-cinema-dot-two {
+  left: 50px;
+  bottom: 65px;
+
+  width: 4px;
+  height: 4px;
+}
+
+.hero-cinema-dot-three {
+  right: 65px;
+  bottom: 180px;
+
+  width: 3px;
+  height: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero-cinema-editor {
+    width: min(650px, 100%);
+  }
+
+  .hero-cinema-orbit {
+    width: 570px;
+    height: 570px;
+  }
+
+  .hero-cinema-cut-card {
+    left: -15px;
+  }
+
+  .hero-cinema-audio-card {
+    right: -10px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .hero-cinema-editor {
+    width: 100%;
+
+    border-radius: 15px;
+  }
+
+  .hero-cinema-topbar {
+    height: 36px;
+
+    padding:
+      0 10px;
+  }
+
+  .hero-cinema-file {
+    font-size: 5px;
+  }
+
+  .hero-cinema-preview {
+    height: 220px;
+  }
+
+  .hero-cinema-preview-bg {
+    inset: 20px;
+  }
+
+  .hero-cinema-frame-lines {
+    inset: 20px;
+  }
+
+  .hero-cinema-preview-copy {
+    left: 35px;
+    top: 38px;
+  }
+
+  .hero-cinema-preview-copy strong {
+    font-size: 20px;
+  }
+
+  .hero-cinema-play {
+    width: 52px;
+    height: 52px;
+  }
+
+  .hero-cinema-timecode {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .hero-cinema-editing {
+    left: 30px;
+    bottom: 30px;
+  }
+
+  .hero-cinema-floating-card {
+    transform: scale(0.75);
+  }
+
+  .hero-cinema-cut-card {
+    left: -30px;
+    bottom: 65px;
+  }
+
+  .hero-cinema-audio-card {
+    right: -35px;
+    top: 105px;
+  }
+
+  .hero-cinema-final {
+    right: -20px;
+    bottom: 45px;
+
+    transform: scale(0.8);
+  }
+
+  .hero-cinema-frame-card {
+    right: -5px;
+    top: 25px;
+
+    transform: scale(0.75);
+  }
+
+  .hero-cinema-raw {
+    top: 50px;
+    left: -5px;
+
+    transform: scale(0.8);
+  }
+
+  .hero-cinema-orbit {
+    width: 390px;
+    height: 390px;
+  }
+
+  .hero-cinema-glow {
+    width: 380px;
+    height: 380px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero-cinema-preview {
+    height: 195px;
+  }
+
+  .hero-cinema-preview-copy strong {
+    font-size: 17px;
+  }
+
+  .hero-cinema-floating-card {
+    transform: scale(0.65);
+  }
+
+  .hero-cinema-cut-card {
+    left: -42px;
+  }
+
+  .hero-cinema-audio-card {
+    right: -45px;
+  }
+
+  .hero-cinema-final {
+    right: -35px;
+
+    transform: scale(0.68);
+  }
+
+  .hero-cinema-frame-card {
+    right: -20px;
+
+    transform: scale(0.62);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-cinema-editor,
+  .hero-cinema-glow,
+  .hero-cinema-orbit,
+  .hero-cinema-floating-card,
+  .hero-cinema-final,
+  .hero-cinema-frame-card,
+  .hero-cinema-label {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}
+

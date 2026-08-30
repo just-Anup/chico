@@ -464,21 +464,7 @@ export default function Testimonials() {
                         Add your video file
                       </strong>
 
-                      <p>
-                        Drop an mp4 in
-                        {" "}
-                        <code>
-                          public/testimonials/
-                        </code>
-                        {" "}
-                        and set the
-                        {" "}
-                        <code>
-                          video
-                        </code>
-                        {" "}
-                        path in the testimonial data.
-                      </p>
+                    
 
                     </div>
 

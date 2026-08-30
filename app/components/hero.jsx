@@ -166,8 +166,6 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* Small trust statement */}
-
           <motion.div
             className="hero-bottom-note"
             initial={{
@@ -191,17 +189,21 @@ export default function Hero() {
         </div>
 
 
-        {/* ================= RIGHT ================= */}
+        {/* ==================================================
+            RIGHT — NEW CINEMATIC EDITING ANIMATION
+        ================================================== */}
 
         <motion.div
           className="hero-visual"
           initial={{
             opacity: 0,
-            scale: 0.88,
+            scale: 0.9,
+            x: 35,
           }}
           animate={{
             opacity: 1,
             scale: 1,
+            x: 0,
           }}
           transition={{
             duration: 1.2,
@@ -210,98 +212,165 @@ export default function Hero() {
           }}
         >
 
-          {/* Rotating ring */}
+          {/* Large cinematic glow */}
 
           <motion.div
-            className="hero-ring"
+            className="hero-cinema-glow"
             animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <span className="ring-dot ring-dot-one" />
-            <span className="ring-dot ring-dot-two" />
-            <span className="ring-dot ring-dot-three" />
-          </motion.div>
-
-
-          {/* Main editing window */}
-
-          <motion.div
-            className="editing-window"
-            animate={{
-              y: [-7, 7, -7],
+              scale: [1, 1.15, 1],
+              opacity: [0.35, 0.55, 0.35],
             }}
             transition={{
               duration: 5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
+          />
+
+
+          {/* Decorative orbital line */}
+
+          <motion.div
+            className="hero-cinema-orbit"
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              duration: 24,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            <span />
+          </motion.div>
+
+
+          {/* =========================================
+              FLOATING RAW LABEL
+          ========================================= */}
+
+          <motion.div
+            className="hero-cinema-label hero-cinema-raw"
+            animate={{
+              y: [-8, 8, -8],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <span className="hero-cinema-status-dot" />
+            RAW FOOTAGE
+          </motion.div>
+
+
+          {/* =========================================
+              MAIN CINEMATIC EDITOR
+          ========================================= */}
+
+          <motion.div
+            className="hero-cinema-editor"
+            animate={{
+              y: [-8, 8, -8],
+              rotateX: [1, 2, 1],
+              rotateY: [-2, -4, -2],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           >
 
-            {/* Window top */}
+            {/* Editor top bar */}
 
-            <div className="editing-topbar">
+            <div className="hero-cinema-topbar">
 
-              <div className="window-controls">
+              <div className="hero-cinema-window-buttons">
                 <span />
                 <span />
                 <span />
               </div>
 
-              <div className="editing-title">
-                PROJECT_001.mp4
+              <div className="hero-cinema-file">
+                CREATOR_PROJECT / FINAL_EDIT
               </div>
 
-              <div className="editing-time">
-                00:24:18
+              <div className="hero-cinema-resolution">
+                4K
               </div>
 
             </div>
 
 
-            {/* Main video preview */}
+            {/* =====================================
+                VIDEO PREVIEW
+            ===================================== */}
 
-            <div className="video-preview">
+            <div className="hero-cinema-preview">
 
-              <div className="preview-noise" />
+              {/* Background image-like composition */}
 
-              <div className="preview-gradient" />
+              <div className="hero-cinema-preview-bg">
 
-              <div className="preview-content">
+                <div className="hero-cinema-light-one" />
 
-                <span className="preview-label">
-                  YOUR STORY
+                <div className="hero-cinema-light-two" />
+
+                <div className="hero-cinema-person">
+
+                  <div className="hero-cinema-head" />
+
+                  <div className="hero-cinema-body" />
+
+                </div>
+
+              </div>
+
+
+              {/* Cinematic frame lines */}
+
+              <div className="hero-cinema-frame-lines" />
+
+
+              {/* Preview text */}
+
+              <div className="hero-cinema-preview-copy">
+
+                <span>
+                  FRAME 0248
                 </span>
 
                 <strong>
-                  MAKE IT
+                  TELL
                   <br />
-                  <span>WATCHABLE.</span>
+                  YOUR STORY
                 </strong>
 
               </div>
 
 
-              {/* Play button */}
+              {/* Center play button */}
 
               <motion.div
-                className="floating-play"
+                className="hero-cinema-play"
                 animate={{
-                  scale: [1, 1.08, 1],
+                  scale: [1, 1.07, 1],
+                  boxShadow: [
+                    "0 0 0 rgba(137,118,253,0)",
+                    "0 0 35px rgba(137,118,253,.4)",
+                    "0 0 0 rgba(137,118,253,0)",
+                  ],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
               >
                 <Play
-                  size={21}
+                  size={22}
                   fill="currentColor"
                 />
               </motion.div>
@@ -309,87 +378,141 @@ export default function Hero() {
 
               {/* Timecode */}
 
-              <div className="preview-timecode">
-                00:00:24:18
+              <div className="hero-cinema-timecode">
+                00:01:24:18
+              </div>
+
+
+              {/* Editing status */}
+
+              <div className="hero-cinema-editing">
+
+                <span />
+
+                EDITING
+
               </div>
 
             </div>
 
 
-            {/* Timeline */}
+            {/* =====================================
+                TIMELINE
+            ===================================== */}
 
-            <div className="timeline">
+            <div className="hero-cinema-timeline">
 
-              <div className="timeline-header">
+              <div className="hero-cinema-timeline-header">
 
                 <span>
                   TIMELINE
                 </span>
 
                 <span>
-                  4K / 24FPS
+                  24 FPS
                 </span>
 
               </div>
 
 
-              <div className="timeline-track">
+              {/* Timeline ruler */}
 
-                <div className="timeline-label">
+              <div className="hero-cinema-ruler">
+
+                {[
+                  "00",
+                  "05",
+                  "10",
+                  "15",
+                  "20",
+                  "25",
+                  "30",
+                  "35",
+                ].map((number) => (
+                  <span key={number}>
+                    {number}
+                  </span>
+                ))}
+
+              </div>
+
+
+              {/* Video track */}
+
+              <div className="hero-cinema-track">
+
+                <div className="hero-cinema-track-name">
                   V1
                 </div>
 
-                <div className="timeline-clips">
+                <div className="hero-cinema-clips">
 
                   <motion.div
-                    className="clip clip-purple"
+                    className="hero-cinema-clip hero-cinema-clip-main"
                     animate={{
-                      opacity: [0.8, 1, 0.8],
+                      opacity: [0.7, 1, 0.7],
                     }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                     }}
-                  />
+                  >
+                    A-ROLL
+                  </motion.div>
 
-                  <div className="clip clip-dark" />
+                  <div className="hero-cinema-clip hero-cinema-clip-two">
+                    B-ROLL
+                  </div>
 
-                  <div className="clip clip-purple small" />
+                  <div className="hero-cinema-clip hero-cinema-clip-three">
+                    CUT
+                  </div>
 
-                  <div className="clip clip-light" />
+                  <div className="hero-cinema-clip hero-cinema-clip-four">
+                    FINAL
+                  </div>
 
                 </div>
 
               </div>
 
 
-              <div className="timeline-track">
+              {/* Audio track */}
 
-                <div className="timeline-label">
+              <div className="hero-cinema-track">
+
+                <div className="hero-cinema-track-name">
                   A1
                 </div>
 
-                <div className="waveform">
+                <div className="hero-cinema-waveform">
 
                   {Array.from({
-                    length: 48,
+                    length: 46,
                   }).map((_, index) => (
 
                     <motion.span
                       key={index}
-                      style={{
-                        height: `${15 + Math.abs(
-                          Math.sin(index * 1.7)
-                        ) * 25}px`,
-                      }}
                       animate={{
-                        scaleY: [0.65, 1, 0.65],
+                        height: [
+                          `${18 + Math.abs(
+                            Math.sin(index * 1.4)
+                          ) * 30}%`,
+                          `${35 + Math.abs(
+                            Math.sin(index * 1.8)
+                          ) * 55}%`,
+                          `${18 + Math.abs(
+                            Math.sin(index * 1.4)
+                          ) * 30}%`,
+                        ],
                       }}
                       transition={{
                         duration:
-                          0.8 + (index % 5) * 0.1,
+                          0.9 +
+                          (index % 5) * 0.12,
                         repeat: Infinity,
-                        delay: index * 0.02,
+                        delay: index * 0.025,
+                        ease: "easeInOut",
                       }}
                     />
 
@@ -403,29 +526,37 @@ export default function Hero() {
               {/* Moving playhead */}
 
               <motion.div
-                className="playhead"
+                className="hero-cinema-playhead"
                 animate={{
-                  left: ["8%", "90%", "8%"],
+                  left: [
+                    "12%",
+                    "88%",
+                    "12%",
+                  ],
                 }}
                 transition={{
                   duration: 7,
                   repeat: Infinity,
                   ease: "linear",
                 }}
-              />
+              >
+                <span />
+              </motion.div>
 
             </div>
 
           </motion.div>
 
 
-          {/* Floating Editing Card */}
+          {/* =========================================
+              FLOATING CUT CARD
+          ========================================= */}
 
           <motion.div
-            className="floating-card floating-card-one"
+            className="hero-cinema-floating-card hero-cinema-cut-card"
             animate={{
-              y: [-10, 10, -10],
-              rotate: [-2, 1, -2],
+              y: [-12, 12, -12],
+              rotate: [-3, 1, -3],
             }}
             transition={{
               duration: 5,
@@ -434,8 +565,8 @@ export default function Hero() {
             }}
           >
 
-            <div className="floating-icon purple-icon">
-              <Scissors size={18} />
+            <div className="hero-cinema-card-icon">
+              <Scissors size={17} />
             </div>
 
             <div>
@@ -451,13 +582,15 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* Floating audio card */}
+          {/* =========================================
+              FLOATING AUDIO CARD
+          ========================================= */}
 
           <motion.div
-            className="floating-card floating-card-two"
+            className="hero-cinema-floating-card hero-cinema-audio-card"
             animate={{
-              y: [8, -8, 8],
-              rotate: [2, -1, 2],
+              y: [10, -10, 10],
+              rotate: [3, -1, 3],
             }}
             transition={{
               duration: 4.5,
@@ -466,8 +599,8 @@ export default function Hero() {
             }}
           >
 
-            <div className="floating-icon black-icon">
-              <Waves size={18} />
+            <div className="hero-cinema-card-icon hero-cinema-card-dark">
+              <Waves size={17} />
             </div>
 
             <div>
@@ -483,12 +616,14 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* Floating 4K badge */}
+          {/* =========================================
+              FINAL CUT BADGE
+          ========================================= */}
 
           <motion.div
-            className="floating-badge"
+            className="hero-cinema-final"
             animate={{
-              rotate: [0, 5, 0],
+              y: [0, -8, 0],
             }}
             transition={{
               duration: 4,
@@ -496,30 +631,63 @@ export default function Hero() {
               ease: "easeInOut",
             }}
           >
+
             <span>
-              4K
+              ✓
             </span>
 
-            <small>
-              READY
-            </small>
+            <div>
+              <strong>
+                FINAL CUT
+              </strong>
+
+              <small>
+                READY TO PUBLISH
+              </small>
+            </div>
+
           </motion.div>
 
 
-          {/* Purple floating orb */}
+          {/* =========================================
+              FLOATING FRAME
+          ========================================= */}
 
           <motion.div
-            className="hero-orb"
+            className="hero-cinema-frame-card"
             animate={{
-              x: [-15, 15, -15],
-              y: [10, -15, 10],
+              rotate: [6, 9, 6],
+              y: [-5, 8, -5],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-          />
+          >
+
+            <div className="hero-cinema-frame-inner">
+
+              <span>
+                01
+              </span>
+
+              <div />
+
+              <small>
+                STORY
+              </small>
+
+            </div>
+
+          </motion.div>
+
+
+          {/* Decorative dots */}
+
+          <div className="hero-cinema-dot hero-cinema-dot-one" />
+          <div className="hero-cinema-dot hero-cinema-dot-two" />
+          <div className="hero-cinema-dot hero-cinema-dot-three" />
 
         </motion.div>
 
