@@ -337,64 +337,6 @@ export default function FAQ() {
 
         </div>
 
-
-        {/* =====================================
-            FAQ CTA
-        ===================================== */}
-
-        <motion.div
-          className="faq-cta"
-
-          initial={{
-            opacity: 0,
-            scale: 0.97,
-          }}
-
-          whileInView={{
-            opacity: 1,
-            scale: 1,
-          }}
-
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-
-          transition={{
-            duration: 0.7,
-          }}
-        >
-
-          <div className="faq-cta-circle" />
-
-          <div className="faq-cta-content">
-
-            <span>
-              STILL HAVE QUESTIONS?
-            </span>
-
-            <h3>
-              Let's talk
-              <br />
-              about your <em>project.</em>
-            </h3>
-
-          </div>
-
-
-          <a
-            href="/contact"
-            className="faq-cta-button magnetic-button"
-          >
-
-            Get in Touch
-
-            <ArrowUpRight size={18} />
-
-          </a>
-
-        </motion.div>
-
       </div>
 
     </section>

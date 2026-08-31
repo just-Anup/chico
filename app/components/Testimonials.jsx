@@ -72,20 +72,6 @@ const testimonials = [
 ];
 
 
-const stats = [
-  {
-    number: "100+",
-    label: "Creators",
-  },
-  {
-    number: "5M+",
-    label: "Subscribers gained",
-  },
-  {
-    number: "3.4B+",
-    label: "Views received",
-  },
-];
 
 
 export default function Testimonials() {
@@ -219,47 +205,6 @@ export default function Testimonials() {
           </p>
 
 
-          <div className="testimonials-stats">
-
-            {stats.map((stat, index) => (
-
-              <motion.div
-                className="testimonials-stat"
-                key={stat.label}
-
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-
-                viewport={{
-                  once: true,
-                }}
-
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15 + index * 0.12,
-                }}
-              >
-
-                <strong>
-                  {stat.number}
-                </strong>
-
-                <span>
-                  {stat.label}
-                </span>
-
-              </motion.div>
-
-            ))}
-
-          </div>
 
         </motion.div>
 
