@@ -34,7 +34,7 @@ const processSteps = [
   },
   {
     number: "04",
-    title: "You Grow",
+    title: "We Grow Together",
     description:
       "You get content that is built to hold attention, communicate clearly and keep your audience coming back.",
     icon: Sparkles,

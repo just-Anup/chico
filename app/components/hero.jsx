@@ -69,6 +69,8 @@ export default function Hero() {
               }}
             >
               We turn
+
+
             </motion.span>
 
 
@@ -88,7 +90,7 @@ export default function Hero() {
                 },
               }}
             >
-              raw footage
+              raw reactions
             </motion.span>
 
 
@@ -109,7 +111,7 @@ export default function Hero() {
                 },
               }}
             >
-              into stories.
+              into entertainment
             </motion.span>
 
           </motion.h1>

@@ -10648,3 +10648,944 @@ body {
 
 }
 
+/* =========================================================
+   PREMIUM TESTIMONIAL CHANNEL STRIP
+========================================================= */
+
+.testimonial-channel-strip {
+  position: relative;
+
+  width: 100%;
+
+  height: 135px;
+
+  margin-bottom: 95px;
+
+  padding: 18px 28px;
+
+  border: 2px solid rgba(
+    137,
+    118,
+    253,
+    0.42
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(137, 118, 253, 0.035),
+      rgba(137, 118, 253, 0.015)
+    );
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* Inner flex row */
+
+.testimonial-channel-strip-inner {
+  position: relative;
+
+  z-index: 4;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   CHANNEL
+========================================================= */
+
+.testimonial-channel {
+  position: relative;
+
+  width: 76px;
+  height: 76px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  transition:
+    filter 0.35s ease;
+}
+
+
+/* =========================================================
+   LOGO CIRCLE
+========================================================= */
+
+.testimonial-channel-logo {
+  position: relative;
+
+  z-index: 5;
+
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    rgba(
+      137,
+      118,
+      253,
+      0.35
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f0edff
+    );
+
+  box-shadow:
+    0 10px 30px
+    rgba(
+      137,
+      118,
+      253,
+      0.13
+    );
+
+  transition:
+    transform 0.4s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    border-color 0.35s ease,
+
+    box-shadow 0.35s ease;
+}
+
+
+/* Logo image */
+
+.testimonial-channel-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+
+/* Initial fallback */
+
+.testimonial-channel-initial {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #8976FD,
+      #5745C5
+    );
+
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.05em;
+}
+
+
+/* =========================================================
+   OUTER GLOW RING
+========================================================= */
+
+.testimonial-channel-orbit {
+  position: absolute;
+
+  inset: -3px;
+
+  z-index: 2;
+
+  border:
+    1px solid
+    rgba(
+      137,
+      118,
+      253,
+      0.18
+    );
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.5s ease,
+
+    border-color 0.4s ease,
+
+    box-shadow 0.4s ease;
+}
+
+
+/* Animated second ring */
+
+.testimonial-channel-orbit-two {
+  position: absolute;
+
+  inset: -8px;
+
+  z-index: 1;
+
+  border:
+    1px dashed
+    rgba(
+      137,
+      118,
+      253,
+      0.12
+    );
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  transform: scale(0.7);
+
+  transition:
+    opacity 0.4s ease,
+
+    transform 0.5s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.testimonial-channel:hover .testimonial-channel-logo {
+  transform: scale(1.14);
+
+  border-color:
+    rgba(
+      137,
+      118,
+      253,
+      0.95
+    );
+
+  box-shadow:
+    0 0 0 5px
+      rgba(
+        137,
+        118,
+        253,
+        0.08
+      ),
+
+    0 0 35px
+      rgba(
+        137,
+        118,
+        253,
+        0.48
+      );
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-orbit {
+  transform: scale(1.28);
+
+  border-color:
+    rgba(
+      137,
+      118,
+      253,
+      0.65
+    );
+
+  box-shadow:
+    0 0 25px
+      rgba(
+        137,
+        118,
+        253,
+        0.3
+      );
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-orbit-two {
+  opacity: 1;
+
+  transform: scale(1.35);
+
+  animation:
+    testimonialOrbitPulse
+    1.7s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes testimonialOrbitPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform:
+      scale(1.15);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.4);
+  }
+}
+
+
+/* =========================================================
+   CHANNEL INFORMATION
+========================================================= */
+
+.testimonial-channel-info {
+  position: absolute;
+
+  left: 50%;
+
+  top: calc(100% + 12px);
+
+  z-index: 30;
+
+  min-width: 125px;
+
+  padding:
+    9px
+    12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 4px;
+
+  border:
+    1px solid
+    rgba(
+      137,
+      118,
+      253,
+      0.18
+    );
+
+  border-radius: 9px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  box-shadow:
+    0 15px 35px
+      rgba(
+        0,
+        0,
+        0,
+        0.1
+      ),
+
+    0 0 25px
+      rgba(
+        137,
+        118,
+        253,
+        0.08
+      );
+
+  backdrop-filter:
+    blur(12px);
+
+  transform:
+    translateX(-50%)
+    translateY(-5px)
+    scale(0.85);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+
+    transform 0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-info {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+
+.testimonial-channel-info strong {
+  color: #09090d;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.testimonial-channel-info small {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  color: #8976FD;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   BOTTOM HOVER LINE
+========================================================= */
+
+.testimonial-channel-line {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -30px;
+
+  width: 0;
+  height: 2px;
+
+  transform:
+    translateX(-50%);
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      137,
+      118,
+      253,
+      0.8
+    );
+
+  transition:
+    width 0.4s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-line {
+  width: 35px;
+}
+
+
+/* =========================================================
+   MOVING LIGHT
+========================================================= */
+
+.testimonial-channel-scan {
+  position: absolute;
+
+  top: -30%;
+
+  left: 0;
+
+  width: 80px;
+
+  height: 180%;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        137,
+        118,
+        253,
+        0.08
+      ),
+      transparent
+    );
+
+  transform:
+    skewX(-18deg);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.testimonials-background-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 70px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(
+        137,
+        118,
+        253,
+        0.12
+      ),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .testimonial-channel-strip {
+    height: 120px;
+
+    margin-bottom: 70px;
+
+    padding:
+      15px
+      20px;
+  }
+
+  .testimonial-channel-strip-inner {
+    gap: 15px;
+
+    justify-content:
+      flex-start;
+
+    overflow-x: auto;
+
+    overflow-y: visible;
+
+    padding:
+      0 5px;
+
+    scrollbar-width: none;
+  }
+
+  .testimonial-channel-strip-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-channel {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonial-channel-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .testimonial-channel-strip {
+    height: 110px;
+
+    margin-bottom: 55px;
+
+    padding:
+      13px
+      15px;
+
+    border-width: 1.5px;
+
+    border-radius: 2px;
+  }
+
+  .testimonial-channel-strip-inner {
+    gap: 22px;
+
+    overflow-x: auto;
+  }
+
+  .testimonial-channel {
+    width: 62px;
+    height: 62px;
+  }
+
+  .testimonial-channel-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .testimonial-channel-initial {
+    font-size: 18px;
+  }
+
+  /*
+     On mobile the information appears
+     when the circle is tapped/focused.
+  */
+
+  .testimonial-channel:focus-visible
+  .testimonial-channel-info {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+
+  .testimonial-channel-info {
+    min-width: 110px;
+
+    top: calc(100% + 8px);
+
+    padding:
+      7px
+      9px;
+  }
+
+  .testimonial-channel-info strong {
+    font-size: 8px;
+  }
+
+  .testimonial-channel-info small {
+    font-size: 6px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .testimonial-channel-strip {
+    margin-left: -4px;
+
+    width:
+      calc(100% + 8px);
+  }
+
+}
+
+/* =========================================================
+   TESTIMONIAL CHANNEL BOX
+   FORCE IT TO STAY ON TOP / FULL WIDTH
+========================================================= */
+
+/* Make the whole testimonial container stack vertically */
+.testimonials-container {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100%;
+}
+
+
+/* =========================================================
+   CHANNEL BOX — FULL WIDTH TOP ROW
+========================================================= */
+
+.testimonial-channel-strip {
+  position: relative !important;
+
+  display: block !important;
+
+  width: 100% !important;
+
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+
+  margin:
+    0 0 95px 0 !important;
+
+  box-sizing: border-box;
+
+  order: 1;
+}
+
+
+/* =========================================================
+   CHANNEL LOGOS
+========================================================= */
+
+.testimonial-channel-strip-inner {
+  width: 100% !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-around !important;
+
+  gap: 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN TESTIMONIAL CONTENT
+   MUST COME BELOW THE BOX
+========================================================= */
+
+.testimonials-main {
+  order: 2;
+
+  width: 100% !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr) !important;
+
+  align-items: center;
+
+  gap: 70px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1001px) {
+
+  .testimonial-channel-strip {
+    height: 120px;
+
+    margin-bottom: 85px !important;
+  }
+
+  .testimonial-channel-strip-inner {
+    height: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .testimonial-channel-strip {
+    width: 100% !important;
+
+    height: 115px;
+
+    margin-bottom: 70px !important;
+  }
+
+  .testimonial-channel-strip-inner {
+    justify-content: flex-start !important;
+
+    overflow-x: auto;
+
+    overflow-y: visible;
+
+    padding:
+      0 10px;
+
+    scrollbar-width: none;
+  }
+
+  .testimonial-channel-strip-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonials-main {
+    grid-template-columns: 1fr !important;
+
+    gap: 60px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .testimonial-channel-strip {
+    width: 100% !important;
+
+    height: 105px;
+
+    margin-bottom: 55px !important;
+
+    padding:
+      12px 15px !important;
+  }
+
+  .testimonial-channel-strip-inner {
+    width: 100% !important;
+
+    gap: 24px;
+
+    justify-content: flex-start !important;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .testimonial-channel-strip-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .testimonials-main {
+    width: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 45px;
+  }
+
+}
+
+/* =========================================================
+   FIX: CREATOR NAME GETTING CUT OFF ON HOVER
+   Keeps the current design exactly the same
+========================================================= */
+
+/* Allow the hover popup to come outside the box */
+.testimonial-channel-strip {
+  overflow: visible !important;
+}
+
+/* Keep the animated scan/light inside the box */
+.testimonial-channel-scan {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Make sure the logo and popup are above everything */
+.testimonial-channel {
+  z-index: 10;
+}
+
+/* Popup should always appear above the strip */
+.testimonial-channel-info {
+  z-index: 999 !important;
+}
+
+/* Keep the actual strip background/border visually contained */
+.testimonial-channel-strip::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  border: inherit;
+}

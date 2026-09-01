@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+
 import {
   ArrowUpRight,
   ChevronDown,
   Menu,
   X,
 } from "lucide-react";
+
 
 const services = [
   "Long-Form Video Editing",
@@ -16,20 +19,81 @@ const services = [
   "YouTube Channel Management",
 ];
 
+
 export default function Navbar() {
+
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  const router = useRouter();
+
+
+  /* =====================================================
+     GO TO SERVICES
+  ===================================================== */
+
+  const goToServices = (e) => {
+
+    /*
+      If we are already on the homepage,
+      manually scroll to the services section.
+    */
+
+    if (pathname === "/") {
+
+      e.preventDefault();
+
+      const servicesSection =
+        document.getElementById("services");
+
+      if (servicesSection) {
+
+        servicesSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+      }
+
+      setMobileOpen(false);
+
+      return;
+    }
+
+
+    /*
+      If we are on another page,
+      go back to homepage and services section.
+    */
+
+    e.preventDefault();
+
+    router.push("/#services");
+
+    setMobileOpen(false);
+  };
+
 
   return (
     <>
+      {/* =================================================
+          NAVBAR
+      ================================================= */}
+
       <nav className="navbar">
+
 
         {/* ================= LOGO ================= */}
 
         <Link
           href="/"
           className="logo"
-          onClick={() => setMobileOpen(false)}
+          onClick={() =>
+            setMobileOpen(false)
+          }
         >
+
           <div className="logo-mark">
             V
           </div>
@@ -37,12 +101,18 @@ export default function Navbar() {
           <span className="logo-text">
             YOUR BRAND
           </span>
+
         </Link>
 
 
-        {/* ================= DESKTOP NAV ================= */}
+        {/* =================================================
+            DESKTOP NAVIGATION
+        ================================================= */}
 
         <div className="nav-links">
+
+
+          {/* ================= HOME ================= */}
 
           <Link
             href="/"
@@ -52,6 +122,8 @@ export default function Navbar() {
           </Link>
 
 
+          {/* ================= ABOUT ================= */}
+
           <Link
             href="/#about"
             className="nav-link"
@@ -60,14 +132,18 @@ export default function Navbar() {
           </Link>
 
 
-          {/* SERVICES */}
+          {/* =================================================
+              SERVICES
+          ================================================= */}
 
           <div className="services-wrapper">
 
-            <Link
+            <a
               href="/#services"
               className="nav-link"
+              onClick={goToServices}
             >
+
               Services
 
               <ChevronDown
@@ -75,18 +151,22 @@ export default function Navbar() {
                 strokeWidth={2.5}
                 className="nav-arrow"
               />
-            </Link>
 
+            </a>
+
+
+            {/* ================= DROPDOWN ================= */}
 
             <div className="services-dropdown">
 
               {services.map(
                 (service, index) => (
 
-                  <Link
+                  <a
                     key={service}
                     href="/#services"
                     className="dropdown-item"
+                    onClick={goToServices}
                   >
 
                     <span
@@ -100,7 +180,7 @@ export default function Navbar() {
 
                     {service}
 
-                  </Link>
+                  </a>
 
                 )
               )}
@@ -110,7 +190,7 @@ export default function Navbar() {
           </div>
 
 
-          {/* FAQ */}
+          {/* ================= FAQ ================= */}
 
           <Link
             href="/#faq"
@@ -122,28 +202,36 @@ export default function Navbar() {
         </div>
 
 
-        {/* ================= DESKTOP CTA ================= */}
+        {/* =================================================
+            DESKTOP CTA
+        ================================================= */}
 
         <Link
-  href="/contact"
-  className="nav-cta magnetic-button"
->
+          href="/contact"
+          className="nav-cta magnetic-button"
+        >
+
           Get in Touch
 
           <ArrowUpRight
             size={16}
             className="nav-cta-arrow"
           />
+
         </Link>
 
 
-        {/* ================= MOBILE BUTTON ================= */}
+        {/* =================================================
+            MOBILE MENU BUTTON
+        ================================================= */}
 
         <button
           className="mobile-menu-button"
+
           onClick={() =>
             setMobileOpen(!mobileOpen)
           }
+
           aria-label="Toggle menu"
         >
 
@@ -158,7 +246,9 @@ export default function Navbar() {
       </nav>
 
 
-      {/* ================= MOBILE MENU ================= */}
+      {/* =================================================
+          MOBILE MENU
+      ================================================= */}
 
       <div
         className={`mobile-menu ${
@@ -168,62 +258,82 @@ export default function Navbar() {
         }`}
       >
 
+
+        {/* ================= HOME ================= */}
+
         <Link
           href="/"
           className="mobile-nav-link"
+
           onClick={() =>
             setMobileOpen(false)
           }
         >
+
           Home
 
           <ArrowUpRight size={22} />
+
         </Link>
 
+
+        {/* ================= ABOUT ================= */}
 
         <Link
           href="/#about"
           className="mobile-nav-link"
+
           onClick={() =>
             setMobileOpen(false)
           }
         >
+
           About
 
           <ArrowUpRight size={22} />
+
         </Link>
 
 
-        <Link
+        {/* =================================================
+            MOBILE SERVICES
+        ================================================= */}
+
+        <a
           href="/#services"
           className="mobile-nav-link"
-          onClick={() =>
-            setMobileOpen(false)
-          }
+          onClick={goToServices}
         >
+
           <span>
             Services
           </span>
 
-          <ArrowUpRight size={22} />
-        </Link>
+          <ChevronDown
+            size={22}
+          />
 
+        </a>
+
+
+        {/* ================= MOBILE SERVICE OPTIONS ================= */}
 
         <div className="mobile-services">
 
           {services.map(
             (service, index) => (
 
-              <Link
+              <a
                 key={service}
                 href="/#services"
                 className="mobile-service-link"
-                onClick={() =>
-                  setMobileOpen(false)
-                }
+
+                onClick={goToServices}
               >
+
                 0{index + 1} — {service}
-              </Link>
+
+              </a>
 
             )
           )}
@@ -231,26 +341,37 @@ export default function Navbar() {
         </div>
 
 
+        {/* ================= FAQ ================= */}
+
         <Link
           href="/#faq"
           className="mobile-nav-link"
+
           onClick={() =>
             setMobileOpen(false)
           }
         >
+
           FAQ
 
           <ArrowUpRight size={22} />
+
         </Link>
 
+
+        {/* =================================================
+            CONTACT
+        ================================================= */}
 
         <Link
           href="/contact"
           className="mobile-contact-button"
+
           onClick={() =>
             setMobileOpen(false)
           }
         >
+
           Get in Touch
 
           <ArrowUpRight
@@ -259,6 +380,7 @@ export default function Navbar() {
               marginLeft: 8,
             }}
           />
+
         </Link>
 
       </div>
