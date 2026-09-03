@@ -34,12 +34,12 @@ const testimonials = [
   },
 
   {
-    name: "Creator Name",
-    subscribers: "250K Subscribers",
+    name: "MrBeast",
+    subscribers: "515M Subscribers",
     logo: "",
     video: "",
     poster: "",
-    channelUrl: "https://www.youtube.com/",
+    channelUrl: "https://www.youtube.com/@MrBeast",
   },
 
   {
@@ -84,21 +84,21 @@ const testimonials = [
 
 const channels = [
   {
-    name: "Reel Rejects",
-    logo: "",
-    url: "https://www.youtube.com/",
+    name: "MrBeast",
+    logo: "/mrbeast.png",
+    url: "https://www.youtube.com/watch?v=82CX6WULNA0",
   },
 
   {
-    name: "Meesh & Dee",
-    logo: "",
-    url: "https://www.youtube.com/",
+    name: "Ninja",
+    logo: "/ninja.png",
+    url: "https://www.youtube.com/@Ninja",
   },
 
   {
-    name: "Creator Name",
-    logo: "",
-    url: "https://www.youtube.com/",
+    name: "Cocomelon.webp",
+    logo: "/Cocomelon.webp",
+    url: "https://www.youtube.com/@Cocomelon",
   },
 
   {

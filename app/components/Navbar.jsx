@@ -189,6 +189,13 @@ export default function Navbar() {
 
           </div>
 
+<Link
+  href="/#testimonials"
+  className="nav-link"
+>
+  Testimonials
+</Link>
+
 
           {/* ================= FAQ ================= */}
 
@@ -340,6 +347,22 @@ export default function Navbar() {
 
         </div>
 
+{/* ================= TESTIMONIALS ================= */}
+
+<Link
+  href="/#testimonials"
+  className="mobile-nav-link"
+
+  onClick={() =>
+    setMobileOpen(false)
+  }
+>
+  Testimonials
+
+  <ArrowUpRight size={22} />
+
+</Link>
+
 
         {/* ================= FAQ ================= */}
 
@@ -357,6 +380,9 @@ export default function Navbar() {
           <ArrowUpRight size={22} />
 
         </Link>
+
+
+
 
 
         {/* =================================================
