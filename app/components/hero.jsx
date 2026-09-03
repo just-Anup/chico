@@ -111,7 +111,7 @@ export default function Hero() {
                 },
               }}
             >
-              into entertainment
+              into content
             </motion.span>
 
           </motion.h1>
@@ -154,16 +154,16 @@ export default function Hero() {
             }}
           >
 
-            <a
-              href="#work"
-              className="hero-secondary-button"
-            >
-              <span className="hero-play-icon">
-                <Play size={13} fill="currentColor" />
-              </span>
+           <a
+  href="#services"
+  className="hero-secondary-button"
+>
+  <span className="hero-play-icon">
+    <Play size={13} fill="currentColor" />
+  </span>
 
-              View Our Work
-            </a>
+  View Our Work
+</a>
 
           </motion.div>
 
