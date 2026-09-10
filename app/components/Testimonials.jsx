@@ -16,12 +16,12 @@ import {
 
 const testimonials = [
   {
-    name: "Reel Rejects",
+    name: "",
     subscribers: "1.17M Subscribers",
     logo: "",
     video: "",
     poster: "",
-    channelUrl: "https://www.youtube.com/",
+    channelUrl: "https://www.youtube.com/watch?v=G1s6czJA61w",
   },
 
   {
@@ -72,58 +72,85 @@ const testimonials = [
 
 
 /* =========================================================
-   TOP CHANNELS
-   Add your actual channel logos here.
+   TOP CREATOR CHANNELS
 
-   Example:
-   logo: "/testimonials/channels/reel-rejects.jpg"
-
-   Put the image inside:
-   public/testimonials/channels/
+   Add as many creators as you want here.
 ========================================================= */
 
 const channels = [
   {
-    name: "MrBeast",
-    logo: "/mrbeast.png",
-    url: "https://www.youtube.com/watch?v=82CX6WULNA0",
+    name: "AlsoMij Reacts",
+    logo: "/creator/alsomj.jpg",
+    url: "https://www.youtube.com/@MrBeast",
   },
 
   {
-    name: "Ninja",
-    logo: "/ninja.png",
+    name: "Meesh & Dee",
+    logo: "/creator/meeshdee.jpg",
     url: "https://www.youtube.com/@Ninja",
   },
 
   {
-    name: "Cocomelon.webp",
-    logo: "/Cocomelon.webp",
-    url: "https://www.youtube.com/@Cocomelon",
+    name: "Studio Gek",
+    logo: "/creator/studiogek.jpg",
+    url: "https://www.youtube.com/watch?v=lbxRiMUDL6U&list=PLOStVJxe6EJFy59R_Z53hoRKs8xyawSRf&index=71",
+  },
+ 
+
+  {
+    name: "Cinema Gek",
+    logo: "/creator/cinemagek.jpg",
+    url: "https://www.youtube.com/watch?v=TQ5ZtkPyGfA",
   },
 
   {
-    name: "Creator Name",
-    logo: "",
-    url: "https://www.youtube.com/",
+    name: "kriskilins",
+    logo: "/creator/kris.jpg",
+    url: "https://www.youtube.com/watch?v=wxPSOrhMOmA&t=1898s",
   },
 
-  {
-    name: "Creator Name",
-    logo: "",
-    url: "https://www.youtube.com/",
-  },
+  
 
   {
-    name: "Creator Name",
-    logo: "",
-    url: "https://www.youtube.com/",
+    name: "Kaliwali",
+    logo: "/creator/kaliwali.jpg",
+    url: "https://www.youtube.com/watch?v=Ok5NpkLWsqU&list=PLHLre5CJMz50&index=2",
   },
 
-  {
-    name: "Creator Name",
-    logo: "",
-    url: "https://www.youtube.com/",
+    {
+    name: "Meesh & Dee",
+    logo: "/creator/meeshdee.jpg",
+   url: "https://www.youtube.com/watch?v=6hcyUZMYTpk&list=PL9qbDV_vOetIHK4GlWV8FNReMCKXNQMB0&index=6",
   },
+ 
+  {
+    name: "Popcorn Roulette",
+    logo: "/creator/popcorn.jpg",
+    url: "https://www.youtube.com/watch?v=E6kzFt5NvOA",
+  },
+  {
+    name: "Certane",
+    logo: "/creator/certane.jpg",
+    url: "https://www.youtube.com/watch?v=hUW3Vok2Ni0",
+  },
+  {
+    name: "C X B",
+    logo: "/creator/cxb.jpg",
+    url: "https://www.youtube.com/watch?v=-MfmKBiI38g",
+  },
+  
+];
+
+
+/* =========================================================
+   DUPLICATE CREATOR LIST
+
+   This creates the seamless infinite loop.
+========================================================= */
+
+const infiniteChannels = [
+  ...channels,
+  ...channels,
 ];
 
 
@@ -138,39 +165,51 @@ export default function Testimonials() {
 
   const current = testimonials[active];
 
+
   const hasVideo =
     current.video &&
     current.video.trim() !== "";
 
 
   const goTo = (index) => {
+
     setIsPlaying(false);
+
     setActive(index);
+
   };
 
 
   const nextTestimonial = () => {
+
     goTo(
       active === testimonials.length - 1
         ? 0
         : active + 1
     );
+
   };
 
 
   const previousTestimonial = () => {
+
     goTo(
       active === 0
         ? testimonials.length - 1
         : active - 1
     );
+
   };
 
 
   const startVideo = () => {
+
     if (videoRef.current) {
+
       videoRef.current.play();
+
     }
+
   };
 
 
@@ -193,7 +232,7 @@ export default function Testimonials() {
 
 
         {/* =================================================
-            CHANNEL LOGO STRIP
+            CREATOR LOGO STRIP
         ================================================= */}
 
         <motion.div
@@ -220,108 +259,96 @@ export default function Testimonials() {
           }}
         >
 
+          {/* =================================================
+              MOVING CREATOR TRACK
+          ================================================= */}
+
           <div className="testimonial-channel-strip-inner">
 
-            {channels.map((channel, index) => (
+            {infiniteChannels.map(
+              (channel, index) => (
 
-              <motion.a
-                key={`${channel.name}-${index}`}
+                <motion.a
+                  key={`${channel.name}-${index}`}
 
-                href={channel.url}
+                  href={channel.url}
 
-                target="_blank"
+                  target="_blank"
 
-                rel="noopener noreferrer"
+                  rel="noopener noreferrer"
 
-                className="testimonial-channel"
+                  className="testimonial-channel"
 
-                whileHover={{
-                  y: -8,
-                  scale: 1.04,
-                }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.06,
+                  }}
 
-                whileTap={{
-                  scale: 0.94,
-                }}
+                  whileTap={{
+                    scale: 0.94,
+                  }}
+                >
 
-                initial={{
-                  opacity: 0,
-                  scale: 0.7,
-                }}
+                  {/* ================= GLOWING ORBIT ================= */}
 
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                }}
+                  <span className="testimonial-channel-orbit" />
 
-                viewport={{
-                  once: true,
-                }}
-
-                transition={{
-                  delay: index * 0.07,
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-
-                {/* Glowing orbit */}
-
-                <span className="testimonial-channel-orbit" />
-
-                <span className="testimonial-channel-orbit-two" />
+                  <span className="testimonial-channel-orbit-two" />
 
 
-                {/* Logo */}
+                  {/* ================= LOGO ================= */}
 
-                <span className="testimonial-channel-logo">
+                  <span className="testimonial-channel-logo">
 
-                  {channel.logo ? (
+                    {channel.logo ? (
 
-                    <img
-                      src={channel.logo}
-                      alt={channel.name}
-                    />
+                      <img
+                        src={channel.logo}
+                        alt={channel.name}
+                      />
 
-                  ) : (
+                    ) : (
 
-                    <span className="testimonial-channel-initial">
-                      {channel.name.charAt(0)}
-                    </span>
+                      <span className="testimonial-channel-initial">
+                        {channel.name.charAt(0)}
+                      </span>
 
-                  )}
+                    )}
 
-                </span>
-
-
-                {/* Hover information */}
-
-                <span className="testimonial-channel-info">
-
-                  <strong>
-                    {channel.name}
-                  </strong>
-
-                  <small>
-                    Visit Channel
-                    <ExternalLink size={9} />
-                  </small>
-
-                </span>
+                  </span>
 
 
-                {/* Bottom active line */}
+                  {/* ================= CREATOR NAME ================= */}
 
-                <span className="testimonial-channel-line" />
+                  <span className="testimonial-channel-info">
 
-              </motion.a>
+                    <strong>
+                      {channel.name}
+                    </strong>
 
-            ))}
+                    <small>
+                      Visit Channel
+                      <ExternalLink size={9} />
+                    </small>
+
+                  </span>
+
+
+                  {/* ================= BOTTOM LINE ================= */}
+
+                  <span className="testimonial-channel-line" />
+
+                </motion.a>
+
+              )
+            )}
 
           </div>
 
 
-          {/* Decorative moving light */}
+          {/* =================================================
+              DECORATIVE MOVING LIGHT
+          ================================================= */}
 
           <motion.div
             className="testimonial-channel-scan"
@@ -466,7 +493,9 @@ export default function Testimonials() {
           >
 
 
-            {/* Creator identity */}
+            {/* =================================================
+                CREATOR IDENTITY
+            ================================================= */}
 
             <AnimatePresence mode="wait">
 
@@ -532,7 +561,9 @@ export default function Testimonials() {
             </AnimatePresence>
 
 
-            {/* Video */}
+            {/* =================================================
+                VIDEO
+            ================================================= */}
 
             <div className="testimonial-video-row">
 
@@ -541,7 +572,9 @@ export default function Testimonials() {
                 onClick={previousTestimonial}
                 aria-label="Previous testimonial"
               >
+
                 <ArrowLeft size={19} />
+
               </button>
 
 
@@ -662,39 +695,45 @@ export default function Testimonials() {
                 onClick={nextTestimonial}
                 aria-label="Next testimonial"
               >
+
                 <ArrowRight size={19} />
+
               </button>
 
             </div>
 
 
-            {/* Dots */}
+            {/* =================================================
+                DOTS
+            ================================================= */}
 
             <div className="testimonial-dots">
 
-              {testimonials.map((item, index) => (
+              {testimonials.map(
+                (item, index) => (
 
-                <button
-                  key={`${item.name}-${index}`}
+                  <button
+                    key={`${item.name}-${index}`}
 
-                  className={`testimonial-dot ${
-                    index === active
-                      ? "testimonial-dot-active"
-                      : ""
-                  }`}
+                    className={`testimonial-dot ${
+                      index === active
+                        ? "testimonial-dot-active"
+                        : ""
+                    }`}
 
-                  onClick={() =>
-                    goTo(index)
-                  }
+                    onClick={() =>
+                      goTo(index)
+                    }
 
-                  aria-label={`Go to testimonial ${index + 1}`}
+                    aria-label={`Go to testimonial ${index + 1}`}
 
-                  aria-current={
-                    index === active
-                  }
-                />
+                    aria-current={
+                      index === active
+                    }
+                  />
 
-              ))}
+                )
+              )}
 
             </div>
 

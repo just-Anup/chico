@@ -20,15 +20,120 @@ export default function Contact() {
   const [selectedService, setSelectedService] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const formData = new FormData(form);
+
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const social = formData.get("social");
+  const service = formData.get("service");
+  const message = formData.get("message");
+
+  const whatsappMessage = `
+New CHICO Project Enquiry
+
+Name / Company:
+${name}
+
+Email:
+${email}
+
+YouTube / Social:
+${social || "Not provided"}
+
+Service:
+${service}
+
+Project Details:
+${message}
+  `.trim();
+
+  try {
+
+    /* =========================================
+       SEND ENQUIRY TO EMAIL
+    ========================================= */
+
+    const response = await fetch(
+      "https://formsubmit.co/ajax/chicoyash@gmail.com",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+
+        body: JSON.stringify({
+          name,
+          email,
+          social,
+          service,
+          message,
+
+          _subject: `New CHICO Project Enquiry from ${name}`,
+
+          _template: "table",
+
+          _captcha: "false",
+        }),
+      }
+    );
+
+
+    if (!response.ok) {
+      throw new Error("Email submission failed");
+    }
+
+
+    /* =========================================
+       OPEN WHATSAPP WITH SAME ENQUIRY
+    ========================================= */
+
+    const whatsappUrl =
+      `https://wa.me/919873736263?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+    window.open(
+      whatsappUrl,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+
+    /* =========================================
+       SUCCESS MESSAGE
+    ========================================= */
 
     setSubmitted(true);
+
+    form.reset();
+
+    setSelectedService("");
+
 
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
-  };
+
+  } catch (error) {
+
+    console.error(
+      "CONTACT FORM ERROR:",
+      error
+    );
+
+    alert(
+      "Something went wrong while sending your enquiry. Please try again."
+    );
+
+  }
+};
 
   return (
     <main className="contact-page">
@@ -206,45 +311,63 @@ export default function Contact() {
 
             <div className="contact-details">
 
-              <div className="contact-detail">
+            <div className="contact-detail">
 
-                <span>
-                  EMAIL
-                </span>
+  <span>
+    EMAIL
+  </span>
 
-                <a href="mailto:hello@yourstudio.com">
-                  hello@yourstudio.com
-                  <ArrowUpRight size={15} />
-                </a>
-
-              </div>
-
-
-              <div className="contact-detail">
-
-                <span>
-                  SOCIAL
-                </span>
-
-               <div className="contact-socials">
-
-  <a
-    href="#"
-    aria-label="Instagram"
-  >
-    IG
-  </a>
-
-  <a
-    href="#"
-    aria-label="YouTube"
-  >
-    YT
+  <a href="mailto:chicoyash@gmail.com">
+    chicoyash@gmail.com
+    <ArrowUpRight size={15} />
   </a>
 
 </div>
 
-              </div>
+<div className="contact-detail">
+
+  <span>
+    SOCIAL
+  </span>
+
+  <div className="contact-socials">
+
+    <a
+      href="https://www.instagram.com/chidori.yash"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      IG
+    </a>
+
+    <a
+      href="#"
+      aria-label="YouTube"
+    >
+      YT
+    </a>
+
+  </div>
+
+</div>
+
+<div className="contact-detail">
+
+  <span>
+    WHATSAPP
+  </span>
+
+  <a
+    href="https://wa.me/919873736263"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    +91 98737 36263
+    <ArrowUpRight size={15} />
+  </a>
+
+</div>
 
 
               <div className="contact-response">

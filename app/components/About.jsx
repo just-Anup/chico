@@ -41,6 +41,23 @@ const processSteps = [
   },
 ];
 
+const contentTypes = [
+  "Anime",
+  "Live-Action",
+  "K-Dramas",
+  "Thai Dramas",
+  "K-Pop",
+  "International Content",
+];
+
+const expertise = [
+  "Video Editing",
+  "Subtitles",
+  "Audio",
+  "Music",
+  "Visual Effects",
+];
+
 export default function About() {
   return (
     <section
@@ -53,6 +70,7 @@ export default function About() {
 
       <div className="about-orb about-orb-one" />
       <div className="about-orb about-orb-two" />
+
 
       <div className="about-container">
 
@@ -79,38 +97,173 @@ export default function About() {
           }}
         >
 
-          <div className="about-intro-label">
-            <span />
-            A LITTLE ABOUT US
+          {/* =====================================
+              LEFT SIDE — HEADING
+          ===================================== */}
+
+          <div className="about-intro-heading">
+
+            <div className="about-intro-label">
+              <span />
+              A LITTLE ABOUT US
+            </div>
+
+
+            <h2>
+              We handle the
+              <br />
+              <span>creative stuff.</span>
+            </h2>
+
+
+            <p className="about-heading-note">
+              You focus on creating.
+              <br />
+              We focus on everything
+              <br />
+              after you hit record.
+            </p>
+
           </div>
 
-          <h2>
-            We handle the
-            <br />
-            <span>boring stuff.</span>
-          </h2>
+
+          {/* =====================================
+              RIGHT SIDE — COMPANY DETAILS
+          ===================================== */}
 
           <div className="about-intro-copy">
 
+            {/* ================= MAIN DESCRIPTION ================= */}
+
             <p className="about-big-copy">
-              You focus on creating.
-              We focus on everything that
-              happens after you hit record.
+              We are a media company with{" "}
+              <strong>2.5 years of experience</strong>{" "}
+              specializing in reaction and entertainment
+              content.
             </p>
 
-            <p>
-              From the first cut to the final export,
-              we turn raw footage into content that
-              looks professional, feels intentional
-              and keeps people watching.
+
+            <p className="about-description">
+              We have edited more than{" "}
+              <strong>10,000+ videos</strong> across
+              multiple channels covering anime,
+              live-action films and series, K-dramas,
+              Thai dramas, K-pop and other international
+              content.
             </p>
+
+
+            {/* =====================================
+                BIG STATS
+            ===================================== */}
+
+            <div className="about-stats">
+
+              <div className="about-stat">
+
+                <strong>
+                  2.5+
+                </strong>
+
+                <span>
+                  Years Experience
+                </span>
+
+              </div>
+
+
+              <div className="about-stat-divider" />
+
+
+              <div className="about-stat">
+
+                <strong>
+                  10K+
+                </strong>
+
+                <span>
+                  Videos Edited
+                </span>
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                CONTENT TYPES
+            ===================================== */}
+
+            <div className="about-detail-group">
+
+              <span className="about-detail-label">
+                CONTENT WE WORK WITH
+              </span>
+
+
+              <div className="about-tags">
+
+                {contentTypes.map((item) => (
+
+                  <span
+                    key={item}
+                    className="about-tag"
+                  >
+                    {item}
+                  </span>
+
+                ))}
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                EXPERTISE
+            ===================================== */}
+
+            <div className="about-detail-group">
+
+              <span className="about-detail-label">
+                OUR EXPERTISE
+              </span>
+
+
+              <div className="about-expertise">
+
+                {expertise.map((item) => (
+
+                  <span
+                    key={item}
+                    className="about-expertise-item"
+                  >
+
+                    <Check size={14} />
+
+                    {item}
+
+                  </span>
+
+                ))}
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                CTA
+            ===================================== */}
 
             <a
               href="/contact"
               className="about-link"
             >
               Let's work together
+
               <ArrowUpRight size={17} />
+
             </a>
 
           </div>
@@ -221,9 +374,11 @@ export default function About() {
 
                     </div>
 
+
                     <h4>
                       {step.title}
                     </h4>
+
 
                     <p>
                       {step.description}
@@ -231,14 +386,13 @@ export default function About() {
 
                   </motion.div>
                 );
+
               }
             )}
 
           </div>
 
         </div>
-
-
 
       </div>
 

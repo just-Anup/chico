@@ -132,9 +132,7 @@ export default function Hero() {
               duration: 0.7,
             }}
           >
-            You focus on creating. We handle everything
-            behind the scenes — editing, motion, thumbnails
-            and content that makes people stop scrolling.
+            We are a media company with 2.5 years of experience specializing in reaction and entertainment content and we have edited more then 10000+ videos. We have worked across multiple channels covering anime, live-action films and series, K-dramas, Thai dramas, kpop and other international content. Our expertise includes video editing, subtitles, audio, music, visual effects, and delivering polished content at scale.
           </motion.p>
 
 
@@ -154,16 +152,16 @@ export default function Hero() {
             }}
           >
 
-           <a
-  href="#services"
-  className="hero-secondary-button"
->
-  <span className="hero-play-icon">
-    <Play size={13} fill="currentColor" />
-  </span>
+            <a
+              href="#services"
+              className="hero-secondary-button"
+            >
+              <span className="hero-play-icon">
+                <Play size={13} fill="currentColor" />
+              </span>
 
-  View Our Work
-</a>
+              View Our Work
+            </a>
 
           </motion.div>
 

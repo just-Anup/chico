@@ -17,6 +17,7 @@ const services = [
   "Thumbnail Designing",
   "Shorts/Reel Video Editing",
   "YouTube Channel Management",
+  "Content Strategy ",
 ];
 
 
@@ -94,12 +95,19 @@ export default function Navbar() {
           }
         >
 
+          {/* CHICO LOGO IMAGE */}
+
           <div className="logo-mark">
-            V
+            <img
+              src="/logo.png"
+              alt="Chico"
+            />
           </div>
 
+          {/* BRAND NAME */}
+
           <span className="logo-text">
-            YOUR BRAND
+            CHICO
           </span>
 
         </Link>
@@ -189,12 +197,15 @@ export default function Navbar() {
 
           </div>
 
-<Link
-  href="/#testimonials"
-  className="nav-link"
->
-  Testimonials
-</Link>
+
+          {/* ================= TESTIMONIALS ================= */}
+
+          <Link
+            href="/#testimonials"
+            className="nav-link"
+          >
+            Testimonials
+          </Link>
 
 
           {/* ================= FAQ ================= */}
@@ -347,21 +358,23 @@ export default function Navbar() {
 
         </div>
 
-{/* ================= TESTIMONIALS ================= */}
 
-<Link
-  href="/#testimonials"
-  className="mobile-nav-link"
+        {/* ================= TESTIMONIALS ================= */}
 
-  onClick={() =>
-    setMobileOpen(false)
-  }
->
-  Testimonials
+        <Link
+          href="/#testimonials"
+          className="mobile-nav-link"
 
-  <ArrowUpRight size={22} />
+          onClick={() =>
+            setMobileOpen(false)
+          }
+        >
 
-</Link>
+          Testimonials
+
+          <ArrowUpRight size={22} />
+
+        </Link>
 
 
         {/* ================= FAQ ================= */}
@@ -380,9 +393,6 @@ export default function Navbar() {
           <ArrowUpRight size={22} />
 
         </Link>
-
-
-
 
 
         {/* =================================================

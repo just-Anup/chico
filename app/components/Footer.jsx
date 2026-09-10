@@ -120,10 +120,10 @@ export default function Footer() {
           </div>
 
 
-         <a
-  href="/contact"
-  className="footer-title-link magnetic-button"
->
+          <a
+            href="/contact"
+            className="footer-title-link magnetic-button"
+          >
 
             <h2>
 
@@ -180,6 +180,7 @@ export default function Footer() {
 
         <div className="footer-main">
 
+
           {/* Brand */}
 
           <div className="footer-brand">
@@ -190,20 +191,28 @@ export default function Footer() {
             >
 
               <div className="footer-logo-mark">
-                V
+
+                <img
+                  src="/logo.png"
+                  alt="CHICO"
+                />
+
               </div>
 
+
               <span>
-                YOUR BRAND
+                CHICO
               </span>
 
             </a>
 
 
             <p>
+
               Helping creators turn raw
               footage into content people
               actually want to watch.
+
             </p>
 
 
@@ -265,7 +274,9 @@ export default function Footer() {
                     key={service}
                     href="/#services"
                   >
+
                     {service}
+
                   </a>
 
                 )
@@ -283,25 +294,49 @@ export default function Footer() {
             <h3>
               FOLLOW ALONG
             </h3>
-<div className="footer-socials">
 
-  <a
-    href="#"
-    aria-label="Instagram"
-  >
-    Instagram
-    <ArrowUpRight size={12} />
-  </a>
+            <div className="footer-socials">
 
-  <a
-    href="#"
-    aria-label="YouTube"
-  >
-    YouTube
-    <ArrowUpRight size={12} />
-  </a>
+              <a
+                href="https://www.instagram.com/chidori.yash"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
 
-</div>
+                Instagram
+
+                <ArrowUpRight size={12} />
+
+              </a>
+
+
+              <a
+                href="mailto:chicoyash@gmail.com"
+                aria-label="Email"
+              >
+                
+                Chicoppro01@gmail.com
+
+                <ArrowUpRight size={12} />
+
+              </a>
+
+
+              <a
+                href="https://wa.me/919873736263"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+
+                +91 98737 36263
+
+                <ArrowUpRight size={12} />
+
+              </a>
+
+            </div>
 
           </div>
 
@@ -315,13 +350,17 @@ export default function Footer() {
         <div className="footer-bottom">
 
           <span>
-            © {new Date().getFullYear()} YOUR BRAND.
+
+            © {new Date().getFullYear()} CHICO.
             ALL RIGHTS RESERVED.
+
           </span>
 
 
           <span>
+
             MADE FOR CREATORS
+
           </span>
 
 

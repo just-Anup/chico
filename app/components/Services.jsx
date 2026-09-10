@@ -30,7 +30,7 @@ const services = [
   },
   {
     number: "03",
-    title: "Shorts / Reel Video Editing",
+    title: "Short-Form Video Editing",
     description:
       "Fast, engaging vertical edits designed for retention — from the opening hook to captions, sound effects, transitions and the final frame.",
     tag: "SHORTS • REELS • TIKTOK",
@@ -43,6 +43,15 @@ const services = [
     description:
       "Take the editing burden off your shoulders with end-to-end YouTube support including uploads, thumbnails, optimization and content management.",
     tag: "YOUTUBE • SEO • MANAGEMENT",
+    icon: PlaySquare,
+    visual: "youtube",
+  },
+  {
+    number: "05",
+    title: "Content Strategy",
+    description:
+      "Turn hours of raw footage into engaging videos with strong pacing, storytelling, sound design, motion graphics and a polished cinematic finish.",
+    tag: " YOUTUBE • DOCUMENTARY • EDUCATION",
     icon: PlaySquare,
     visual: "youtube",
   },

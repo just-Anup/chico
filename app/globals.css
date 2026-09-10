@@ -152,6 +152,8 @@ button {
    Logo
 -------------------------------- */
 
+
+
 .logo {
   display: flex;
   align-items: center;
@@ -5753,8 +5755,9 @@ button {
 
   .about-intro-copy
   .about-big-copy {
-    font-size: 17px;
-  }
+  font-size: 24px;
+  line-height: 1.5;
+}
 
   .process-section {
     padding:
@@ -11591,3 +11594,1924 @@ body {
 }
 
 
+
+
+/* =========================================================
+   ABOUT — LARGE INFORMATION LAYOUT
+========================================================= */
+
+.about-intro {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 90px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.about-intro-heading {
+  position: sticky;
+  top: 120px;
+}
+
+.about-intro-heading h2 {
+  font-size: clamp(48px, 5vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin: 28px 0 32px;
+}
+
+.about-intro-heading h2 span {
+  color: #8976FD;
+}
+
+.about-heading-note {
+  font-size: 20px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.about-intro-copy {
+  max-width: 760px;
+}
+
+.about-big-copy {
+  font-size: clamp(25px, 2.2vw, 34px) !important;
+  line-height: 1.4 !important;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.about-big-copy strong {
+  color: #8976FD;
+  font-weight: 700;
+}
+
+.about-description {
+  font-size: 20px !important;
+  line-height: 1.75 !important;
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.about-description strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LARGE STATS
+========================================================= */
+
+.about-stats {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  padding: 30px 0;
+  margin-bottom: 38px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.about-stat strong {
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.about-stat span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.about-stat-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(137, 118, 253, 0.35);
+}
+
+
+/* =========================================================
+   DETAIL GROUPS
+========================================================= */
+
+.about-detail-group {
+  margin-bottom: 30px;
+}
+
+.about-detail-label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8976FD;
+}
+
+
+/* =========================================================
+   CONTENT TAGS
+========================================================= */
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-tag {
+  padding: 10px 15px;
+  border: 1px solid rgba(137, 118, 253, 0.2);
+  border-radius: 999px;
+  background: rgba(137, 118, 253, 0.06);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about-tag:hover {
+  background: rgba(137, 118, 253, 0.14);
+  border-color: rgba(137, 118, 253, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.about-expertise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+
+.about-expertise-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+}
+
+.about-expertise-item svg {
+  color: #8976FD;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-intro-heading {
+    position: static;
+  }
+
+  .about-heading-note {
+    font-size: 18px;
+  }
+
+  .about-big-copy {
+    font-size: 26px !important;
+  }
+
+  .about-description {
+    font-size: 18px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .about-intro {
+    gap: 38px;
+  }
+
+  .about-intro-heading h2 {
+    font-size: 46px;
+  }
+
+  .about-heading-note {
+    font-size: 17px;
+  }
+
+  .about-big-copy {
+    font-size: 23px !important;
+    line-height: 1.45 !important;
+  }
+
+  .about-description {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+
+  .about-stats {
+    gap: 22px;
+  }
+
+  .about-stat strong {
+    font-size: 38px;
+  }
+
+  .about-stat span {
+    font-size: 10px;
+  }
+
+  .about-stat-divider {
+    height: 48px;
+  }
+
+  .about-tag {
+    font-size: 13px;
+    padding: 9px 13px;
+  }
+
+}
+
+/* =========================================================
+   FULL WIDTH CREATOR SLIDER
+========================================================= */
+
+/*
+   Break the creator strip out of the normal
+   testimonials container.
+*/
+
+.testimonial-channel-strip {
+  position: relative;
+
+  width: 100vw !important;
+  max-width: 100vw !important;
+
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  background: transparent !important;
+
+  overflow: hidden !important;
+
+  padding: 25px 0 65px !important;
+
+  box-sizing: border-box;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   MOVING TRACK
+========================================================= */
+
+.testimonial-channel-strip-inner {
+  display: flex !important;
+
+  align-items: center;
+
+  width: max-content !important;
+
+  gap: 55px;
+
+  animation: chicoCreatorSlider 32s linear infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   PAUSE ON HOVER
+========================================================= */
+
+.testimonial-channel-strip:hover
+.testimonial-channel-strip-inner {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   RIGHT → LEFT
+========================================================= */
+
+@keyframes chicoCreatorSlider {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =========================================================
+   CREATOR ITEM
+========================================================= */
+
+.testimonial-channel {
+  position: relative;
+
+  width: 115px !important;
+  min-width: 115px !important;
+
+  height: 125px !important;
+
+  flex-shrink: 0;
+
+  display: flex !important;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  padding-top: 5px;
+}
+
+
+/* =========================================================
+   CREATOR LOGO
+========================================================= */
+
+.testimonial-channel-logo {
+
+  width: 100px !important;
+  height: 100px !important;
+
+  min-width: 100px !important;
+  min-height: 100px !important;
+
+  border-radius: 50% !important;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  z-index: 5;
+
+  background: #111;
+
+  border: 2px solid rgba(137, 118, 253, 0.4);
+
+  box-shadow:
+    0 0 0 5px rgba(137, 118, 253, 0.04),
+    0 0 25px rgba(137, 118, 253, 0.18);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* Actual creator image */
+
+.testimonial-channel-logo img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================================================
+   EMPTY LOGO INITIAL
+========================================================= */
+
+.testimonial-channel-initial {
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #8976FD,
+    #5d45d8
+  );
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HOVER LOGO
+========================================================= */
+
+.testimonial-channel:hover
+.testimonial-channel-logo {
+
+  transform: scale(1.08);
+
+  border-color: rgba(137, 118, 253, 0.95);
+
+  box-shadow:
+    0 0 0 6px rgba(137, 118, 253, 0.08),
+    0 0 30px rgba(137, 118, 253, 0.5),
+    0 0 65px rgba(137, 118, 253, 0.22);
+}
+
+
+/* =========================================================
+   CREATOR NAME
+========================================================= */
+
+.testimonial-channel-info {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 0;
+
+  transform: translateX(-50%) translateY(5px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  z-index: 20;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* Creator name */
+
+.testimonial-channel-info strong {
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Visit channel */
+
+.testimonial-channel-info small {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 4px;
+
+  color: #8976FD;
+
+  font-size: 9px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SHOW CREATOR NAME ON HOVER
+========================================================= */
+
+.testimonial-channel:hover
+.testimonial-channel-info {
+
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* =========================================================
+   PURPLE ACTIVE LINE
+========================================================= */
+
+.testimonial-channel-line {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -5px;
+
+  width: 0;
+
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background: #8976FD;
+
+  box-shadow:
+    0 0 12px rgba(137, 118, 253, 0.9);
+
+  transition:
+    width 0.35s ease;
+
+  z-index: 20;
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-line {
+
+  width: 45px;
+}
+
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.testimonial-channel-orbit,
+.testimonial-channel-orbit-two {
+
+  position: absolute;
+
+  top: 55px;
+  left: 50%;
+
+  width: 112px;
+  height: 112px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+}
+
+
+.testimonial-channel-orbit {
+
+  border: 1px solid rgba(137, 118, 253, 0.4);
+
+  animation:
+    chicoOrbit 5s linear infinite;
+}
+
+
+.testimonial-channel-orbit-two {
+
+  width: 122px;
+  height: 122px;
+
+  border: 1px solid rgba(137, 118, 253, 0.16);
+
+  animation:
+    chicoOrbitReverse 7s linear infinite;
+}
+
+
+@keyframes chicoOrbit {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+
+}
+
+
+@keyframes chicoOrbitReverse {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+}
+
+
+/* =========================================================
+   REMOVE OLD SCAN EFFECT
+========================================================= */
+
+.testimonial-channel-scan {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .testimonial-channel-strip {
+
+    padding-top: 20px !important;
+
+    padding-bottom: 55px !important;
+  }
+
+
+  .testimonial-channel-strip-inner {
+
+    gap: 35px;
+
+    animation-duration: 25s;
+  }
+
+
+  .testimonial-channel {
+
+    width: 95px !important;
+
+    min-width: 95px !important;
+
+    height: 110px !important;
+  }
+
+
+  .testimonial-channel-logo {
+
+    width: 82px !important;
+    height: 82px !important;
+
+    min-width: 82px !important;
+    min-height: 82px !important;
+  }
+
+
+  .testimonial-channel-orbit {
+
+    width: 94px;
+    height: 94px;
+
+    top: 46px;
+  }
+
+
+  .testimonial-channel-orbit-two {
+
+    width: 104px;
+    height: 104px;
+
+    top: 46px;
+  }
+
+
+  .testimonial-channel-info {
+
+    bottom: 0;
+  }
+
+}
+
+/* =========================================================
+   FREE-FLOATING FULL-SCREEN CREATOR MARQUEE
+========================================================= */
+
+.testimonial-channel-strip {
+  position: relative !important;
+
+  /* Break completely out of the testimonial container */
+  width: 100vw !important;
+  max-width: none !important;
+
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  padding: 55px 0 70px !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0 !important;
+
+  box-shadow: none !important;
+
+  overflow: hidden !important;
+
+  isolation: isolate;
+}
+
+
+/* Remove any pseudo-element box/background */
+.testimonial-channel-strip::before,
+.testimonial-channel-strip::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* =========================================================
+   FULL-WIDTH MOVING TRACK
+========================================================= */
+
+.testimonial-channel-strip-inner {
+  display: flex !important;
+  align-items: center !important;
+
+  width: max-content !important;
+  max-width: none !important;
+
+  gap: 65px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  animation: chicoCreatorSlider 32s linear infinite;
+
+  will-change: transform;
+}
+
+
+/* Pause when mouse is over creators */
+.testimonial-channel-strip:hover
+.testimonial-channel-strip-inner {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   CONTINUOUS RIGHT → LEFT
+========================================================= */
+
+@keyframes chicoCreatorSlider {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+
+/* =========================================================
+   CREATOR
+========================================================= */
+
+.testimonial-channel {
+  position: relative !important;
+
+  flex: 0 0 auto !important;
+
+  width: 120px !important;
+  min-width: 120px !important;
+
+  height: 125px !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+
+  padding: 5px 0 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+
+  text-decoration: none;
+
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.testimonial-channel-logo {
+  position: relative !important;
+  z-index: 5;
+
+  width: 100px !important;
+  height: 100px !important;
+
+  min-width: 100px !important;
+  min-height: 100px !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% !important;
+
+  overflow: hidden;
+
+  background: #111;
+
+  border: 2px solid rgba(137, 118, 253, 0.35);
+
+  box-shadow:
+    0 0 0 5px rgba(137, 118, 253, 0.04),
+    0 0 25px rgba(137, 118, 253, 0.18);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.testimonial-channel-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+.testimonial-channel-initial {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #8976FD,
+    #5d45d8
+  );
+
+  color: white;
+
+  font-size: 34px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.testimonial-channel:hover
+.testimonial-channel-logo {
+  transform: scale(1.08);
+
+  border-color: rgba(137, 118, 253, 1);
+
+  box-shadow:
+    0 0 0 6px rgba(137, 118, 253, 0.08),
+    0 0 30px rgba(137, 118, 253, 0.5),
+    0 0 65px rgba(137, 118, 253, 0.22);
+}
+
+
+/* =========================================================
+   CREATOR NAME
+========================================================= */
+
+.testimonial-channel-info {
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: -5px !important;
+
+  transform: translateX(-50%) translateY(5px) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  z-index: 50;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.testimonial-channel-info strong {
+  color: #111;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-shadow:
+    0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+
+.testimonial-channel-info small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  margin-top: 3px;
+
+  color: #8976FD;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-info {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.testimonial-channel-orbit,
+.testimonial-channel-orbit-two {
+  position: absolute !important;
+
+  top: 55px !important;
+  left: 50% !important;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.testimonial-channel-orbit {
+  width: 112px;
+  height: 112px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(137, 118, 253, 0.35);
+
+  animation: chicoOrbit 5s linear infinite;
+}
+
+
+.testimonial-channel-orbit-two {
+  width: 122px;
+  height: 122px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(137, 118, 253, 0.14);
+
+  animation: chicoOrbitReverse 7s linear infinite;
+}
+
+
+@keyframes chicoOrbit {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+
+@keyframes chicoOrbitReverse {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+}
+
+
+/* =========================================================
+   REMOVE OLD BOX / SCAN EFFECT
+========================================================= */
+
+.testimonial-channel-scan {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .testimonial-channel-strip {
+    padding: 40px 0 60px !important;
+  }
+
+  .testimonial-channel-strip-inner {
+    gap: 40px !important;
+
+    animation-duration: 25s;
+  }
+
+  .testimonial-channel {
+    width: 95px !important;
+    min-width: 95px !important;
+
+    height: 110px !important;
+  }
+
+  .testimonial-channel-logo {
+    width: 82px !important;
+    height: 82px !important;
+
+    min-width: 82px !important;
+    min-height: 82px !important;
+  }
+
+  .testimonial-channel-orbit {
+    width: 94px;
+    height: 94px;
+
+    top: 46px !important;
+  }
+
+  .testimonial-channel-orbit-two {
+    width: 104px;
+    height: 104px;
+
+    top: 46px !important;
+  }
+
+  .testimonial-channel-info {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   CHICO — FINAL FREE FLOATING CREATOR MARQUEE
+   Paste this at the VERY BOTTOM of globals.css
+========================================================= */
+
+/* Remove the old creator box completely */
+.testimonial-channel-strip {
+  position: relative !important;
+
+  width: 100vw !important;
+  max-width: 100vw !important;
+
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  height: 190px !important;
+
+  padding: 55px 0 70px !important;
+  margin-bottom: 80px !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  overflow: visible !important;
+
+  box-sizing: border-box !important;
+
+  z-index: 20 !important;
+}
+
+
+/* Kill the old rectangle overlay */
+.testimonial-channel-strip::before,
+.testimonial-channel-strip::after {
+  content: none !important;
+
+  display: none !important;
+
+  border: none !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   FULL SCREEN MARQUEE
+========================================================= */
+
+.testimonial-channel-strip-inner {
+  position: relative !important;
+
+  width: max-content !important;
+  max-width: none !important;
+
+  height: 100% !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+
+  justify-content: flex-start !important;
+
+  gap: 65px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow: visible !important;
+
+  animation: chicoCreatorSlider 32s linear infinite !important;
+
+  will-change: transform;
+}
+
+
+/* Pause the entire marquee when hovering */
+.testimonial-channel-strip:hover
+.testimonial-channel-strip-inner {
+  animation-play-state: paused !important;
+}
+
+
+/* =========================================================
+   RIGHT → LEFT
+========================================================= */
+
+@keyframes chicoCreatorSlider {
+
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+}
+
+
+/* =========================================================
+   CREATOR ITEM
+========================================================= */
+
+.testimonial-channel {
+  position: relative !important;
+
+  flex: 0 0 auto !important;
+
+  width: 120px !important;
+  min-width: 120px !important;
+
+  height: 150px !important;
+
+  display: flex !important;
+
+  align-items: flex-start !important;
+  justify-content: center !important;
+
+  padding: 5px 0 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+
+  border: none !important;
+
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  overflow: visible !important;
+
+  text-decoration: none !important;
+
+  z-index: 30 !important;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CREATOR LOGO
+========================================================= */
+
+.testimonial-channel-logo {
+  position: relative !important;
+
+  z-index: 50 !important;
+
+  width: 105px !important;
+  height: 105px !important;
+
+  min-width: 105px !important;
+  min-height: 105px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  overflow: hidden !important;
+
+  border-radius: 50% !important;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f0edff
+  ) !important;
+
+  border: 2px solid
+    rgba(137, 118, 253, 0.35) !important;
+
+  box-shadow:
+    0 0 0 5px rgba(137, 118, 253, 0.05),
+    0 12px 35px rgba(137, 118, 253, 0.15) !important;
+
+  transition:
+    transform 0.4s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+
+/* Actual creator image */
+.testimonial-channel-logo img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+
+  display: block !important;
+
+  border-radius: 50% !important;
+}
+
+
+/* =========================================================
+   HOVER LOGO
+========================================================= */
+
+.testimonial-channel:hover
+.testimonial-channel-logo {
+  transform: scale(1.12) translateY(-8px) !important;
+
+  border-color:
+    rgba(137, 118, 253, 1) !important;
+
+  box-shadow:
+    0 0 0 7px
+      rgba(137, 118, 253, 0.08),
+    0 0 35px
+      rgba(137, 118, 253, 0.55),
+    0 0 80px
+      rgba(137, 118, 253, 0.22) !important;
+}
+
+
+/* =========================================================
+   FIRST OUTER RING
+========================================================= */
+
+.testimonial-channel-orbit {
+  position: absolute !important;
+
+  top: 52px !important;
+  left: 50% !important;
+
+  width: 118px !important;
+  height: 118px !important;
+
+  margin: 0 !important;
+
+  transform:
+    translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+
+  border:
+    1px solid
+    rgba(137, 118, 253, 0.3) !important;
+
+  background: transparent !important;
+
+  z-index: 20 !important;
+
+  pointer-events: none !important;
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease !important;
+}
+
+
+/* =========================================================
+   SECOND OUTER RING
+========================================================= */
+
+.testimonial-channel-orbit-two {
+  position: absolute !important;
+
+  top: 52px !important;
+  left: 50% !important;
+
+  width: 130px !important;
+  height: 130px !important;
+
+  margin: 0 !important;
+
+  transform:
+    translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+
+  border:
+    1px dashed
+    rgba(137, 118, 253, 0.2) !important;
+
+  background: transparent !important;
+
+  opacity: 0.7 !important;
+
+  z-index: 15 !important;
+
+  pointer-events: none !important;
+}
+
+
+/* =========================================================
+   HOVER RINGS
+========================================================= */
+
+.testimonial-channel:hover
+.testimonial-channel-orbit {
+  transform:
+    translate(-50%, -50%)
+    scale(1.18) !important;
+
+  border-color:
+    rgba(137, 118, 253, 0.75) !important;
+
+  box-shadow:
+    0 0 30px
+      rgba(137, 118, 253, 0.35) !important;
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-orbit-two {
+  transform:
+    translate(-50%, -50%)
+    scale(1.28) !important;
+
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   CREATOR NAME
+========================================================= */
+
+.testimonial-channel-info {
+  position: absolute !important;
+
+  top: 116px !important;
+  left: 50% !important;
+
+  transform:
+    translateX(-50%)
+    translateY(8px) !important;
+
+  z-index: 100 !important;
+
+  min-width: auto !important;
+
+  padding: 0 !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: center !important;
+
+  gap: 3px !important;
+
+  background: transparent !important;
+
+  border: none !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+
+  opacity: 0 !important;
+
+  pointer-events: none !important;
+
+  white-space: nowrap !important;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ) !important;
+}
+
+
+/* Show creator name */
+.testimonial-channel:hover
+.testimonial-channel-info {
+  opacity: 1 !important;
+
+  transform:
+    translateX(-50%)
+    translateY(0) !important;
+}
+
+
+/* Creator name */
+.testimonial-channel-info strong {
+  display: block !important;
+
+  color: #08080A !important;
+
+  font-size: 14px !important;
+
+  font-weight: 800 !important;
+
+  line-height: 1.2 !important;
+
+  text-align: center !important;
+
+  text-shadow:
+    0 2px 10px
+    rgba(255, 255, 255, 0.95) !important;
+}
+
+
+/* Visit channel */
+.testimonial-channel-info small {
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 4px !important;
+
+  color: #8976FD !important;
+
+  font-size: 8px !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing: 0.06em !important;
+
+  text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   HOVER LINE
+========================================================= */
+
+.testimonial-channel-line {
+  position: absolute !important;
+
+  top: 145px !important;
+  bottom: auto !important;
+
+  left: 50% !important;
+
+  width: 0 !important;
+  height: 2px !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  background: #8976FD !important;
+
+  box-shadow:
+    0 0 14px
+    rgba(137, 118, 253, 0.8) !important;
+
+  transition: width 0.35s ease !important;
+}
+
+
+.testimonial-channel:hover
+.testimonial-channel-line {
+  width: 45px !important;
+}
+
+
+/* =========================================================
+   REMOVE OLD SCAN BOX
+========================================================= */
+
+.testimonial-channel-scan {
+  display: none !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   Remove the decorative horizontal line crossing
+   behind the creator logos
+========================================================= */
+
+.testimonials-background-line {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .testimonial-channel-strip {
+    width: 100vw !important;
+
+    height: 160px !important;
+
+    padding:
+      45px 0 55px !important;
+
+    margin-left:
+      calc(50% - 50vw) !important;
+
+    margin-right:
+      calc(50% - 50vw) !important;
+  }
+
+  .testimonial-channel-strip-inner {
+    gap: 40px !important;
+  }
+
+  .testimonial-channel {
+    width: 100px !important;
+    min-width: 100px !important;
+
+    height: 125px !important;
+  }
+
+  .testimonial-channel-logo {
+    width: 85px !important;
+    height: 85px !important;
+
+    min-width: 85px !important;
+    min-height: 85px !important;
+  }
+
+  .testimonial-channel-orbit {
+    width: 96px !important;
+    height: 96px !important;
+
+    top: 42px !important;
+  }
+
+  .testimonial-channel-orbit-two {
+    width: 108px !important;
+    height: 108px !important;
+
+    top: 42px !important;
+  }
+
+  .testimonial-channel-info {
+    top: 98px !important;
+  }
+
+  .testimonial-channel-info strong {
+    font-size: 12px !important;
+  }
+
+}
+
+
+/* =========================================================
+   CHICO FOOTER — ONLY TEXT SIZE + LOGO + CONTACT
+========================================================= */
+
+.footer-logo-mark {
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.footer-logo-mark img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+
+/* Bigger existing footer description */
+.footer-brand p {
+  font-size: 17px !important;
+  line-height: 1.7 !important;
+}
+
+
+/* Bigger existing page/service text */
+.footer-column > div > a {
+  font-size: 15px !important;
+}
+
+
+/* Slightly bigger footer headings */
+.footer-column h3 {
+  font-size: 11px !important;
+}
+
+
+/* Bigger social/contact text */
+.footer-socials {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.footer-socials a {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* Keep email from breaking the footer */
+.footer-socials a:nth-child(2) {
+  white-space: nowrap;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .footer-brand p {
+    font-size: 16px !important;
+  }
+
+  .footer-column > div > a {
+    font-size: 15px !important;
+  }
+
+  .footer-socials a {
+    font-size: 14px !important;
+  }
+
+  .footer-socials a:nth-child(2) {
+    white-space: normal;
+  }
+
+}
+
+
+/* =========================================================
+   CHICO CONTACT PAGE — TYPOGRAPHY ONLY
+========================================================= */
+
+/* Main heading */
+.contact-heading h1 {
+  font-size: clamp(58px, 7vw, 100px) !important;
+  line-height: 0.95 !important;
+}
+
+
+/* Hero description */
+.contact-heading > p {
+  font-size: 20px !important;
+  line-height: 1.65 !important;
+}
+
+
+/* Section eyebrow */
+.contact-eyebrow {
+  font-size: 12px !important;
+}
+
+
+/* Contact information labels */
+.contact-detail > span {
+  font-size: 12px !important;
+  letter-spacing: 0.14em !important;
+}
+
+
+/* Email / WhatsApp */
+.contact-detail > a {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* Instagram / YouTube */
+.contact-socials a {
+  font-size: 17px !important;
+}
+
+
+/* Form labels */
+.contact-field label {
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+}
+
+
+/* Form inputs */
+.contact-field input,
+.contact-field textarea {
+  font-size: 18px !important;
+}
+
+
+/* Service buttons */
+.contact-service-options button {
+  font-size: 15px !important;
+}
+
+
+/* Submit button */
+.contact-submit {
+  font-size: 17px !important;
+}
+
+
+/* Form note */
+.contact-form-note {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+
+/* Response message */
+.contact-response p {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+
+/* Bottom text */
+.contact-bottom {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .contact-heading h1 {
+    font-size: 50px !important;
+    line-height: 0.98 !important;
+  }
+
+
+  .contact-heading > p {
+    font-size: 18px !important;
+  }
+
+
+  .contact-detail > a {
+    font-size: 16px !important;
+  }
+
+
+  .contact-field label {
+    font-size: 11px !important;
+  }
+
+
+  .contact-field input,
+  .contact-field textarea {
+    font-size: 16px !important;
+  }
+
+
+  .contact-service-options button {
+    font-size: 14px !important;
+  }
+
+}
