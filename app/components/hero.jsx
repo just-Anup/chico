@@ -132,7 +132,9 @@ export default function Hero() {
               duration: 0.7,
             }}
           >
-            We are a media company with 2.5 years of experience specializing in reaction and entertainment content and we have edited more then 10000+ videos. We have worked across multiple channels covering anime, live-action films and series, K-dramas, Thai dramas, kpop and other international content. Our expertise includes video editing, subtitles, audio, music, visual effects, and delivering polished content at scale.
+           Built by internet culture, for internet culture. 2.5 years of experience specializing in reaction and entertainment content.
+
+Over the 2.5 years " , we've edited 10,000+ videos across fandoms, reactions, and entertainment content. Whether it's anime, K-dramas, Thai GLs, movies, or K-pop, we know what keeps viewers hooked—and we edit with that in mind.
           </motion.p>
 
 
