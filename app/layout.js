@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import VisualEffects from "./components/VisualEffects";
+import FloatingComments from "./components/FloatingComments";
 
 export const metadata = {
   title: "Your Brand",
@@ -19,6 +20,8 @@ export default function RootLayout({
       <body>
 
         <VisualEffects />
+
+        <FloatingComments />
 
         <Navbar />
 

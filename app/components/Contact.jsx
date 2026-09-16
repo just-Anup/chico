@@ -342,10 +342,12 @@ ${message}
     </a>
 
     <a
-      href="#"
-      aria-label="YouTube"
+      href="https://discord.com/users/357101038173683722(ch1dor1)"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Discord"
     >
-      YT
+      DS
     </a>
 
   </div>

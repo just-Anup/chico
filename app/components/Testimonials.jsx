@@ -97,26 +97,26 @@ const channels = [
   },
  
 
-  {
-    name: "Cinema Gek",
-    logo: "/creator/cinemagek.jpg",
-    url: "https://www.youtube.com/watch?v=TQ5ZtkPyGfA",
-  },
-
+  
   {
     name: "kriskilins",
     logo: "/creator/kris.jpg",
     url: "https://www.youtube.com/watch?v=wxPSOrhMOmA&t=1898s",
   },
-
   
-
+  
+  
   {
     name: "Kaliwali",
     logo: "/creator/kaliwali.jpg",
     url: "https://www.youtube.com/watch?v=Ok5NpkLWsqU&list=PLHLre5CJMz50&index=2",
   },
-
+  
+  {
+    name: "Cinema Gek",
+    logo: "/creator/cinemagek.jpg",
+    url: "https://www.youtube.com/watch?v=TQ5ZtkPyGfA",
+  },
     {
     name: "Meesh & Dee",
     logo: "/creator/meeshdee.jpg",
@@ -137,6 +137,16 @@ const channels = [
     name: "C X B",
     logo: "/creator/cxb.jpg",
     url: "https://www.youtube.com/watch?v=-MfmKBiI38g",
+  },
+  {
+    name: "TRC Reaction TV",
+    logo: "/creator/TRC.jpg",
+    url: "https://youtu.be/ZCPSKcMT_RI?si=8pGTxyP5yJAgm3Ci",
+  },
+  {
+    name: "Meesh & Dee GL",
+    logo: "/creator/meeshdeegl.jpg",
+    url: "https://www.youtube.com/watch?v=KCmklNyb9PE",
   },
   
 ];

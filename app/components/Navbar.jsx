@@ -229,7 +229,7 @@ export default function Navbar() {
           className="nav-cta magnetic-button"
         >
 
-          Get in Touch
+          Reach Out
 
           <ArrowUpRight
             size={16}

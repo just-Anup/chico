@@ -13515,3 +13515,256 @@ body {
   }
 
 }
+
+
+/* =========================================================
+   CHICO — FLOATING CREATOR COMMENTS
+========================================================= */
+
+.floating-comments-layer {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  pointer-events: none;
+
+  z-index: 40;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   COMMENT
+========================================================= */
+
+.floating-comment {
+  position: absolute;
+
+  width: 245px;
+
+  max-width: 18vw;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+
+  filter:
+    drop-shadow(
+      0 18px 35px
+      rgba(0, 0, 0, 0.16)
+    );
+
+  transform-origin: center center;
+}
+
+
+/* =========================================================
+   COMMENT IMAGE
+========================================================= */
+
+.floating-comment img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 12px;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  box-shadow:
+    0 0 0 1px
+      rgba(255, 255, 255, 0.75),
+
+    0 12px 35px
+      rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   PURPLE AMBIENT GLOW
+========================================================= */
+
+.floating-comment-glow {
+  position: absolute;
+
+  inset: -18px;
+
+  z-index: -1;
+
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(137, 118, 253, 0.22),
+      transparent 68%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SUBTLE HOVER-STYLE LIGHT
+========================================================= */
+
+.floating-comment::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.22),
+      transparent 55%
+    );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation:
+    floatingCommentLight
+    5s ease-in-out
+    infinite;
+}
+
+
+@keyframes floatingCommentLight {
+
+  0%,
+  55% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+
+  70% {
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0;
+    transform: translateX(30%);
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .floating-comment {
+    width: 250px;
+    max-width: 17vw;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199px) {
+
+  .floating-comment {
+    width: 210px;
+    max-width: 20vw;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .floating-comments-layer {
+    z-index: 35;
+  }
+
+
+  .floating-comment {
+    width: 175px;
+
+    max-width: 24vw;
+  }
+
+
+  /*
+     Keep comments further toward
+     the edges on smaller screens.
+  */
+
+  .floating-comment:nth-child(1) {
+    left: 1% !important;
+  }
+
+  .floating-comment:nth-child(2) {
+    right: 1% !important;
+    left: auto !important;
+  }
+
+  .floating-comment:nth-child(3) {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .floating-comments-layer {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floating-comment {
+    animation: none !important;
+  }
+
+  .floating-comment::after {
+    animation: none !important;
+  }
+
+}

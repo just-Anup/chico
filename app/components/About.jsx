@@ -136,7 +136,7 @@ export default function About() {
             {/* ================= MAIN DESCRIPTION ================= */}
 
             <p className="about-big-copy">
-              We are a media company with{" "}
+              Built by internet culture, for internet culture.{" "}
               <strong>2.5 years of experience</strong>{" "}
               specializing in reaction and entertainment
               content.
@@ -144,12 +144,8 @@ export default function About() {
 
 
             <p className="about-description">
-              We have edited more than{" "}
-              <strong>10,000+ videos</strong> across
-              multiple channels covering anime,
-              live-action films and series, K-dramas,
-              Thai dramas, K-pop and other international
-              content.
+              Over the 2.5 years "{" "}
+              <strong>, we've edited 10,000+ videos</strong> across fandoms, reactions, and entertainment content. Whether it's anime, K-dramas, Thai GLs, movies, or K-pop, we know what keeps viewers hooked—and we edit with that in mind.
             </p>
 
 

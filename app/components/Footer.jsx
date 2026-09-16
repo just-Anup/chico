@@ -315,8 +315,7 @@ export default function Footer() {
                 href="mailto:chicoyash@gmail.com"
                 aria-label="Email"
               >
-                
-                Chicoppro01@gmail.com
+                Email
 
                 <ArrowUpRight size={12} />
 
@@ -330,7 +329,7 @@ export default function Footer() {
                 aria-label="WhatsApp"
               >
 
-                +91 98737 36263
+                WhatsApp
 
                 <ArrowUpRight size={12} />
 
