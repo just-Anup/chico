@@ -148,44 +148,87 @@ export default function About() {
               <strong>, we've edited 10,000+ videos</strong> across fandoms, reactions, and entertainment content. Whether it's anime, K-dramas, Thai GLs, movies, or K-pop, we know what keeps viewers hooked—and we edit with that in mind.
             </p>
 
+{/* =====================================
+    BIG STATS
+===================================== */}
 
-            {/* =====================================
-                BIG STATS
-            ===================================== */}
+<div className="about-stats">
 
-            <div className="about-stats">
+  {/* ================= LEFT COLUMN ================= */}
 
-              <div className="about-stat">
+  <div className="about-stat-column">
 
-                <strong>
-                  100M+
-                </strong>
+    <div className="about-stat">
 
-                <span>
-                  Views Gained
-                </span>
+      <strong>
+        2.5+
+      </strong>
 
-              </div>
+      <span>
+        Years of Experience
+      </span>
 
-
-              <div className="about-stat-divider" />
-
-
-              <div className="about-stat">
-
-                <strong>
-                  1M+
-                </strong>
-
-                <span>
-                  Subs Gained
-                </span>
-
-              </div>
-
-            </div>
+    </div>
 
 
+    <div className="about-stat-divider-horizontal" />
+
+
+    <div className="about-stat">
+
+      <strong>
+        10k+
+      </strong>
+
+      <span>
+        Videos Edited
+      </span>
+
+    </div>
+
+  </div>
+
+
+  {/* ================= CENTER DIVIDER ================= */}
+
+  <div className="about-stat-divider" />
+
+
+  {/* ================= RIGHT COLUMN ================= */}
+
+  <div className="about-stat-column">
+
+    <div className="about-stat">
+
+      <strong>
+        100M+
+      </strong>
+
+      <span>
+        Views Gained
+      </span>
+
+    </div>
+
+
+    <div className="about-stat-divider-horizontal" />
+
+
+    <div className="about-stat">
+
+      <strong>
+        1M+
+      </strong>
+
+      <span>
+        Sub Gained
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
             {/* =====================================
                 CONTENT TYPES
             ===================================== */}

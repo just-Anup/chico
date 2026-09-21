@@ -15233,3 +15233,583 @@ body {
   }
 
 }
+
+/* =========================================================
+   FINAL FIX — CENTER CREATOR LOGO INSIDE OUTER CIRCLE
+========================================================= */
+
+.testimonial-channel {
+  position: relative !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow: visible !important;
+}
+
+
+/* Creator image */
+
+.testimonial-channel-logo {
+  position: relative !important;
+
+  top: auto !important;
+  left: auto !important;
+
+  margin: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  overflow: hidden !important;
+
+  transform: none !important;
+
+  z-index: 50 !important;
+}
+
+
+/* Actual creator image */
+
+.testimonial-channel-logo img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  border-radius: 50% !important;
+
+  margin: 0 !important;
+}
+
+
+/* =========================================================
+   OUTER CIRCLE — ALWAYS PERFECTLY CENTERED
+========================================================= */
+
+.testimonial-channel-orbit,
+.testimonial-channel-orbit-two {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  margin: 0 !important;
+
+  border-radius: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  pointer-events: none !important;
+}
+
+
+/* Inner ring */
+
+.testimonial-channel-orbit {
+  width: 118px !important;
+  height: 118px !important;
+
+  border: 1px solid rgba(137, 118, 253, 0.35) !important;
+
+  z-index: 20 !important;
+}
+
+
+/* Outer ring */
+
+.testimonial-channel-orbit-two {
+  width: 130px !important;
+  height: 130px !important;
+
+  border: 1px dashed rgba(137, 118, 253, 0.20) !important;
+
+  z-index: 15 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .testimonial-channel {
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+  }
+
+  .testimonial-channel-logo {
+    width: 85px !important;
+    height: 85px !important;
+
+    min-width: 85px !important;
+    min-height: 85px !important;
+  }
+
+  .testimonial-channel-orbit {
+    width: 96px !important;
+    height: 96px !important;
+
+    top: 50% !important;
+    left: 50% !important;
+  }
+
+  .testimonial-channel-orbit-two {
+    width: 108px !important;
+    height: 108px !important;
+
+    top: 50% !important;
+    left: 50% !important;
+  }
+
+}
+
+/* =========================================================
+   CHICO — ABOUT STATS 2x2
+========================================================= */
+
+.about-stats {
+  display: grid !important;
+
+  grid-template-columns: 1fr auto 1fr !important;
+
+  width: 100%;
+
+  margin-top: 50px;
+
+  padding: 0;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   COLUMN
+========================================================= */
+
+.about-stat-column {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   INDIVIDUAL STAT
+========================================================= */
+
+.about-stat {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  justify-content: center;
+
+  padding: 28px 0;
+
+  min-height: 145px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.about-stat strong {
+  display: block;
+
+  font-size: clamp(42px, 5vw, 72px) !important;
+
+  line-height: 0.95;
+
+  font-weight: 800;
+
+  letter-spacing: -0.06em;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.about-stat span {
+  display: block;
+
+  margin-top: 12px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================================
+   CENTER VERTICAL DIVIDER
+========================================================= */
+
+.about-stat-divider {
+  width: 1px;
+
+  height: 100%;
+
+  min-height: 290px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(137, 118, 253, 0.45),
+      transparent
+    );
+
+  margin: 0 45px;
+}
+
+
+/* =========================================================
+   HORIZONTAL DIVIDER
+========================================================= */
+
+.about-stat-divider-horizontal {
+  width: 100%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(137, 118, 253, 0.05),
+      rgba(137, 118, 253, 0.35),
+      rgba(137, 118, 253, 0.05)
+    );
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.about-stat {
+  transition:
+    transform 0.35s ease;
+}
+
+.about-stat:hover {
+  transform: translateX(6px);
+}
+
+.about-stat:hover strong {
+  color: #8976FD;
+
+  transition: color 0.35s ease;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .about-stats {
+    grid-template-columns: 1fr 1px 1fr !important;
+
+    margin-top: 30px;
+  }
+
+
+  .about-stat {
+    min-height: 105px;
+
+    padding: 20px 0;
+  }
+
+
+  .about-stat strong {
+    font-size: 34px !important;
+  }
+
+
+  .about-stat span {
+    font-size: 8px;
+
+    margin-top: 8px;
+
+    letter-spacing: 0.09em;
+  }
+
+
+  .about-stat-divider {
+    min-height: 210px;
+
+    margin: 0 15px;
+  }
+
+}
+
+/* =========================================================
+   CHICO — FIX ABOUT SECTION HUGE GAP
+   Final override
+========================================================= */
+
+/* Keep the About intro compact */
+.about-intro {
+  display: grid !important;
+  grid-template-columns: 0.85fr 1.15fr !important;
+  gap: 70px !important;
+  align-items: start !important;
+
+  padding-bottom: 80px !important;
+}
+
+
+/* Left side */
+.about-intro-heading {
+  position: sticky !important;
+  top: 120px;
+}
+
+
+/* Right side MUST NOT behave like the old 2-column grid */
+.about-intro-copy {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 760px !important;
+
+  margin-top: 0 !important;
+}
+
+
+/* Main description */
+.about-big-copy {
+  margin-top: 0 !important;
+  margin-bottom: 25px !important;
+}
+
+
+/* Normal description */
+.about-description {
+  margin-top: 0 !important;
+  margin-bottom: 30px !important;
+}
+
+
+/* =========================================================
+   4 STAT BOX
+========================================================= */
+
+.about-stats {
+  display: grid !important;
+
+  grid-template-columns: 1fr 1px 1fr !important;
+
+  width: 100% !important;
+
+  margin-top: 30px !important;
+  margin-bottom: 35px !important;
+
+  padding: 0 !important;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+
+/* Left / right columns */
+.about-stat-column {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  width: 100% !important;
+}
+
+
+/* Each stat */
+.about-stat {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  justify-content: center !important;
+
+  min-height: 130px !important;
+
+  padding: 25px 0 !important;
+
+  margin: 0 !important;
+}
+
+
+/* Number */
+.about-stat strong {
+  font-size: clamp(40px, 4vw, 62px) !important;
+
+  line-height: 0.95 !important;
+
+  letter-spacing: -0.06em !important;
+}
+
+
+/* Label */
+.about-stat span {
+  margin-top: 10px !important;
+
+  font-size: 10px !important;
+
+  letter-spacing: 0.12em !important;
+}
+
+
+/* Center divider */
+.about-stat-divider {
+  width: 1px !important;
+
+  height: 100% !important;
+
+  min-height: 260px !important;
+
+  margin: 0 35px !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(137, 118, 253, 0.45),
+      transparent
+    ) !important;
+}
+
+
+/* Horizontal divider */
+.about-stat-divider-horizontal {
+  width: 100% !important;
+
+  height: 1px !important;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.03),
+      rgba(137, 118, 253, 0.30),
+      rgba(255, 255, 255, 0.03)
+    ) !important;
+}
+
+
+/* =========================================================
+   CONTENT AFTER STATS
+========================================================= */
+
+.about-detail-group {
+  width: 100% !important;
+
+  margin-bottom: 28px !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-intro {
+    grid-template-columns: 1fr !important;
+
+    gap: 45px !important;
+
+    padding-bottom: 65px !important;
+  }
+
+
+  .about-intro-heading {
+    position: static !important;
+  }
+
+
+  .about-intro-copy {
+    width: 100% !important;
+
+    max-width: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .about-intro {
+    gap: 35px !important;
+
+    padding-bottom: 55px !important;
+  }
+
+
+  .about-stats {
+    grid-template-columns: 1fr 1px 1fr !important;
+
+    margin-top: 25px !important;
+  }
+
+
+  .about-stat {
+    min-height: 105px !important;
+
+    padding: 20px 8px !important;
+  }
+
+
+  .about-stat strong {
+    font-size: 32px !important;
+  }
+
+
+  .about-stat span {
+    font-size: 8px !important;
+
+    letter-spacing: 0.08em !important;
+  }
+
+
+  .about-stat-divider {
+    min-height: 210px !important;
+
+    margin: 0 15px !important;
+  }
+
+}

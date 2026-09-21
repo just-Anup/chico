@@ -25,47 +25,42 @@ const comments = Array.from(
 
 const positions = [
   {
-    bottom: "8%",
+    top: "14%",
     left: "2%",
     rotate: -3,
   },
 
   {
-    bottom: "12%",
-    left: "24%",
-    rotate: 2,
-  },
-
-  {
-    bottom: "7%",
-    left: "48%",
-    rotate: -2,
-  },
-
-  {
-    bottom: "11%",
-    right: "25%",
+    top: "19%",
+    right: "2%",
     rotate: 3,
   },
 
   {
-    bottom: "8%",
-    right: "2%",
-    rotate: -3,
+    top: "42%",
+    left: "1%",
+    rotate: -2,
   },
 
   {
-    bottom: "18%",
-    left: "10%",
+    top: "48%",
+    right: "1%",
     rotate: 2,
   },
 
   {
-    bottom: "16%",
-    right: "10%",
-    rotate: -2,
+    top: "70%",
+    left: "3%",
+    rotate: -3,
+  },
+
+  {
+    top: "73%",
+    right: "3%",
+    rotate: 3,
   },
 ];
+
 
 /* =========================================================
    GET RANDOM POSITION
@@ -104,12 +99,11 @@ function FloatingComment({
   return (
     <motion.div
       className="floating-comment"
-    style={{
-  top: "auto",
-  bottom: position.bottom || "auto",
-  left: position.left || "auto",
-  right: position.right || "auto",
-}}
+      style={{
+        top: position.top,
+        left: position.left,
+        right: position.right,
+      }}
 
       initial={{
         opacity: 0,
