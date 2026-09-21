@@ -158,11 +158,11 @@ export default function About() {
               <div className="about-stat">
 
                 <strong>
-                  2.5+
+                  100M+
                 </strong>
 
                 <span>
-                  Years Experience
+                  Views Gained
                 </span>
 
               </div>
@@ -174,11 +174,11 @@ export default function About() {
               <div className="about-stat">
 
                 <strong>
-                  10K+
+                  1M+
                 </strong>
 
                 <span>
-                  Videos Edited
+                  Subs Gained
                 </span>
 
               </div>

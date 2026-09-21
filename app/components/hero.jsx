@@ -132,9 +132,7 @@ export default function Hero() {
               duration: 0.7,
             }}
           >
-           Built by internet culture, for internet culture. 2.5 years of experience specializing in reaction and entertainment content.
-
-Over the 2.5 years " , we've edited 10,000+ videos across fandoms, reactions, and entertainment content. Whether it's anime, K-dramas, Thai GLs, movies, or K-pop, we know what keeps viewers hooked—and we edit with that in mind.
+           
           </motion.p>
 
 

@@ -13,61 +13,35 @@ import {
 /* =========================================================
    TESTIMONIAL DATA
 ========================================================= */
-
 const testimonials = [
   {
-    name: "",
-    subscribers: "1.17M Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/watch?v=G1s6czJA61w",
+    name: "TRC Reaction TV",
+    subscribers: " 3.14k subscribers",
+    logo: "/creator/TRC.jpg",
+
+    image: "/testimony/testimony1.png",
+
+    videoLink: "https://youtu.be/SYwW6IL85Ys",
+  },
+  {
+    name: "Kris Kilins",
+    subscribers: "46.3k subscribers",
+    logo: "/creator/kris.jpg",
+
+    image: "/testimony/testimony2.png",
+
+    videoLink: "https://youtu.be/BHAKeN3sboA",
+  },
+  {
+    name: "AlsoMij Reacts ",
+    subscribers: "44.4k subscribers ",
+    logo: "/creator/alsomj.jpg",
+
+    image: "/testimony/testimony3.png",
+
+    videoLink: "https://youtu.be/fDK7YHYrFBw",
   },
 
-  {
-    name: "Meesh & Dee",
-    subscribers: "480K Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/",
-  },
-
-  {
-    name: "MrBeast",
-    subscribers: "515M Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/@MrBeast",
-  },
-
-  {
-    name: "Creator Name",
-    subscribers: "120K Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/",
-  },
-
-  {
-    name: "Creator Name",
-    subscribers: "95K Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/",
-  },
-
-  {
-    name: "Creator Name",
-    subscribers: "60K Subscribers",
-    logo: "",
-    video: "",
-    poster: "",
-    channelUrl: "https://www.youtube.com/",
-  },
 ];
 
 
@@ -81,19 +55,14 @@ const channels = [
   {
     name: "AlsoMij Reacts",
     logo: "/creator/alsomj.jpg",
-    url: "https://www.youtube.com/@MrBeast",
+    url: "https://www.youtube.com/@mijreacts",
   },
 
-  {
-    name: "Meesh & Dee",
-    logo: "/creator/meeshdee.jpg",
-    url: "https://www.youtube.com/@Ninja",
-  },
 
   {
     name: "Studio Gek",
     logo: "/creator/studiogek.jpg",
-    url: "https://www.youtube.com/watch?v=lbxRiMUDL6U&list=PLOStVJxe6EJFy59R_Z53hoRKs8xyawSRf&index=71",
+    url: "https://www.youtube.com/@StudioGek",
   },
  
 
@@ -101,7 +70,7 @@ const channels = [
   {
     name: "kriskilins",
     logo: "/creator/kris.jpg",
-    url: "https://www.youtube.com/watch?v=wxPSOrhMOmA&t=1898s",
+    url: "https://www.youtube.com/@kriskilins",
   },
   
   
@@ -109,44 +78,49 @@ const channels = [
   {
     name: "Kaliwali",
     logo: "/creator/kaliwali.jpg",
-    url: "https://www.youtube.com/watch?v=Ok5NpkLWsqU&list=PLHLre5CJMz50&index=2",
+    url: "https://www.youtube.com/@Kaliwali",
   },
   
   {
     name: "Cinema Gek",
     logo: "/creator/cinemagek.jpg",
-    url: "https://www.youtube.com/watch?v=TQ5ZtkPyGfA",
+    url: "https://www.youtube.com/@CinemaGek",
   },
     {
     name: "Meesh & Dee",
     logo: "/creator/meeshdee.jpg",
-   url: "https://www.youtube.com/watch?v=6hcyUZMYTpk&list=PL9qbDV_vOetIHK4GlWV8FNReMCKXNQMB0&index=6",
+   url: "https://www.youtube.com/@MeeshAndDee",
   },
  
   {
     name: "Popcorn Roulette",
     logo: "/creator/popcorn.jpg",
-    url: "https://www.youtube.com/watch?v=E6kzFt5NvOA",
+    url: "https://www.youtube.com/@PopcornRoulette",
   },
   {
     name: "Certane",
     logo: "/creator/certane.jpg",
-    url: "https://www.youtube.com/watch?v=hUW3Vok2Ni0",
+    url: "https://www.youtube.com/@Centane",
   },
   {
     name: "C X B",
     logo: "/creator/cxb.jpg",
-    url: "https://www.youtube.com/watch?v=-MfmKBiI38g",
+    url: "https://www.youtube.com/channel/UCamK-IRB6jFXXjV2GJzf6vw",
   },
   {
     name: "TRC Reaction TV",
     logo: "/creator/TRC.jpg",
-    url: "https://youtu.be/ZCPSKcMT_RI?si=8pGTxyP5yJAgm3Ci",
+    url: "https://www.youtube.com/@TRCReactionsTV",
   },
   {
     name: "Meesh & Dee GL",
     logo: "/creator/meeshdeegl.jpg",
-    url: "https://www.youtube.com/watch?v=KCmklNyb9PE",
+    url: "https://www.youtube.com/@MeeshAndDee",
+  },
+  {
+    name: "dee Reax.jpg",
+    logo: "/creator/dee Reax.jpg",
+    url: "https://www.youtube.com/@dee_reax",
   },
   
 ];
@@ -571,146 +545,103 @@ export default function Testimonials() {
             </AnimatePresence>
 
 
-            {/* =================================================
-                VIDEO
-            ================================================= */}
+       <div className="testimonial-video-row">
 
-            <div className="testimonial-video-row">
-
-              <button
-                className="testimonial-arrow"
-                onClick={previousTestimonial}
-                aria-label="Previous testimonial"
-              >
-
-                <ArrowLeft size={19} />
-
-              </button>
+  {/* PREVIOUS */}
+  <button
+    className="testimonial-arrow"
+    onClick={previousTestimonial}
+    aria-label="Previous testimonial"
+  >
+    <ArrowLeft size={19} />
+  </button>
 
 
-              <div className="testimonial-video-wrapper">
+  {/* IMAGE / VIDEO LINK */}
+  <div className="testimonial-video-wrapper">
 
-                <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait">
 
-                  <motion.div
-                    className="testimonial-video"
+      <motion.a
+        href={current.videoLink}
+        target="_blank"
+        rel="noopener noreferrer"
 
-                    key={`video-${active}`}
+        className="testimonial-video testimonial-image-link"
 
-                    initial={{
-                      opacity: 0,
-                      scale: 0.96,
-                    }}
+        key={`testimonial-image-${active}`}
 
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                    }}
+        initial={{
+          opacity: 0,
+          scale: 0.96,
+        }}
 
-                    exit={{
-                      opacity: 0,
-                      scale: 0.97,
-                    }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+        }}
 
-                    transition={{
-                      duration: 0.35,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  >
+        exit={{
+          opacity: 0,
+          scale: 0.97,
+        }}
 
-                    {hasVideo ? (
+        transition={{
+          duration: 0.35,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
 
-                      <>
+        {/* IMAGE */}
 
-                        <video
-                          ref={videoRef}
-                          src={current.video}
-                          poster={
-                            current.poster ||
-                            undefined
-                          }
-                          controls
-                          playsInline
-                          preload="metadata"
-
-                          onPlay={() =>
-                            setIsPlaying(true)
-                          }
-
-                          onPause={() =>
-                            setIsPlaying(false)
-                          }
-
-                          onEnded={() =>
-                            setIsPlaying(false)
-                          }
-                        />
+        <img
+          src={current.image}
+          alt={`${current.name} testimonial`}
+          className="testimonial-preview-image"
+        />
 
 
-                        {!isPlaying && (
+        {/* DARK OVERLAY */}
 
-                          <button
-                            className="testimonial-play"
-
-                            onClick={startVideo}
-
-                            aria-label={`Play ${current.name} testimonial`}
-                          >
-
-                            <Play
-                              size={26}
-                              fill="currentColor"
-                            />
-
-                          </button>
-
-                        )}
-
-                      </>
-
-                    ) : (
-
-                      <div className="testimonial-video-placeholder">
-
-                        <div className="testimonial-placeholder-icon">
-
-                          <Play
-                            size={24}
-                            fill="currentColor"
-                          />
-
-                        </div>
-
-                        <span>
-                          VIDEO TESTIMONIAL
-                        </span>
-
-                        <strong>
-                          Add your video file
-                        </strong>
-
-                      </div>
-
-                    )}
-
-                  </motion.div>
-
-                </AnimatePresence>
-
-              </div>
+        <div className="testimonial-image-overlay" />
 
 
-              <button
-                className="testimonial-arrow"
-                onClick={nextTestimonial}
-                aria-label="Next testimonial"
-              >
+        {/* PLAY BUTTON */}
 
-                <ArrowRight size={19} />
+        <span
+          className="testimonial-play"
+        >
+          <Play
+            size={26}
+            fill="currentColor"
+          />
+        </span>
 
-              </button>
 
-            </div>
+        {/* WATCH LABEL */}
+
+        <span className="testimonial-watch-label">
+          WATCH TESTIMONIAL
+        </span>
+
+      </motion.a>
+
+    </AnimatePresence>
+
+  </div>
+
+
+  {/* NEXT */}
+
+  <button
+    className="testimonial-arrow"
+    onClick={nextTestimonial}
+    aria-label="Next testimonial"
+  >
+    <ArrowRight size={19} />
+  </button>
+
+</div>
 
 
             {/* =================================================
