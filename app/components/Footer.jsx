@@ -334,6 +334,18 @@ export default function Footer() {
                 <ArrowUpRight size={12} />
 
               </a>
+             <a
+      href="https://discord.com/users/357101038173683722(ch1dor1)"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Discord"
+    >
+
+                Discord
+
+                <ArrowUpRight size={12} />
+
+              </a>
 
             </div>
 

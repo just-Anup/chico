@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* ================= LOGO ================= */}
 
-        <Link
+        <a
           href="/"
           className="logo"
           onClick={() =>
@@ -110,7 +110,7 @@ export default function Navbar() {
             CHICO
           </span>
 
-        </Link>
+        </a>
 
 
         {/* =================================================

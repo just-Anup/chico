@@ -168,13 +168,7 @@ const services = [
 
     videos: [
 
-      {
-        image:
-          "/shortVideo/gek1.jpg",
-
-        link:
-          "https://www.youtube.com/shorts/tUw3TzA5OC4",
-      },
+  
 
       {
         image:
@@ -191,20 +185,12 @@ const services = [
         link:
           "https://youtube.com/shorts/w3yH_obm97U?si=P5Y7yhJ71kt7GH8u",
       },
-
-      {
+          {
         image:
-          "/shortVideo/ralax1.jpeg",
+          "/shortVideo/gek1.jpg",
 
         link:
-          "https://www.tiktok.com/@ralazreact/video/7628939046596709653",
-      },
-      {
-        image:
-          "/shortVideo/gek2.jpg",
-
-        link:
-          "https://www.youtube.com/shorts/oAToSFHuTuo",
+          "https://www.youtube.com/shorts/tUw3TzA5OC4",
       },
       {
         image:
@@ -220,20 +206,14 @@ const services = [
         link:
           "https://youtube.com/shorts/YaYdtzPd_4Q?si=j36Ea5Yi8TIn1r1j",
       },
-      {
+         {
         image:
-          "/shortVideo/ralax2.jpeg",
+          "/shortVideo/ralax1.jpeg",
 
         link:
-          "https://www.tiktok.com/@ralazreact/video/7635979258262867220",
+          "https://www.tiktok.com/@ralazreact/video/7628939046596709653",
       },
-      {
-        image:
-          "/shortVideo/gek3.jpg",
-
-        link:
-          "https://www.youtube.com/shorts/6bren-ePsTM",
-      },
+    
       {
         image:
           "/shortVideo/md3.jpg",
@@ -248,6 +228,13 @@ const services = [
         link:
           "https://youtube.com/shorts/E6sYU57KQFo?si=JQpTAzQaUyVzIdWA",
       },
+        {
+        image:
+          "/shortVideo/gek2.jpg",
+
+        link:
+          "https://www.youtube.com/shorts/oAToSFHuTuo",
+      },
       {
         image:
           "/shortVideo/ralax3.jpeg",
@@ -261,6 +248,20 @@ const services = [
 
         link:
           "https://www.youtube.com/shorts/OY16k_005U0",
+      },
+        {
+        image:
+          "/shortVideo/ralax2.jpeg",
+
+        link:
+          "https://www.tiktok.com/@ralazreact/video/7635979258262867220",
+      },
+      {
+        image:
+          "/shortVideo/gek3.jpg",
+
+        link:
+          "https://www.youtube.com/shorts/6bren-ePsTM",
       },
 
     ],
@@ -912,312 +913,162 @@ function ServiceVisual({
     type === "video-carousel" ||
     type === "shorts-carousel"
   ) {
-
-
     if (!video) {
-
       return null;
-
     }
 
+    const handlePrevious = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      onPrevious?.();
+    };
+
+    const handleNext = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      onNext?.();
+    };
 
     return (
-
       <div
-
         className={
-          type ===
-          "shorts-carousel"
-
+          type === "shorts-carousel"
             ? "service-video-carousel shorts-video-carousel"
-
-            : "service-video-carousel"
+            : "service-video-carousel long-video-carousel"
         }
-
       >
-
-
         <div className="service-video-frame">
-
-
-          {/* =================================================
-              VIDEO IMAGE
-          ================================================= */}
-
           <AnimatePresence mode="wait">
-
-
             <motion.a
-
-              key={
-                video.image
-              }
-
-              href={
-                video.link
-              }
-
+              key={video.image}
+              href={video.link}
               target="_blank"
-
               rel="noopener noreferrer"
-
               className="service-video-link"
-
-
+              aria-label={`Watch ${type === "shorts-carousel" ? "short-form" : "long-form"} video`}
               initial={{
                 opacity: 0,
                 scale: 1.03,
               }}
-
               animate={{
                 opacity: 1,
                 scale: 1,
               }}
-
               exit={{
                 opacity: 0,
                 scale: 0.97,
               }}
-
               transition={{
                 duration: 0.4,
-
-                ease: [
-                  0.22,
-                  1,
-                  0.36,
-                  1,
-                ],
+                ease: [0.22, 1, 0.36, 1],
               }}
-
             >
-
-
               <img
-
-                src={
-                  video.image
-                }
-
+                src={video.image}
                 alt="Video project"
-
                 className="service-video-image"
-
+                draggable="false"
               />
-
-
-              {/* DARK OVERLAY */}
 
               <div className="service-video-overlay" />
 
-
-              {/* CENTER PLAY */}
-
               <motion.div
-
                 className="service-video-play"
-
                 animate={{
-                  scale: [
-                    1,
-                    1.08,
-                    1,
-                  ],
+                  scale: [1, 1.08, 1],
                 }}
-
                 transition={{
                   duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-
               >
-
-                <span>
-                  ▶
-                </span>
-
+                <span>▶</span>
               </motion.div>
 
-
-              {/* WATCH PROJECT */}
-
               <div className="service-video-watch">
-
                 WATCH PROJECT
-
               </div>
-
-
             </motion.a>
-
-
           </AnimatePresence>
 
-
-
-          {/* =================================================
-              PREVIOUS
-          ================================================= */}
-
           {totalVideos > 1 && (
+            <>
+              <button
+                type="button"
+                className="service-video-nav service-video-prev"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={handlePrevious}
+                aria-label="Previous video"
+              >
+                ←
+              </button>
 
-            <button
+              <button
+                type="button"
+                className="service-video-nav service-video-next"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={handleNext}
+                aria-label="Next video"
+              >
+                →
+              </button>
 
-              type="button"
+              <div className="service-video-counter">
+                <span>
+                  {String(videoIndex + 1).padStart(2, "0")}
+                </span>
 
-              className="
-                service-video-nav
-                service-video-prev
-              "
+                <i>/</i>
 
-              onClick={
-                onPrevious
-              }
-
-              aria-label="Previous video"
-
-            >
-
-              ←
-
-            </button>
-
+                <span>
+                  {String(totalVideos).padStart(2, "0")}
+                </span>
+              </div>
+            </>
           )}
-
-
-
-          {/* =================================================
-              NEXT
-          ================================================= */}
-
-          {totalVideos > 1 && (
-
-            <button
-
-              type="button"
-
-              className="
-                service-video-nav
-                service-video-next
-              "
-
-              onClick={
-                onNext
-              }
-
-              aria-label="Next video"
-
-            >
-
-              →
-
-            </button>
-
-          )}
-
-
-
-          {/* =================================================
-              COUNTER
-          ================================================= */}
-
-          {totalVideos > 1 && (
-
-            <div className="service-video-counter">
-
-
-              <span>
-
-                {
-                  String(
-                    videoIndex + 1
-                  ).padStart(
-                    2,
-                    "0"
-                  )
-                }
-
-              </span>
-
-
-              <i>
-                /
-              </i>
-
-
-              <span>
-
-                {
-                  String(
-                    totalVideos
-                  ).padStart(
-                    2,
-                    "0"
-                  )
-                }
-
-              </span>
-
-
-            </div>
-
-          )}
-
-
         </div>
 
-
-
-        {/* =================================================
-            DOTS
-        ================================================= */}
-
         {totalVideos > 1 && (
-
           <div className="service-video-dots">
+            {Array.from({ length: totalVideos }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Go to video ${index + 1}`}
+                className={
+                  index === videoIndex
+                    ? "active"
+                    : ""
+                }
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
 
-
-            {Array.from({
-
-              length:
-                totalVideos,
-
-            }).map(
-              (_, index) => (
-
-                <span
-
-                  key={
-                    index
+                  if (index === videoIndex) {
+                    return;
                   }
 
-                  className={
-                    index ===
-                    videoIndex
+                  const difference =
+                    index - videoIndex;
 
-                      ? "active"
-
-                      : ""
+                  if (difference > 0) {
+                    for (let i = 0; i < difference; i += 1) {
+                      onNext?.();
+                    }
+                  } else {
+                    for (let i = 0; i < Math.abs(difference); i += 1) {
+                      onPrevious?.();
+                    }
                   }
-
-                />
-
-              )
-            )}
-
-
+                }}
+              />
+            ))}
           </div>
-
         )}
-
-
       </div>
-
     );
-
   }
-
 
 
   /* =======================================================

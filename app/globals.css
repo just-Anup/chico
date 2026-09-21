@@ -2567,7 +2567,7 @@ button {
 .graphic-playhead {
   position: absolute;
 
-  top: 5px;
+  top: -1px;
   bottom: 0;
 
   width: 1px;
@@ -3365,9 +3365,8 @@ button {
     letter-spacing: 0.1em;
   }
 
-  .services-visual-wrapper {
-    display: none;
-  }
+  
+
 
 }
 
@@ -14733,6 +14732,504 @@ body {
     height: 34px;
 
     font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   CHICO SERVICES — MOBILE CAROUSEL FINAL FIX
+   Paste this at the VERY BOTTOM of globals.css
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* -------------------------------------------------------
+     SERVICES LAYOUT
+  ------------------------------------------------------- */
+
+  .services-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  /*
+    The old mobile rule hides the visual completely.
+    Override it here.
+  */
+  .services-visual-wrapper {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 4px 0 0 !important;
+  }
+
+  .services-visual {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  /* -------------------------------------------------------
+     VISUAL HEADER
+  ------------------------------------------------------- */
+
+  .visual-top {
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+
+    min-height: 52px;
+
+    padding: 16px 17px 8px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    z-index: 30 !important;
+  }
+
+  .visual-top span {
+    font-size: 7px !important;
+  }
+
+  .visual-top strong {
+    font-size: 11px !important;
+  }
+
+  .visual-status {
+    font-size: 7px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CAROUSEL CONTAINER
+  ------------------------------------------------------- */
+
+  .service-video-carousel {
+    position: relative !important;
+
+    inset: auto !important;
+
+    width: 100% !important;
+
+    padding: 8px 12px 30px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    flex-shrink: 0 !important;
+  }
+
+  .service-video-frame {
+    position: relative !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    aspect-ratio: 16 / 10 !important;
+
+    margin: 0 !important;
+
+    border-radius: 17px !important;
+
+    overflow: hidden !important;
+
+    isolation: isolate !important;
+  }
+
+
+  /* -------------------------------------------------------
+     LONG-FORM IMAGE
+  ------------------------------------------------------- */
+
+  .long-video-carousel .service-video-frame {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .long-video-carousel .service-video-image {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+
+  /* -------------------------------------------------------
+     SHORT-FORM IMAGE
+     Keep the natural vertical-video presentation.
+  ------------------------------------------------------- */
+
+  .shorts-video-carousel {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .shorts-video-carousel .service-video-frame {
+    width: min(100%, 235px) !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    aspect-ratio: 9 / 16 !important;
+
+    margin: 0 auto !important;
+
+    border-radius: 18px !important;
+  }
+
+  .shorts-video-carousel .service-video-image {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CLICKABLE IMAGE
+  ------------------------------------------------------- */
+
+  .service-video-link {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    z-index: 1 !important;
+
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+
+  .service-video-overlay,
+  .service-video-play,
+  .service-video-watch {
+    pointer-events: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     PLAY BUTTON
+  ------------------------------------------------------- */
+
+  .service-video-play {
+    width: 54px !important;
+    height: 54px !important;
+
+    z-index: 5 !important;
+  }
+
+  .service-video-play span {
+    font-size: 14px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     LEFT / RIGHT BUTTONS
+     Put them above the image link so they are ALWAYS
+     clickable on touch screens.
+  ------------------------------------------------------- */
+
+  .service-video-nav {
+    position: absolute !important;
+
+    top: 50% !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    transform: translateY(-50%) !important;
+
+    z-index: 50 !important;
+
+    pointer-events: auto !important;
+
+    touch-action: manipulation !important;
+
+    -webkit-tap-highlight-color: transparent !important;
+
+    border-radius: 50% !important;
+
+    background: rgba(8, 8, 12, 0.82) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+
+    color: #fff !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .service-video-nav:active {
+    background: #8976FD !important;
+
+    border-color: #8976FD !important;
+
+    transform:
+      translateY(-50%)
+      scale(0.94) !important;
+  }
+
+  .service-video-prev {
+    left: 10px !important;
+  }
+
+  .service-video-next {
+    right: 10px !important;
+  }
+
+
+  /* Short-form arrows sit outside the vertical image
+     slightly so the image remains clean. */
+  .shorts-video-carousel .service-video-prev {
+    left: 2px !important;
+  }
+
+  .shorts-video-carousel .service-video-next {
+    right: 2px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     COUNTER
+  ------------------------------------------------------- */
+
+  .service-video-counter {
+    position: absolute !important;
+
+    right: 22px !important;
+    bottom: 42px !important;
+
+    z-index: 45 !important;
+
+    padding: 6px 9px !important;
+
+    font-size: 8px !important;
+
+    pointer-events: none !important;
+  }
+
+  .shorts-video-carousel .service-video-counter {
+    right: 12px !important;
+    bottom: 42px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     DOTS
+  ------------------------------------------------------- */
+
+  .service-video-dots {
+    position: relative !important;
+
+    left: auto !important;
+    bottom: auto !important;
+
+    transform: none !important;
+
+    width: 100% !important;
+
+    min-height: 18px;
+
+    margin: 6px 0 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 5px !important;
+
+    z-index: 30 !important;
+  }
+
+  .service-video-dots button {
+    width: 15px !important;
+    height: 3px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 20px !important;
+
+    background: rgba(255, 255, 255, 0.16) !important;
+
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    transition:
+      width 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease !important;
+  }
+
+  .service-video-dots button.active {
+    width: 28px !important;
+
+    background: #8976FD !important;
+
+    box-shadow:
+      0 0 10px
+      rgba(137, 118, 253, 0.7) !important;
+  }
+
+
+  /* -------------------------------------------------------
+     SERVICE INFORMATION
+     Never overlap the image on mobile.
+  ------------------------------------------------------- */
+
+  .visual-bottom {
+    position: relative !important;
+
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 10px !important;
+
+    padding: 2px 18px 22px !important;
+
+    z-index: 20 !important;
+  }
+
+  .visual-bottom span {
+    font-size: 7px !important;
+  }
+
+  .visual-bottom h3 {
+    margin: 5px 0 0 !important;
+
+    font-size: 20px !important;
+    line-height: 1.05 !important;
+  }
+
+  .visual-bottom p {
+    margin: 0 !important;
+
+    font-size: 10px !important;
+    line-height: 1.65 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     NON-VIDEO MOBILE VISUALS
+  ------------------------------------------------------- */
+
+  .service-graphic {
+    position: relative !important;
+
+    inset: auto !important;
+
+    width: 100% !important;
+
+    min-height: 300px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .timeline-graphic {
+    min-height: 320px !important;
+  }
+
+  .thumbnail-graphic {
+    min-height: 310px !important;
+  }
+
+  .youtube-graphic {
+    min-height: 300px !important;
+  }
+
+  .phone-frame {
+    width: 165px !important;
+    height: 305px !important;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .services-section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .service-video-carousel {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .long-video-carousel .service-video-frame {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .shorts-video-carousel .service-video-frame {
+    width: min(100%, 215px) !important;
+  }
+
+  .service-video-nav {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .shorts-video-carousel .service-video-prev {
+    left: -1px !important;
+  }
+
+  .shorts-video-carousel .service-video-next {
+    right: -1px !important;
+  }
+
+  .visual-bottom {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .visual-bottom h3 {
+    font-size: 18px !important;
   }
 
 }
