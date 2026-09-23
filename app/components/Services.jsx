@@ -66,7 +66,7 @@ const services = [
 
        {
         image:
-          "/longVideo/Meesh & Dee.jpg",
+          "/longVideo/md.jpg",
 
         link:
           "https://www.youtube.com/watch?v=FJLMP8PVEHY",
@@ -132,7 +132,7 @@ const services = [
 
    {
         image:
-          "/longVideo/Meesh & Dee GL.jpg",
+          "/longVideo/mdgl.jpg",
 
         link:
           "https://www.youtube.com/watch?v=-bhhJGSLTa4&t=1911s",
