@@ -13913,20 +13913,24 @@ body {
    PLAY BUTTON
 ========================================================= */
 
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
 .service-video-play {
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  transform:
-    translate(-50%, -50%);
+  /* Center without using transform */
+  margin-left: -36px;
+  margin-top: -36px;
 
   width: 72px;
   height: 72px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -13934,46 +13938,19 @@ body {
 
   color: white;
 
-  background:
-    rgba(
-      137,
-      118,
-      253,
-      0.9
-    );
+  background: rgba(137, 118, 253, 0.9);
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
   box-shadow:
-    0 0 0 8px
-      rgba(
-        137,
-        118,
-        253,
-        0.1
-      ),
+    0 15px 40px rgba(137, 118, 253, 0.35),
+    0 0 0 8px rgba(137, 118, 253, 0.08);
 
-    0 0 40px
-      rgba(
-        137,
-        118,
-        253,
-        0.5
-      );
-
-  backdrop-filter:
-    blur(12px);
-
-  z-index: 8;
+  backdrop-filter: blur(10px);
 
   pointer-events: none;
+
+  transform-origin: center center;
 }
 
 
@@ -15810,6 +15787,543 @@ body {
     min-height: 210px !important;
 
     margin: 0 15px !important;
+  }
+
+}
+
+
+/* =========================================================
+   CHICO — FULLSCREEN YOUTUBE LIGHTBOX
+========================================================= */
+
+.youtube-modal {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 999999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 40px !important;
+
+  background:
+    rgba(0, 0, 0, 0.86) !important;
+
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   PURPLE AMBIENT LIGHT
+========================================================= */
+
+.youtube-modal::before {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+  height: 700px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(137, 118, 253, 0.18) 0%,
+      rgba(137, 118, 253, 0.08) 35%,
+      transparent 72%
+    );
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PLAYER WINDOW
+========================================================= */
+
+.youtube-modal-window {
+  position: relative !important;
+
+  z-index: 2 !important;
+
+  width: 80vw !important;
+  max-width: 1450px !important;
+
+  height: auto !important;
+
+  background: #08080A !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14) !important;
+
+  border-radius: 18px !important;
+
+  overflow: hidden !important;
+
+  box-shadow:
+    0 50px 120px rgba(0, 0, 0, 0.75),
+    0 0 100px rgba(137, 118, 253, 0.15) !important;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.youtube-modal-top {
+  height: 52px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  padding:
+    0 14px 0 20px !important;
+
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09) !important;
+}
+
+
+/* =========================================================
+   NOW PLAYING
+========================================================= */
+
+.youtube-modal-brand {
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 9px !important;
+
+  color:
+    rgba(255, 255, 255, 0.55) !important;
+
+  font-size: 9px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing:
+    0.18em !important;
+}
+
+
+.youtube-modal-dot {
+  width: 7px !important;
+  height: 7px !important;
+
+  flex-shrink: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: #8976FD !important;
+
+  box-shadow:
+    0 0 15px
+    rgba(137, 118, 253, 0.9) !important;
+
+  animation:
+    youtube-modal-pulse
+    1.8s ease-in-out
+    infinite !important;
+}
+
+
+@keyframes youtube-modal-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.youtube-modal-close {
+  width: 36px !important;
+  height: 36px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10) !important;
+
+  border-radius: 9px !important;
+
+  background:
+    rgba(255, 255, 255, 0.06) !important;
+
+  color: white !important;
+
+  font-size: 25px !important;
+
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    all 0.25s ease !important;
+}
+
+
+.youtube-modal-close:hover {
+  background: #8976FD !important;
+
+  border-color: #8976FD !important;
+
+  transform: rotate(90deg) scale(1.05) !important;
+}
+
+
+/* =========================================================
+   VIDEO AREA
+========================================================= */
+
+.youtube-modal-video {
+  position: relative !important;
+
+  width: 100% !important;
+
+  aspect-ratio: 16 / 9 !important;
+
+  background: #000 !important;
+
+  overflow: hidden !important;
+}
+
+
+.youtube-modal-video iframe {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block !important;
+
+  border: 0 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
+.youtube-modal-bottom {
+  min-height: 58px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  padding:
+    10px 20px !important;
+
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.youtube-modal-bottom > div:first-child {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  gap: 3px !important;
+}
+
+
+.youtube-modal-bottom > div:first-child span {
+  color: #8976FD !important;
+
+  font-size: 8px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing:
+    0.18em !important;
+}
+
+
+.youtube-modal-bottom strong {
+  color:
+    rgba(255, 255, 255, 0.85) !important;
+
+  font-size: 13px !important;
+
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   ESC TO CLOSE
+========================================================= */
+
+.youtube-modal-hint {
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 7px !important;
+
+  color:
+    rgba(255, 255, 255, 0.35) !important;
+
+  font-size: 8px !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing:
+    0.12em !important;
+}
+
+
+.youtube-modal-hint span {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 28px !important;
+  height: 22px !important;
+
+  padding:
+    0 6px !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.13) !important;
+
+  border-radius: 5px !important;
+
+  color:
+    rgba(255, 255, 255, 0.55) !important;
+
+  font-size: 8px !important;
+}
+
+
+/* =========================================================
+   ERROR MODAL
+========================================================= */
+
+.youtube-modal-error {
+  position: relative !important;
+
+  z-index: 2 !important;
+
+  width: min(430px, 90vw) !important;
+
+  padding: 50px 40px !important;
+
+  text-align: center !important;
+
+  background: #0b0b10 !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12) !important;
+
+  border-radius: 18px !important;
+
+  box-shadow:
+    0 40px 100px
+    rgba(0, 0, 0, 0.7) !important;
+}
+
+
+.youtube-error-icon {
+  width: 64px !important;
+  height: 64px !important;
+
+  margin:
+    0 auto 22px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  background:
+    rgba(137, 118, 253, 0.12) !important;
+
+  color: #8976FD !important;
+
+  font-size: 22px !important;
+}
+
+
+.youtube-modal-error h3 {
+  margin:
+    0 0 10px !important;
+
+  color: white !important;
+
+  font-size: 24px !important;
+}
+
+
+.youtube-modal-error p {
+  margin: 0 !important;
+
+  color:
+    rgba(255, 255, 255, 0.5) !important;
+
+  font-size: 14px !important;
+
+  line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   BUTTON SHOULD LOOK LIKE THE VIDEO CONTAINER
+========================================================= */
+
+.service-video-link {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: inherit;
+
+  font: inherit;
+
+  text-align: inherit;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  -webkit-appearance: none;
+}
+
+
+.service-video-link:focus-visible {
+  outline:
+    2px solid #8976FD;
+
+  outline-offset: -2px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .youtube-modal {
+    padding: 20px !important;
+  }
+
+  .youtube-modal-window {
+    width: 94vw !important;
+
+    border-radius: 14px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .youtube-modal {
+    padding: 12px !important;
+  }
+
+  .youtube-modal-window {
+    width: 96vw !important;
+
+    border-radius: 11px !important;
+  }
+
+  .youtube-modal-top {
+    height: 46px !important;
+
+    padding:
+      0 10px 0 14px !important;
+  }
+
+  .youtube-modal-close {
+    width: 31px !important;
+    height: 31px !important;
+
+    font-size: 21px !important;
+  }
+
+  .youtube-modal-bottom {
+    min-height: 50px !important;
+
+    padding:
+      8px 12px !important;
+  }
+
+  .youtube-modal-hint {
+    display: none !important;
+  }
+
+  .youtube-modal-brand {
+    font-size: 8px !important;
   }
 
 }

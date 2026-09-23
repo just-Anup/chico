@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useState,
+  useEffect,
+} from "react";
 
 import {
   motion,
@@ -52,48 +55,101 @@ const services = [
         link:
           "https://www.youtube.com/watch?v=lbxRiMUDL6U&list=PLOStVJxe6EJFy59R_Z53hoRKs8xyawSRf&index=71",
       },
-      {
-        image:
-          "/longVideo/kriskilins.jpg",
 
-        link:
-          "https://www.youtube.com/watch?v=wxPSOrhMOmA&t=1898s",
-      },
-      {
-        image:
-          "/longVideo/Kaliwali.jpg",
-
-        link:
-          "https://www.youtube.com/watch?v=Ok5NpkLWsqU&list=PLHLre5CJMz50&index=2",
-      },
-      {
+       {
         image:
           "/longVideo/Cinema Gek.jpg",
 
         link:
           "https://www.youtube.com/watch?v=TQ5ZtkPyGfA",
       },
-      {
+
+       {
         image:
           "/longVideo/Meesh & Dee.jpg",
 
         link:
-          "https://www.youtube.com/watch?v=6hcyUZMYTpk&list=PL9qbDV_vOetIHK4GlWV8FNReMCKXNQMB0&index=6",
+          "https://www.youtube.com/watch?v=FJLMP8PVEHY",
       },
-      {
+
+       {
         image:
-          "/longVideo/Popcorn Roulette.jpg",
+          "/longVideo/Kaliwali.jpg",
 
         link:
-          "https://www.youtube.com/watch?v=E6kzFt5NvOA",
+          "https://www.youtube.com/watch?v=Ok5NpkLWsqU&list=PLHLre5CJMz50&index=2",
       },
-      {
+
+   {
         image:
           "/longVideo/Certane.jpg",
 
         link:
           "https://www.youtube.com/watch?v=hUW3Vok2Ni0",
       },
+     
+ {
+        image:
+          "/longVideo/Popcorn Roulette.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=E6kzFt5NvOA",
+      },
+
+       {
+        image:
+          "/longVideo/cara&prez.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=1dVvK6zPS04&t=392s",
+      },
+       {
+        image:
+          "/longVideo/gekpop.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=liaxrAiaNXk&t=398s",
+      },
+
+
+         {
+        image:
+          "/longVideo/kriskilins.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=wxPSOrhMOmA&t=1898s",
+      },
+
+
+       {
+        image:
+          "/longVideo/alsomij.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=liaxrAiaNXk&t=398s",
+      },
+     
+
+   {
+        image:
+          "/longVideo/Meesh & Dee GL.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=-bhhJGSLTa4&t=1911s",
+      },
+
+
+        {
+        image:
+          "/longVideo/yogii.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=F9RgfM3h7ro&t=209s",
+      },
+     
+     
+     
+    
       {
         image:
           "/longVideo/C X B.jpg",
@@ -101,29 +157,22 @@ const services = [
         link:
           "https://www.youtube.com/watch?v=-MfmKBiI38g",
       },
-      {
+     
+      
+      // {
+      //   image:
+      //   "/creator/dee Reax.jpg",
+      //   link:
+      //     "https://www.youtube.com/@dee_reax",
+      // },
+
+       {
         image:
           "/longVideo/TRC Reaction TV.jpg",
 
         link:
           "https://youtu.be/ZCPSKcMT_RI?si=8pGTxyP5yJAgm3Ci",
       },
-      {
-        image:
-          "/longVideo/Meesh & Dee GL.jpg",
-
-        link:
-          "https://www.youtube.com/watch?v=KCmklNyb9PE",
-      },
-      {
-        image:
-        "/creator/dee Reax.jpg",
-
-
-        link:
-          "https://www.youtube.com/@dee_reax",
-      },
-
      
 
     ],
@@ -335,6 +384,7 @@ export default function Services() {
     setActive,
   ] = useState(0);
 
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   /* =======================================================
      VIDEO INDEX FOR EACH CAROUSEL
@@ -798,34 +848,16 @@ export default function Services() {
                     DYNAMIC VISUAL
                 ================================================= */}
 
-                <ServiceVisual
+         <ServiceVisual
 
-                  type={
-                    current.visual
-                  }
-
-                  video={
-                    currentVideo
-                  }
-
-                  videoIndex={
-                    currentVideoIndex
-                  }
-
-                  totalVideos={
-                    current.videos?.length ||
-                    0
-                  }
-
-                  onNext={
-                    nextVideo
-                  }
-
-                  onPrevious={
-                    previousVideo
-                  }
-
-                />
+  type={current.visual}
+  video={currentVideo}
+  videoIndex={currentVideoIndex}
+  totalVideos={current.videos?.length || 0}
+  onNext={nextVideo}
+  onPrevious={previousVideo}
+  onVideoClick={() => setSelectedVideo(currentVideo)}
+/>
 
 
 
@@ -884,6 +916,14 @@ export default function Services() {
 
       </div>
 
+      <AnimatePresence>
+        {selectedVideo && (
+          <YouTubeModal
+            video={selectedVideo}
+            onClose={() => setSelectedVideo(null)}
+          />
+        )}
+      </AnimatePresence>
 
     </section>
 
@@ -897,19 +937,13 @@ export default function Services() {
 ========================================================= */
 
 function ServiceVisual({
-
   type,
-
   video,
-
   videoIndex,
-
   totalVideos,
-
   onNext,
-
   onPrevious,
-
+  onVideoClick,
 }) {
 
 
@@ -947,17 +981,17 @@ function ServiceVisual({
       >
         <div className="service-video-frame">
           <AnimatePresence mode="wait">
-            <motion.a
-              key={video.image}
-              href={video.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="service-video-link"
-              aria-label={`Watch ${type === "shorts-carousel" ? "short-form" : "long-form"} video`}
-              initial={{
-                opacity: 0,
-                scale: 1.03,
-              }}
+           <motion.button
+  key={video.image}
+  type="button"
+  className="service-video-link"
+  onClick={onVideoClick}
+  aria-label={`Play ${
+    type === "shorts-carousel"
+      ? "short-form"
+      : "long-form"
+  } video`}
+             
               animate={{
                 opacity: 1,
                 scale: 1,
@@ -997,7 +1031,7 @@ function ServiceVisual({
               <div className="service-video-watch">
                 WATCH PROJECT
               </div>
-            </motion.a>
+            </motion.button>
           </AnimatePresence>
 
           {totalVideos > 1 && (
@@ -1584,6 +1618,382 @@ function ServiceVisual({
 
   );
 
+}
+
+/* =========================================================
+   YOUTUBE FLOATING PLAYER
+========================================================= */
+
+function YouTubeModal({
+  video,
+  onClose,
+}) {
+
+  const getYouTubeId = (url) => {
+
+    if (!url) {
+      return null;
+    }
+
+    try {
+
+      const parsedUrl = new URL(url);
+
+      /* youtube.com/watch?v=VIDEO_ID */
+
+      if (
+        parsedUrl.hostname.includes("youtube.com") &&
+        parsedUrl.searchParams.get("v")
+      ) {
+        return parsedUrl.searchParams.get("v");
+      }
+
+
+      /* youtube.com/shorts/VIDEO_ID */
+
+      if (
+        parsedUrl.hostname.includes("youtube.com") &&
+        parsedUrl.pathname.startsWith("/shorts/")
+      ) {
+        return parsedUrl.pathname
+          .split("/shorts/")[1]
+          ?.split("/")[0];
+      }
+
+
+      /* youtu.be/VIDEO_ID */
+
+      if (
+        parsedUrl.hostname === "youtu.be"
+      ) {
+        return parsedUrl.pathname
+          .replace("/", "")
+          .split("?")[0];
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Invalid video URL:",
+        error
+      );
+
+    }
+
+    return null;
+  };
+
+
+  const getStartTime = (url) => {
+
+    if (!url) {
+      return 0;
+    }
+
+    try {
+
+      const parsedUrl = new URL(url);
+
+      const time =
+        parsedUrl.searchParams.get("t");
+
+      if (!time) {
+        return 0;
+      }
+
+      /* 1898s */
+
+      if (time.endsWith("s")) {
+        return parseInt(
+          time.replace("s", ""),
+          10
+        ) || 0;
+      }
+
+      /* 31m38s */
+
+      if (
+        time.includes("m") ||
+        time.includes("h")
+      ) {
+
+        let seconds = 0;
+
+        const hours =
+          time.match(/(\d+)h/);
+
+        const minutes =
+          time.match(/(\d+)m/);
+
+        const secs =
+          time.match(/(\d+)s/);
+
+        if (hours) {
+          seconds +=
+            parseInt(hours[1], 10) * 3600;
+        }
+
+        if (minutes) {
+          seconds +=
+            parseInt(minutes[1], 10) * 60;
+        }
+
+        if (secs) {
+          seconds +=
+            parseInt(secs[1], 10);
+        }
+
+        return seconds;
+      }
+
+      return parseInt(time, 10) || 0;
+
+    } catch {
+      return 0;
+    }
+  };
+
+
+  const videoId =
+    getYouTubeId(video?.link);
+
+  const startTime =
+    getStartTime(video?.link);
+
+
+  /* ---------------------------------------------------------
+     Close with ESC
+  --------------------------------------------------------- */
+
+  useEffect(() => {
+
+    const handleKeyDown = (event) => {
+
+      if (event.key === "Escape") {
+        onClose();
+      }
+
+    };
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+
+  }, [onClose]);
+
+
+  /* ---------------------------------------------------------
+     Prevent background scrolling
+  --------------------------------------------------------- */
+
+  useEffect(() => {
+
+    const originalOverflow =
+      document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow =
+        originalOverflow;
+    };
+
+  }, []);
+
+
+  if (!videoId) {
+
+    return (
+      <motion.div
+        className="youtube-modal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+
+        <div
+          className="youtube-modal-error"
+          onClick={(event) =>
+            event.stopPropagation()
+          }
+        >
+
+          <button
+            type="button"
+            className="youtube-modal-close"
+            onClick={onClose}
+          >
+            ×
+          </button>
+
+          <div className="youtube-error-icon">
+            ▶
+          </div>
+
+          <h3>
+            Video unavailable
+          </h3>
+
+          <p>
+            This project does not have a
+            YouTube video URL yet.
+          </p>
+
+        </div>
+
+      </motion.div>
+    );
+  }
+
+
+  const embedUrl =
+    `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1${
+      startTime > 0
+        ? `&start=${startTime}`
+        : ""
+    }`;
+
+
+  return (
+    <motion.div
+      className="youtube-modal"
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+      onMouseDown={onClose}
+    >
+
+      {/* BACKDROP GLOW */}
+
+      <div className="youtube-modal-glow" />
+
+
+      {/* PLAYER */}
+
+      <motion.div
+        className="youtube-modal-window"
+        initial={{
+          opacity: 0,
+          scale: 0.88,
+          y: 30,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          scale: 0.92,
+          y: 20,
+        }}
+        transition={{
+          duration: 0.45,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        onMouseDown={(event) =>
+          event.stopPropagation()
+        }
+      >
+
+        {/* TOP BAR */}
+
+        <div className="youtube-modal-top">
+
+          <div className="youtube-modal-brand">
+
+            <span className="youtube-modal-dot" />
+
+            <span>
+              NOW PLAYING
+            </span>
+
+          </div>
+
+
+          <button
+            type="button"
+            className="youtube-modal-close"
+            onClick={onClose}
+            aria-label="Close video"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        {/* VIDEO */}
+
+        <div className="youtube-modal-video">
+
+          <iframe
+            src={embedUrl}
+            title="YouTube video player"
+            allow="
+              autoplay;
+              encrypted-media;
+              picture-in-picture;
+              fullscreen
+            "
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+
+        </div>
+
+
+        {/* BOTTOM INFO */}
+
+        <div className="youtube-modal-bottom">
+
+          <div>
+
+            <span>
+              CHICO EDITS
+            </span>
+
+            <strong>
+              Watch Project
+            </strong>
+
+          </div>
+
+
+          <div className="youtube-modal-hint">
+
+            <span>
+              ESC
+            </span>
+
+            TO CLOSE
+
+          </div>
+
+        </div>
+
+      </motion.div>
+
+    </motion.div>
+  );
 }
 /*
   MOBILE VISUAL NOTE:

@@ -55,7 +55,8 @@ const channels = [
   {
     name: "AlsoMij Reacts",
     logo: "/creator/alsomj.jpg",
-    url: "https://www.youtube.com/@mijreacts",
+    url: "https://www.youtube.com/@mijreacts", 
+    // 44.4k subscribers
   },
 
 
@@ -63,6 +64,7 @@ const channels = [
     name: "Studio Gek",
     logo: "/creator/studiogek.jpg",
     url: "https://www.youtube.com/@StudioGek",
+    // 360k subscribers
   },
  
 
@@ -71,6 +73,7 @@ const channels = [
     name: "kriskilins",
     logo: "/creator/kris.jpg",
     url: "https://www.youtube.com/@kriskilins",
+    // 46.3k subscribers
   },
   
   
@@ -79,48 +82,76 @@ const channels = [
     name: "Kaliwali",
     logo: "/creator/kaliwali.jpg",
     url: "https://www.youtube.com/@Kaliwali",
+    // 114k subscribers
   },
   
   {
     name: "Cinema Gek",
     logo: "/creator/cinemagek.jpg",
     url: "https://www.youtube.com/@CinemaGek",
+    // 149k subscribers
   },
     {
     name: "Meesh & Dee",
     logo: "/creator/meeshdee.jpg",
    url: "https://www.youtube.com/@MeeshAndDee",
+  //  118k subscribers
   },
  
   {
     name: "Popcorn Roulette",
     logo: "/creator/popcorn.jpg",
-    url: "https://www.youtube.com/@PopcornRoulette",
+    url: "https://www.youtube.com/@popcornroulettereactions",
+    // 100k subscribers
   },
   {
     name: "Certane",
     logo: "/creator/certane.jpg",
     url: "https://www.youtube.com/@Centane",
+    // 112k subscribers
   },
   {
     name: "C X B",
     logo: "/creator/cxb.jpg",
     url: "https://www.youtube.com/channel/UCamK-IRB6jFXXjV2GJzf6vw",
+    // 6.6k subscribers
   },
   {
     name: "TRC Reaction TV",
     logo: "/creator/TRC.jpg",
     url: "https://www.youtube.com/@TRCReactionsTV",
+    // 3.14k subscribers
   },
   {
     name: "Meesh & Dee GL",
     logo: "/creator/meeshdeegl.jpg",
-    url: "https://www.youtube.com/@MeeshAndDee",
+    url: "https://www.youtube.com/@MeeshDeeGL",
+    // 32k subscribers
   },
   {
     name: "dee Reax.jpg",
     logo: "/creator/dee Reax.jpg",
     url: "https://www.youtube.com/@dee_reax",
+    // 6k subscribers
+  },
+  {
+    name: "Gek POP",
+    logo: "/creator/geekpop.jpg",
+    url: "https://www.youtube.com/@GeK-Pop",
+    // 58.8k subscribers
+  },
+ 
+  {
+    name: "yogiiWaifu",
+    logo: "/creator/yogii.jpg",
+    url: "https://www.youtube.com/@YogiiWaifu",
+    // 22.7k subscribers
+  },
+  {
+    name: "Cara & prez Reacts",
+    logo: "/creator/cara&prez.jpg",
+    url: "https://www.youtube.com/@CaraPrezReacts",
+    // 91k subscribers
   },
   
 ];
