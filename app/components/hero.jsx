@@ -1,42 +1,283 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowDown,
   Play,
-  Scissors,
   Sparkles,
-  Waves,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+
+
+/* =========================================================
+   COMMENT IMAGES
+   Put your comment images inside:
+
+   public/comments/
+
+   comment-01.webp
+   comment-02.webp
+   comment-03.webp
+   ...
+   comment-32.png
+========================================================= */
+
+/* =========================================================
+   COMMENT IMAGES
+========================================================= */
+
+const comments = Array.from(
+  { length: 19 },
+  (_, index) => ({
+    id: index,
+    image: `/comments/comment-${String(index + 1).padStart(2, "0")}.webp`,
+  })
+);
+
+
+/* =========================================================
+   COMMENT POSITIONS
+========================================================= */
+
+const commentPositions = [
+  {
+    id: "top-left",
+    style: {
+      top: "11%",
+      left: "-2%",
+    },
+  },
+
+  {
+    id: "top-right",
+    style: {
+      top: "11%",
+      right: "-2%",
+    },
+  },
+
+  {
+    id: "bottom-left",
+    style: {
+      bottom: "11%",
+      left: "-2%",
+    },
+  },
+
+  {
+    id: "bottom-right",
+    style: {
+      bottom: "11%",
+      right: "-2%",
+    },
+  },
+];
+
+
+/* =========================================================
+   SINGLE HERO COMMENT
+========================================================= */
+
+function HeroComment({
+  comment,
+  position,
+  delay = 0,
+  onHoverStart,
+  onHoverEnd,
+}) {
+  return (
+<motion.div
+  style={{
+    position: "absolute",
+    ...position.style,
+    width: "125px",
+    zIndex: 9999,
+    pointerEvents: "auto",
+  }}
+
+  onMouseEnter={onHoverStart}
+  onMouseLeave={onHoverEnd}
+
+  initial={{
+    opacity: 0,
+    scale: 0.65,
+  }}
+
+  animate={{
+    opacity: 1,
+    scale: 1,
+    y: [0, -5, 0],
+  }}
+
+  exit={{
+    opacity: 0,
+    scale: 0.7,
+  }}
+
+  transition={{
+    opacity: {
+      duration: 0.3,
+      delay,
+    },
+
+    scale: {
+      duration: 0.45,
+      delay,
+      ease: [0.22, 1, 0.36, 1],
+    },
+
+    y: {
+      duration: 3.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: delay + 0.3,
+    },
+  }}
+>
+
+      {/* Glow */}
+      <div
+        style={{
+          position: "absolute",
+          inset: "15%",
+          borderRadius: "50%",
+          background:
+            "rgba(137,118,253,0.25)",
+          filter: "blur(20px)",
+          zIndex: -1,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Comment image */}
+  <motion.img
+  src={comment.image}
+  alt="Creator comment"
+  draggable="false"
+
+  style={{
+    display: "block",
+    width: "100%",
+    height: "auto",
+    cursor: "pointer",
+    borderRadius: "10px",
+    userSelect: "none",
+    WebkitUserDrag: "none",
+
+    filter:
+      "drop-shadow(0 12px 25px rgba(0,0,0,0.16))",
+  }}
+
+  whileHover={{
+    scale: 2.2,
+  }}
+
+  transition={{
+    duration: 0.35,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+/>
+
+    </motion.div>
+  );
+}
+
+
+/* =========================================================
+   MAIN HERO
+========================================================= */
 
 export default function Hero() {
+
+  const [commentSet, setCommentSet] = useState([
+    0,
+    1,
+    2,
+    3,
+  ]);
+
+const [isCommentHovered, setIsCommentHovered] = useState(false);
+/* =========================================================
+   CHANGE COMMENTS EVERY 2 SECONDS
+   PAUSE WHEN USER HOVERS
+========================================================= */
+
+useEffect(() => {
+
+  if (isCommentHovered) {
+    return;
+  }
+
+  const timer = setInterval(() => {
+
+    setCommentSet((current) => {
+
+      return current.map(
+        (index) =>
+          (index + 4) % comments.length
+      );
+
+    });
+
+  }, 3000);
+
+  return () => {
+    clearInterval(timer);
+  };
+
+}, [isCommentHovered]);
+
   return (
     <section className="hero">
 
-      {/* Ambient decorative elements */}
+      {/* ==================================================
+          AMBIENT DECORATIVE ELEMENTS
+      ================================================== */}
+
       <div className="hero-grid" />
+
       <div className="hero-glow hero-glow-one" />
+
       <div className="hero-glow hero-glow-two" />
+
 
       <div className="hero-container">
 
-        {/* ================= LEFT ================= */}
+
+        {/* ==================================================
+            LEFT
+        ================================================== */}
 
         <div className="hero-content">
 
+
+          {/* ================= EYEBROW ================= */}
+
           <motion.div
             className="hero-eyebrow"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
           >
+
             <span className="eyebrow-dot" />
 
             VIDEO EDITING STUDIO
 
             <span className="eyebrow-line" />
+
           </motion.div>
 
+
+          {/* ================= TITLE ================= */}
 
           <motion.h1
             className="hero-title"
@@ -58,19 +299,24 @@ export default function Hero() {
                   opacity: 0,
                   y: 70,
                 },
+
                 visible: {
                   opacity: 1,
                   y: 0,
+
                   transition: {
                     duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [
+                      0.22,
+                      1,
+                      0.36,
+                      1,
+                    ],
                   },
                 },
               }}
             >
               We turn
-
-
             </motion.span>
 
 
@@ -80,12 +326,19 @@ export default function Hero() {
                   opacity: 0,
                   y: 70,
                 },
+
                 visible: {
                   opacity: 1,
                   y: 0,
+
                   transition: {
                     duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [
+                      0.22,
+                      1,
+                      0.36,
+                      1,
+                    ],
                   },
                 },
               }}
@@ -101,12 +354,19 @@ export default function Hero() {
                   opacity: 0,
                   y: 70,
                 },
+
                 visible: {
                   opacity: 1,
                   y: 0,
+
                   transition: {
                     duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [
+                      0.22,
+                      1,
+                      0.36,
+                      1,
+                    ],
                   },
                 },
               }}
@@ -116,6 +376,8 @@ export default function Hero() {
 
           </motion.h1>
 
+
+          {/* ================= DESCRIPTION ================= */}
 
           <motion.p
             className="hero-description"
@@ -132,9 +394,10 @@ export default function Hero() {
               duration: 0.7,
             }}
           >
-           
           </motion.p>
 
+
+          {/* ================= BUTTON ================= */}
 
           <motion.div
             className="hero-actions"
@@ -156,15 +419,22 @@ export default function Hero() {
               href="#services"
               className="hero-secondary-button"
             >
+
               <span className="hero-play-icon">
-                <Play size={13} fill="currentColor" />
+                <Play
+                  size={13}
+                  fill="currentColor"
+                />
               </span>
 
               View Our Work
+
             </a>
 
           </motion.div>
 
+
+          {/* ================= BOTTOM NOTE ================= */}
 
           <motion.div
             className="hero-bottom-note"
@@ -179,18 +449,20 @@ export default function Hero() {
               duration: 0.8,
             }}
           >
+
             <Sparkles size={15} />
 
             <span>
               Built for creators who refuse to be average.
             </span>
+
           </motion.div>
 
         </div>
 
 
         {/* ==================================================
-            RIGHT — NEW CINEMATIC EDITING ANIMATION
+            RIGHT — CINEMATIC EDITING ANIMATION
         ================================================== */}
 
         <motion.div
@@ -208,17 +480,34 @@ export default function Hero() {
           transition={{
             duration: 1.2,
             delay: 0.25,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [
+              0.22,
+              1,
+              0.36,
+              1,
+            ],
           }}
         >
 
-          {/* Large cinematic glow */}
+
+          {/* ==================================================
+              CINEMATIC GLOW
+          ================================================== */}
 
           <motion.div
             className="hero-cinema-glow"
             animate={{
-              scale: [1, 1.15, 1],
-              opacity: [0.35, 0.55, 0.35],
+              scale: [
+                1,
+                1.15,
+                1,
+              ],
+
+              opacity: [
+                0.35,
+                0.55,
+                0.35,
+              ],
             }}
             transition={{
               duration: 5,
@@ -228,7 +517,9 @@ export default function Hero() {
           />
 
 
-          {/* Decorative orbital line */}
+          {/* ==================================================
+              ORBIT
+          ================================================== */}
 
           <motion.div
             className="hero-cinema-orbit"
@@ -241,40 +532,72 @@ export default function Hero() {
               ease: "linear",
             }}
           >
+
             <span />
+
           </motion.div>
 
 
-          {/* =========================================
-              FLOATING RAW LABEL
-          ========================================= */}
+          {/* ==================================================
+              FOUR FLOATING COMMENTS
+          ================================================== */}
+{/* ==================================================
+    FOUR FLOATING COMMENTS
+================================================== */}
 
-          <motion.div
-            className="hero-cinema-label hero-cinema-raw"
-            animate={{
-              y: [-8, 8, -8],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <span className="hero-cinema-status-dot" />
-            RAW FOOTAGE
-          </motion.div>
+<div className="hero-comments-layer">
+
+  <AnimatePresence mode="sync">
+
+    {commentPositions.map(
+      (position, index) => {
+
+        const comment =
+          comments[commentSet[index]];
+
+        return (
+        <HeroComment
+  key={`${position.id}-${comment.id}`}
+  comment={comment}
+  position={position}
+  delay={index * 0.08}
+  onHoverStart={() => setIsCommentHovered(true)}
+  onHoverEnd={() => setIsCommentHovered(false)}
+/>
+        );
+
+      }
+    )}
+
+  </AnimatePresence>
+
+</div>
 
 
-          {/* =========================================
+          {/* ==================================================
               MAIN CINEMATIC EDITOR
-          ========================================= */}
+          ================================================== */}
 
           <motion.div
             className="hero-cinema-editor"
             animate={{
-              y: [-8, 8, -8],
-              rotateX: [1, 2, 1],
-              rotateY: [-2, -4, -2],
+              y: [
+                -8,
+                8,
+                -8,
+              ],
+
+              rotateX: [
+                1,
+                2,
+                1,
+              ],
+
+              rotateY: [
+                -2,
+                -4,
+                -2,
+              ],
             }}
             transition={{
               duration: 6,
@@ -283,19 +606,24 @@ export default function Hero() {
             }}
           >
 
-            {/* Editor top bar */}
+
+            {/* ================= EDITOR TOP BAR ================= */}
 
             <div className="hero-cinema-topbar">
 
               <div className="hero-cinema-window-buttons">
+
                 <span />
                 <span />
                 <span />
+
               </div>
+
 
               <div className="hero-cinema-file">
                 CREATOR_PROJECT / FINAL_EDIT
               </div>
+
 
               <div className="hero-cinema-resolution">
                 4K
@@ -304,19 +632,21 @@ export default function Hero() {
             </div>
 
 
-            {/* =====================================
+            {/* ==================================================
                 VIDEO PREVIEW
-            ===================================== */}
+            ================================================== */}
 
             <div className="hero-cinema-preview">
 
-              {/* Background image-like composition */}
+
+              {/* Background composition */}
 
               <div className="hero-cinema-preview-bg">
 
                 <div className="hero-cinema-light-one" />
 
                 <div className="hero-cinema-light-two" />
+
 
                 <div className="hero-cinema-person">
 
@@ -342,6 +672,7 @@ export default function Hero() {
                   FRAME 0248
                 </span>
 
+
                 <strong>
                   TELL
                   <br />
@@ -356,10 +687,17 @@ export default function Hero() {
               <motion.div
                 className="hero-cinema-play"
                 animate={{
-                  scale: [1, 1.07, 1],
+                  scale: [
+                    1,
+                    1.07,
+                    1,
+                  ],
+
                   boxShadow: [
                     "0 0 0 rgba(137,118,253,0)",
+
                     "0 0 35px rgba(137,118,253,.4)",
+
                     "0 0 0 rgba(137,118,253,0)",
                   ],
                 }}
@@ -369,10 +707,12 @@ export default function Hero() {
                   ease: "easeInOut",
                 }}
               >
+
                 <Play
                   size={22}
                   fill="currentColor"
                 />
+
               </motion.div>
 
 
@@ -396,11 +736,12 @@ export default function Hero() {
             </div>
 
 
-            {/* =====================================
+            {/* ==================================================
                 TIMELINE
-            ===================================== */}
+            ================================================== */}
 
             <div className="hero-cinema-timeline">
+
 
               <div className="hero-cinema-timeline-header">
 
@@ -429,9 +770,11 @@ export default function Hero() {
                   "30",
                   "35",
                 ].map((number) => (
+
                   <span key={number}>
                     {number}
                   </span>
+
                 ))}
 
               </div>
@@ -445,12 +788,17 @@ export default function Hero() {
                   V1
                 </div>
 
+
                 <div className="hero-cinema-clips">
 
                   <motion.div
                     className="hero-cinema-clip hero-cinema-clip-main"
                     animate={{
-                      opacity: [0.7, 1, 0.7],
+                      opacity: [
+                        0.7,
+                        1,
+                        0.7,
+                      ],
                     }}
                     transition={{
                       duration: 2,
@@ -460,13 +808,16 @@ export default function Hero() {
                     A-ROLL
                   </motion.div>
 
+
                   <div className="hero-cinema-clip hero-cinema-clip-two">
                     B-ROLL
                   </div>
 
+
                   <div className="hero-cinema-clip hero-cinema-clip-three">
                     CUT
                   </div>
+
 
                   <div className="hero-cinema-clip hero-cinema-clip-four">
                     FINAL
@@ -485,6 +836,7 @@ export default function Hero() {
                   A1
                 </div>
 
+
                 <div className="hero-cinema-waveform">
 
                   {Array.from({
@@ -495,23 +847,48 @@ export default function Hero() {
                       key={index}
                       animate={{
                         height: [
-                          `${18 + Math.abs(
-                            Math.sin(index * 1.4)
-                          ) * 30}%`,
-                          `${35 + Math.abs(
-                            Math.sin(index * 1.8)
-                          ) * 55}%`,
-                          `${18 + Math.abs(
-                            Math.sin(index * 1.4)
-                          ) * 30}%`,
+                          `${
+                            18 +
+                            Math.abs(
+                              Math.sin(
+                                index * 1.4
+                              )
+                            ) *
+                              30
+                          }%`,
+
+                          `${
+                            35 +
+                            Math.abs(
+                              Math.sin(
+                                index * 1.8
+                              )
+                            ) *
+                              55
+                          }%`,
+
+                          `${
+                            18 +
+                            Math.abs(
+                              Math.sin(
+                                index * 1.4
+                              )
+                            ) *
+                              30
+                          }%`,
                         ],
                       }}
                       transition={{
                         duration:
                           0.9 +
-                          (index % 5) * 0.12,
+                          (index % 5) *
+                            0.12,
+
                         repeat: Infinity,
-                        delay: index * 0.025,
+
+                        delay:
+                          index * 0.025,
+
                         ease: "easeInOut",
                       }}
                     />
@@ -540,7 +917,9 @@ export default function Hero() {
                   ease: "linear",
                 }}
               >
+
                 <span />
+
               </motion.div>
 
             </div>
@@ -548,153 +927,25 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* =========================================
-              FLOATING CUT CARD
-          ========================================= */}
-
-          <motion.div
-            className="hero-cinema-floating-card hero-cinema-cut-card"
-            animate={{
-              y: [-12, 12, -12],
-              rotate: [-3, 1, -3],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-
-            <div className="hero-cinema-card-icon">
-              <Scissors size={17} />
-            </div>
-
-            <div>
-              <strong>
-                CUT
-              </strong>
-
-              <span>
-                Precision editing
-              </span>
-            </div>
-
-          </motion.div>
-
-
-          {/* =========================================
-              FLOATING AUDIO CARD
-          ========================================= */}
-
-          <motion.div
-            className="hero-cinema-floating-card hero-cinema-audio-card"
-            animate={{
-              y: [10, -10, 10],
-              rotate: [3, -1, 3],
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-
-            <div className="hero-cinema-card-icon hero-cinema-card-dark">
-              <Waves size={17} />
-            </div>
-
-            <div>
-              <strong>
-                AUDIO
-              </strong>
-
-              <span>
-                Sound design
-              </span>
-            </div>
-
-          </motion.div>
-
-
-          {/* =========================================
-              FINAL CUT BADGE
-          ========================================= */}
-
-          <motion.div
-            className="hero-cinema-final"
-            animate={{
-              y: [0, -8, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-
-            <span>
-              ✓
-            </span>
-
-            <div>
-              <strong>
-                FINAL CUT
-              </strong>
-
-              <small>
-                READY TO PUBLISH
-              </small>
-            </div>
-
-          </motion.div>
-
-
-          {/* =========================================
-              FLOATING FRAME
-          ========================================= */}
-
-          <motion.div
-            className="hero-cinema-frame-card"
-            animate={{
-              rotate: [6, 9, 6],
-              y: [-5, 8, -5],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-
-            <div className="hero-cinema-frame-inner">
-
-              <span>
-                01
-              </span>
-
-              <div />
-
-              <small>
-                STORY
-              </small>
-
-            </div>
-
-          </motion.div>
-
-
-          {/* Decorative dots */}
+          {/* ==================================================
+              DECORATIVE DOTS
+          ================================================== */}
 
           <div className="hero-cinema-dot hero-cinema-dot-one" />
+
           <div className="hero-cinema-dot hero-cinema-dot-two" />
+
           <div className="hero-cinema-dot hero-cinema-dot-three" />
+
 
         </motion.div>
 
       </div>
 
 
-      {/* Scroll indicator */}
+      {/* ==================================================
+          SCROLL INDICATOR
+      ================================================== */}
 
       <motion.a
         href="#services"
@@ -714,16 +965,23 @@ export default function Hero() {
           SCROLL TO EXPLORE
         </span>
 
+
         <motion.div
           animate={{
-            y: [0, 7, 0],
+            y: [
+              0,
+              7,
+              0,
+            ],
           }}
           transition={{
             duration: 1.5,
             repeat: Infinity,
           }}
         >
+
           <ArrowDown size={16} />
+
         </motion.div>
 
       </motion.a>

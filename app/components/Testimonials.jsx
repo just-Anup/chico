@@ -1,166 +1,147 @@
 "use client";
 
-import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+
 import {
   ArrowLeft,
   ArrowRight,
   ExternalLink,
   Play,
+  X,
 } from "lucide-react";
 
 
 /* =========================================================
    TESTIMONIAL DATA
 ========================================================= */
+
 const testimonials = [
   {
     name: "TRC Reaction TV",
-    subscribers: " 3.14k subscribers",
+    subscribers: "3.14k subscribers",
     logo: "/creator/TRC.jpg",
-
     image: "/testimony/testimony1.png",
-
     videoLink: "https://youtu.be/SYwW6IL85Ys",
   },
+
   {
     name: "Kris Kilins",
     subscribers: "46.3k subscribers",
     logo: "/creator/kris.jpg",
-
     image: "/testimony/testimony2.png",
-
     videoLink: "https://youtu.be/BHAKeN3sboA",
   },
+
   {
-    name: "AlsoMij Reacts ",
-    subscribers: "44.4k subscribers ",
+    name: "AlsoMij Reacts",
+    subscribers: "44.4k subscribers",
     logo: "/creator/alsomj.jpg",
-
     image: "/testimony/testimony3.png",
-
     videoLink: "https://youtu.be/fDK7YHYrFBw",
   },
-
 ];
 
 
 /* =========================================================
    TOP CREATOR CHANNELS
-
-   Add as many creators as you want here.
 ========================================================= */
 
 const channels = [
   {
     name: "AlsoMij Reacts",
     logo: "/creator/alsomj.jpg",
-    url: "https://www.youtube.com/@mijreacts", 
-    // 44.4k subscribers
+    url: "https://www.youtube.com/@mijreacts",
   },
-
 
   {
     name: "Studio Gek",
     logo: "/creator/studiogek.jpg",
     url: "https://www.youtube.com/@StudioGek",
-    // 360k subscribers
   },
- 
 
-  
   {
     name: "kriskilins",
     logo: "/creator/kris.jpg",
     url: "https://www.youtube.com/@kriskilins",
-    // 46.3k subscribers
   },
-  
-  
-  
+
   {
     name: "Kaliwali",
     logo: "/creator/kaliwali.jpg",
     url: "https://www.youtube.com/@Kaliwali",
-    // 114k subscribers
   },
-  
+
   {
     name: "Cinema Gek",
     logo: "/creator/cinemagek.jpg",
     url: "https://www.youtube.com/@CinemaGek",
-    // 149k subscribers
   },
-    {
+
+  {
     name: "Meesh & Dee",
     logo: "/creator/meeshdee.jpg",
-   url: "https://www.youtube.com/@MeeshAndDee",
-  //  118k subscribers
+    url: "https://www.youtube.com/@MeeshAndDee",
   },
- 
+
   {
     name: "Popcorn Roulette",
     logo: "/creator/popcorn.jpg",
     url: "https://www.youtube.com/@popcornroulettereactions",
-    // 100k subscribers
   },
+
   {
     name: "Certane",
     logo: "/creator/certane.jpg",
     url: "https://www.youtube.com/@Centane",
-    // 112k subscribers
   },
+
   {
     name: "C X B",
     logo: "/creator/cxb.jpg",
     url: "https://www.youtube.com/channel/UCamK-IRB6jFXXjV2GJzf6vw",
-    // 6.6k subscribers
   },
+
   {
     name: "TRC Reaction TV",
     logo: "/creator/TRC.jpg",
     url: "https://www.youtube.com/@TRCReactionsTV",
-    // 3.14k subscribers
   },
+
   {
     name: "Meesh & Dee GL",
     logo: "/creator/meeshdeegl.jpg",
     url: "https://www.youtube.com/@MeeshDeeGL",
-    // 32k subscribers
   },
+
   {
-    name: "dee Reax.jpg",
+    name: "dee Reax",
     logo: "/creator/dee Reax.jpg",
     url: "https://www.youtube.com/@dee_reax",
-    // 6k subscribers
   },
+
   {
     name: "Gek POP",
     logo: "/creator/geekpop.jpg",
     url: "https://www.youtube.com/@GeK-Pop",
-    // 58.8k subscribers
   },
- 
+
   {
     name: "yogiiWaifu",
     logo: "/creator/yogii.jpg",
     url: "https://www.youtube.com/@YogiiWaifu",
-    // 22.7k subscribers
   },
+
   {
     name: "Cara & prez Reacts",
     logo: "/creator/cara&prez.jpg",
     url: "https://www.youtube.com/@CaraPrezReacts",
-    // 91k subscribers
   },
-  
 ];
 
 
 /* =========================================================
    DUPLICATE CREATOR LIST
-
-   This creates the seamless infinite loop.
 ========================================================= */
 
 const infiniteChannels = [
@@ -169,35 +150,117 @@ const infiniteChannels = [
 ];
 
 
+/* =========================================================
+   GET YOUTUBE EMBED URL
+========================================================= */
+
+function getYoutubeEmbedUrl(url) {
+
+  try {
+
+    const parsedUrl = new URL(url);
+
+    let videoId = "";
+
+    /* youtu.be/VIDEO_ID */
+
+    if (parsedUrl.hostname.includes("youtu.be")) {
+
+      videoId =
+        parsedUrl.pathname.replace("/", "");
+
+    }
+
+    /* youtube.com/watch?v=VIDEO_ID */
+
+    else if (
+      parsedUrl.hostname.includes("youtube.com")
+    ) {
+
+      videoId =
+        parsedUrl.searchParams.get("v");
+
+      /* youtube.com/shorts/VIDEO_ID */
+
+      if (
+        !videoId &&
+        parsedUrl.pathname.includes("/shorts/")
+      ) {
+
+        videoId =
+          parsedUrl.pathname.split("/shorts/")[1];
+
+      }
+
+      /* youtube.com/embed/VIDEO_ID */
+
+      if (
+        !videoId &&
+        parsedUrl.pathname.includes("/embed/")
+      ) {
+
+        videoId =
+          parsedUrl.pathname.split("/embed/")[1];
+
+      }
+
+    }
+
+    if (!videoId) {
+      return "";
+    }
+
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+  } catch {
+
+    return "";
+
+  }
+
+}
+
+
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function Testimonials() {
 
   const [active, setActive] = useState(0);
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  /* Controls YouTube modal */
 
-  const videoRef = useRef(null);
-
-
-  const current = testimonials[active];
+  const [isVideoOpen, setIsVideoOpen] =
+    useState(false);
 
 
-  const hasVideo =
-    current.video &&
-    current.video.trim() !== "";
+  const current =
+    testimonials[active];
 
+
+  /* =======================================================
+     CHANGE TESTIMONIAL
+  ======================================================= */
 
   const goTo = (index) => {
 
-    setIsPlaying(false);
+    setIsVideoOpen(false);
 
     setActive(index);
 
   };
 
 
+  /* =======================================================
+     NEXT
+  ======================================================= */
+
   const nextTestimonial = () => {
 
-    goTo(
+    setIsVideoOpen(false);
+
+    setActive(
       active === testimonials.length - 1
         ? 0
         : active + 1
@@ -206,9 +269,15 @@ export default function Testimonials() {
   };
 
 
+  /* =======================================================
+     PREVIOUS
+  ======================================================= */
+
   const previousTestimonial = () => {
 
-    goTo(
+    setIsVideoOpen(false);
+
+    setActive(
       active === 0
         ? testimonials.length - 1
         : active - 1
@@ -217,13 +286,28 @@ export default function Testimonials() {
   };
 
 
-  const startVideo = () => {
+  /* =======================================================
+     OPEN VIDEO
+  ======================================================= */
 
-    if (videoRef.current) {
+  const openVideo = () => {
 
-      videoRef.current.play();
+    setIsVideoOpen(true);
 
-    }
+    document.body.style.overflow = "hidden";
+
+  };
+
+
+  /* =======================================================
+     CLOSE VIDEO
+  ======================================================= */
+
+  const closeVideo = () => {
+
+    setIsVideoOpen(false);
+
+    document.body.style.overflow = "";
 
   };
 
@@ -512,7 +596,10 @@ export default function Testimonials() {
                 CREATOR IDENTITY
             ================================================= */}
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence
+              mode="wait"
+              initial={false}
+            >
 
               <motion.div
                 className="testimonial-creator"
@@ -521,7 +608,7 @@ export default function Testimonials() {
 
                 initial={{
                   opacity: 0,
-                  y: 12,
+                  y: 10,
                 }}
 
                 animate={{
@@ -531,11 +618,12 @@ export default function Testimonials() {
 
                 exit={{
                   opacity: 0,
-                  y: -12,
+                  y: -10,
                 }}
 
                 transition={{
-                  duration: 0.3,
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
               >
 
@@ -576,103 +664,124 @@ export default function Testimonials() {
             </AnimatePresence>
 
 
-       <div className="testimonial-video-row">
+            {/* =================================================
+                VIDEO ROW
+            ================================================= */}
 
-  {/* PREVIOUS */}
-  <button
-    className="testimonial-arrow"
-    onClick={previousTestimonial}
-    aria-label="Previous testimonial"
-  >
-    <ArrowLeft size={19} />
-  </button>
+            <div className="testimonial-video-row">
 
 
-  {/* IMAGE / VIDEO LINK */}
-  <div className="testimonial-video-wrapper">
+              {/* ================= PREVIOUS ================= */}
 
-    <AnimatePresence mode="wait">
+              <button
+                type="button"
+                className="testimonial-arrow"
+                onClick={previousTestimonial}
+                aria-label="Previous testimonial"
+              >
 
-      <motion.a
-        href={current.videoLink}
-        target="_blank"
-        rel="noopener noreferrer"
+                <ArrowLeft size={19} />
 
-        className="testimonial-video testimonial-image-link"
-
-        key={`testimonial-image-${active}`}
-
-        initial={{
-          opacity: 0,
-          scale: 0.96,
-        }}
-
-        animate={{
-          opacity: 1,
-          scale: 1,
-        }}
-
-        exit={{
-          opacity: 0,
-          scale: 0.97,
-        }}
-
-        transition={{
-          duration: 0.35,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-
-        {/* IMAGE */}
-
-        <img
-          src={current.image}
-          alt={`${current.name} testimonial`}
-          className="testimonial-preview-image"
-        />
+              </button>
 
 
-        {/* DARK OVERLAY */}
+              {/* =================================================
+                  IMAGE
+              ================================================= */}
 
-        <div className="testimonial-image-overlay" />
+              <div className="testimonial-video-wrapper">
+
+                <AnimatePresence
+                  mode="wait"
+                  initial={false}
+                >
+
+                  <motion.button
+                    type="button"
+
+                    className="testimonial-video testimonial-image-link"
+
+                    key={`testimonial-image-${active}`}
+
+                    onClick={openVideo}
+
+                    initial={{
+                      opacity: 0,
+                      x: 12,
+                      scale: 0.985,
+                    }}
+
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      scale: 1,
+                    }}
+
+                    exit={{
+                      opacity: 0,
+                      x: -12,
+                      scale: 0.985,
+                    }}
+
+                    transition={{
+                      duration: 0.28,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+
+                    {/* ================= IMAGE ================= */}
+
+                    <img
+                      src={current.image}
+                      alt={`${current.name} testimonial`}
+                      className="testimonial-preview-image"
+                    />
 
 
-        {/* PLAY BUTTON */}
+                    {/* ================= DARK OVERLAY ================= */}
 
-        <span
-          className="testimonial-play"
-        >
-          <Play
-            size={26}
-            fill="currentColor"
-          />
-        </span>
+                    <div className="testimonial-image-overlay" />
 
 
-        {/* WATCH LABEL */}
+                    {/* ================= PLAY BUTTON ================= */}
 
-        <span className="testimonial-watch-label">
-          WATCH TESTIMONIAL
-        </span>
+                    <span className="testimonial-play">
 
-      </motion.a>
+                      <Play
+                        size={26}
+                        fill="currentColor"
+                      />
 
-    </AnimatePresence>
-
-  </div>
+                    </span>
 
 
-  {/* NEXT */}
+                    {/* ================= WATCH LABEL ================= */}
 
-  <button
-    className="testimonial-arrow"
-    onClick={nextTestimonial}
-    aria-label="Next testimonial"
-  >
-    <ArrowRight size={19} />
-  </button>
+                    <span className="testimonial-watch-label">
+                      WATCH TESTIMONIAL
+                    </span>
 
-</div>
+                  </motion.button>
+
+                </AnimatePresence>
+
+              </div>
+
+
+              {/* ================= NEXT ================= */}
+
+              <button
+                type="button"
+                className="testimonial-arrow"
+                onClick={nextTestimonial}
+                aria-label="Next testimonial"
+              >
+
+                <ArrowRight size={19} />
+
+              </button>
+
+            </div>
 
 
             {/* =================================================
@@ -686,6 +795,8 @@ export default function Testimonials() {
 
                   <button
                     key={`${item.name}-${index}`}
+
+                    type="button"
 
                     className={`testimonial-dot ${
                       index === active
@@ -714,6 +825,120 @@ export default function Testimonials() {
         </div>
 
       </div>
+
+
+      {/* =========================================================
+          YOUTUBE FLOATING VIDEO MODAL
+      ========================================================= */}
+
+      <AnimatePresence>
+
+        {isVideoOpen && (
+
+          <motion.div
+            className="testimonial-video-modal"
+
+            initial={{
+              opacity: 0,
+            }}
+
+            animate={{
+              opacity: 1,
+            }}
+
+            exit={{
+              opacity: 0,
+            }}
+
+            transition={{
+              duration: 0.25,
+            }}
+
+            onMouseDown={(e) => {
+
+              if (
+                e.target === e.currentTarget
+              ) {
+
+                closeVideo();
+
+              }
+
+            }}
+          >
+
+            <motion.div
+              className="testimonial-video-modal-content"
+
+              initial={{
+                opacity: 0,
+                scale: 0.92,
+                y: 25,
+              }}
+
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+
+              exit={{
+                opacity: 0,
+                scale: 0.94,
+                y: 20,
+              }}
+
+              transition={{
+                duration: 0.3,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+
+              {/* ================= CLOSE BUTTON ================= */}
+
+              <button
+                type="button"
+                className="testimonial-video-modal-close"
+                onClick={closeVideo}
+                aria-label="Close video"
+              >
+
+                <X size={24} />
+
+              </button>
+
+
+              {/* ================= YOUTUBE ================= */}
+
+              <iframe
+                src={getYoutubeEmbedUrl(
+                  current.videoLink
+                )}
+
+                title={`${current.name} testimonial`}
+
+                className="testimonial-youtube-frame"
+
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share
+                "
+
+                allowFullScreen
+              />
+
+            </motion.div>
+
+          </motion.div>
+
+        )}
+
+      </AnimatePresence>
 
     </section>
   );

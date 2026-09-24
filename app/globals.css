@@ -16327,3 +16327,369 @@ body {
   }
 
 }
+
+/* =========================================================
+   HERO COMMENTS
+========================================================= */
+
+.hero-comments-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: visible;
+}
+
+
+/* Individual comment */
+
+.hero-comment {
+  position: absolute;
+  width: 125px;
+  height: auto;
+  z-index: 60;
+  pointer-events: auto;
+  overflow: visible;
+}
+
+
+/* Comment image */
+
+.hero-comment img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transform-origin: center center;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(0 12px 25px rgba(0, 0, 0, 0.15));
+
+  transition:
+    filter 0.35s ease;
+}
+
+
+/* Glow */
+
+.hero-comment-glow {
+  position: absolute;
+  inset: 15%;
+  z-index: -1;
+  border-radius: 50%;
+
+  background:
+    rgba(137, 118, 253, 0.25);
+
+  filter: blur(25px);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FOUR CORNERS
+========================================================= */
+
+.hero-comment-top-left {
+  top: 7%;
+  left: -1%;
+}
+
+
+.hero-comment-top-right {
+  top: 8%;
+  right: -1%;
+}
+
+
+.hero-comment-bottom-left {
+  bottom: 5%;
+  left: -1%;
+}
+
+
+.hero-comment-bottom-right {
+  bottom: 4%;
+  right: -1%;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.hero-comment:hover {
+  z-index: 999;
+}
+
+
+.hero-comment:hover img {
+  filter:
+    drop-shadow(
+      0 25px 60px rgba(0, 0, 0, 0.30)
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero-comment {
+    width: 80px;
+  }
+
+  .hero-comment-top-left {
+    top: 4%;
+    left: 0;
+  }
+
+  .hero-comment-top-right {
+    top: 5%;
+    right: 0;
+  }
+
+  .hero-comment-bottom-left {
+    bottom: 3%;
+    left: 0;
+  }
+
+  .hero-comment-bottom-right {
+    bottom: 3%;
+    right: 0;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-comment {
+    width: 65px;
+  }
+
+  .hero-comment-top-left {
+    left: 1%;
+  }
+
+  .hero-comment-top-right {
+    right: 1%;
+  }
+
+  .hero-comment-bottom-left {
+    left: 1%;
+  }
+
+  .hero-comment-bottom-right {
+    right: 1%;
+  }
+
+}
+
+/* =========================================================
+   HERO COMMENT CONTAINER
+========================================================= */
+
+.hero-comments-layer {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 9998 !important;
+
+  pointer-events: none;
+
+  overflow: visible !important;
+}
+
+
+/* Make sure comments stay above editor */
+
+.hero-comments-layer > * {
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   DESKTOP COMMENT SIZE
+========================================================= */
+
+.hero-comments-layer img {
+  max-width: none !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero-comments-layer > div {
+    width: 75px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-comments-layer > div {
+    width: 60px !important;
+  }
+
+}
+/* =========================================================
+   CHICO — TESTIMONIAL YOUTUBE MODAL
+========================================================= */
+
+.testimonial-video-modal {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5vh 5vw;
+
+  background: rgba(5, 4, 12, 0.82);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+.testimonial-video-modal-content {
+  position: relative;
+
+  width: min(86vw, 1250px);
+  height: min(82vh, 720px);
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #000;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   YOUTUBE FRAME
+========================================================= */
+
+.testimonial-youtube-frame {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
+
+  background: #000;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.testimonial-video-modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 20;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  color: white;
+
+  background: rgba(10, 10, 15, 0.72);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.testimonial-video-modal-close:hover {
+  transform: rotate(90deg) scale(1.08);
+
+  background: rgba(137, 118, 253, 0.85);
+}
+
+
+/* =========================================================
+   MOBILE MODAL
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .testimonial-video-modal {
+    padding: 20px;
+  }
+
+
+  .testimonial-video-modal-content {
+
+    width: 94vw;
+
+    height: 56vw;
+
+    max-height: 78vh;
+
+    border-radius: 14px;
+
+  }
+
+
+  .testimonial-video-modal-close {
+
+    width: 38px;
+    height: 38px;
+
+    top: 8px;
+    right: 8px;
+
+  }
+
+}
