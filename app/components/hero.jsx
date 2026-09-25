@@ -43,7 +43,7 @@ const commentPositions = [
   {
     id: "top-left",
     style: {
-      top: "11%",
+      top: "18%",
       left: "-2%",
     },
   },
@@ -59,7 +59,7 @@ const commentPositions = [
   {
     id: "bottom-left",
     style: {
-      bottom: "11%",
+      bottom: "14%",
       left: "-2%",
     },
   },
@@ -67,7 +67,7 @@ const commentPositions = [
   {
     id: "bottom-right",
     style: {
-      bottom: "11%",
+      bottom: "9%",
       right: "-2%",
     },
   },
@@ -90,7 +90,7 @@ function HeroComment({
   style={{
     position: "absolute",
     ...position.style,
-    width: "125px",
+    width: "195px",
     zIndex: 9999,
     pointerEvents: "auto",
   }}

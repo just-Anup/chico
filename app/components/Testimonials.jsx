@@ -40,6 +40,20 @@ const testimonials = [
     image: "/testimony/testimony3.png",
     videoLink: "https://youtu.be/fDK7YHYrFBw",
   },
+  {
+    name: "Centane",
+    subscribers: "112k subscribers",
+    logo: "/creator/certane.jpg",
+    image: "/testimony/testimony4.png",
+    videoLink: "https://www.youtube.com/watch?v=a6KafazILBs&feature=youtu.be",
+  },
+  {
+    name: "Dee Reax",
+    subscribers: "6.4k subscribers",
+    logo: "/creator/dee Reax.jpg",
+    image: "/testimony/testimony5.png",
+    videoLink: "https://www.youtube.com/watch?v=wbFl45P-jJA",
+  },
 ];
 
 

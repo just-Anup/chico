@@ -64,13 +64,77 @@ export default function About() {
       id="about"
       className="about-section"
     >
-      {/* Background elements */}
+
+      {/* =====================================
+          BACKGROUND
+      ===================================== */}
 
       <div className="about-noise" />
 
       <div className="about-orb about-orb-one" />
       <div className="about-orb about-orb-two" />
 
+{/* =====================================
+    FLOATING COMMENTS VISUAL
+===================================== */}
+
+<motion.div
+  className="about-comments-decoration"
+
+  initial={{
+    opacity: 0,
+    x: -80,
+    scale: 0.96,
+  }}
+
+  whileInView={{
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  }}
+
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+
+  whileHover={{
+    scale: 1.05,
+    y: -10,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  }}
+>
+  <div className="about-comments-glow" />
+
+  <div className="about-comments-card">
+
+    <img
+      src="/comments/samplecomment.jpeg"
+      alt="Comments from creators"
+    />
+
+    <div className="about-comments-overlay" />
+
+    <div className="about-comments-label">
+      <span />
+      REAL PEOPLE. REAL FEEDBACK.
+    </div>
+
+  </div>
+</motion.div>
+
+
+      {/* =====================================
+          MAIN CONTAINER
+      ===================================== */}
 
       <div className="about-container">
 
@@ -98,7 +162,7 @@ export default function About() {
         >
 
           {/* =====================================
-              LEFT SIDE — HEADING
+              LEFT SIDE
           ===================================== */}
 
           <div className="about-intro-heading">
@@ -128,12 +192,10 @@ export default function About() {
 
 
           {/* =====================================
-              RIGHT SIDE — COMPANY DETAILS
+              RIGHT SIDE
           ===================================== */}
 
           <div className="about-intro-copy">
-
-            {/* ================= MAIN DESCRIPTION ================= */}
 
             <p className="about-big-copy">
               Built by internet culture, for internet culture.{" "}
@@ -144,91 +206,97 @@ export default function About() {
 
 
             <p className="about-description">
-              Over the 2.5 years "{" "}
-              <strong>, we've edited 10,000+ videos</strong> across fandoms, reactions, and entertainment content. Whether it's anime, K-dramas, Thai GLs, movies, or K-pop, we know what keeps viewers hooked—and we edit with that in mind.
+              Over the 2.5 years,{" "}
+              <strong>we've edited 10,000+ videos</strong>{" "}
+              across fandoms, reactions, and entertainment content.
+              Whether it's anime, K-dramas, Thai GLs, movies, or K-pop,
+              we know what keeps viewers hooked—and we edit with that
+              in mind.
             </p>
 
-{/* =====================================
-    BIG STATS
-===================================== */}
 
-<div className="about-stats">
+            {/* =====================================
+                BIG STATS
+            ===================================== */}
 
-  {/* ================= LEFT COLUMN ================= */}
+            <div className="about-stats">
 
-  <div className="about-stat-column">
+              {/* LEFT COLUMN */}
 
-    <div className="about-stat">
+              <div className="about-stat-column">
 
-      <strong>
-        2.5+
-      </strong>
+                <div className="about-stat">
 
-      <span>
-        Years of Experience
-      </span>
+                  <strong>
+                    2.5+
+                  </strong>
 
-    </div>
+                  <span>
+                    Years of Experience
+                  </span>
 
-
-    <div className="about-stat-divider-horizontal" />
+                </div>
 
 
-    <div className="about-stat">
-
-      <strong>
-        10k+
-      </strong>
-
-      <span>
-        Videos Edited
-      </span>
-
-    </div>
-
-  </div>
+                <div className="about-stat-divider-horizontal" />
 
 
-  {/* ================= CENTER DIVIDER ================= */}
+                <div className="about-stat">
 
-  <div className="about-stat-divider" />
+                  <strong>
+                    10k+
+                  </strong>
 
+                  <span>
+                    Videos Edited
+                  </span>
 
-  {/* ================= RIGHT COLUMN ================= */}
+                </div>
 
-  <div className="about-stat-column">
-
-    <div className="about-stat">
-
-      <strong>
-        100M+
-      </strong>
-
-      <span>
-        Views Gained
-      </span>
-
-    </div>
+              </div>
 
 
-    <div className="about-stat-divider-horizontal" />
+              {/* CENTER DIVIDER */}
+
+              <div className="about-stat-divider" />
 
 
-    <div className="about-stat">
+              {/* RIGHT COLUMN */}
 
-      <strong>
-        1M+
-      </strong>
+              <div className="about-stat-column">
 
-      <span>
-        Sub Gained
-      </span>
+                <div className="about-stat">
 
-    </div>
+                  <strong>
+                    100M+
+                  </strong>
 
-  </div>
+                  <span>
+                    Views Gained
+                  </span>
 
-</div>
+                </div>
+
+
+                <div className="about-stat-divider-horizontal" />
+
+
+                <div className="about-stat">
+
+                  <strong>
+                    1M+
+                  </strong>
+
+                  <span>
+                    Sub Gained
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
 
             {/* =====================================
                 CONTENT TYPES
@@ -397,8 +465,7 @@ export default function About() {
                     }}
                     transition={{
                       duration: 0.6,
-                      delay:
-                        index * 0.12,
+                      delay: index * 0.12,
                     }}
                   >
 

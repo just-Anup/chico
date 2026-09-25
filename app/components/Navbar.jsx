@@ -122,12 +122,12 @@ export default function Navbar() {
 
           {/* ================= HOME ================= */}
 
-          <Link
+          <a
             href="/"
             className="nav-link"
           >
             Home
-          </Link>
+          </a>
 
 
           {/* ================= ABOUT ================= */}
