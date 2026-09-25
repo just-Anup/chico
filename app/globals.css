@@ -9211,10 +9211,23 @@ height: 500px;
     right: 10px;
   }
 
-  .testimonial-video {
-    border-radius: 16px;
-  }
+ .testimonial-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #08080A;
+}
 
+.testimonial-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.04);
+}
   .testimonial-play {
     width: 62px;
     height: 62px;
@@ -16723,3 +16736,4 @@ height: 500px;
   }
 
 }
+
