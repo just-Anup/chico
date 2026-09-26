@@ -322,7 +322,7 @@ export default function Footer() {
               </a>
 
 
-              <a
+              {/* <a
                 href="https://wa.me/919873736263"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -333,7 +333,7 @@ export default function Footer() {
 
                 <ArrowUpRight size={12} />
 
-              </a>
+              </a> */}
              <a
       href="https://discord.com/users/357101038173683722(ch1dor1)"
       target="_blank"

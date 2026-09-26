@@ -302,9 +302,7 @@ ${message}
               </div>
 
 
-              <div className="contact-visual-number">
-                24
-              </div>
+              
 
             </div>
 
@@ -354,7 +352,7 @@ ${message}
 
 </div>
 
-<div className="contact-detail">
+{/* <div className="contact-detail">
 
   <span>
     WHATSAPP
@@ -365,11 +363,11 @@ ${message}
     target="_blank"
     rel="noopener noreferrer"
   >
-    +91 98737 36263
+    Whatsapp Me
     <ArrowUpRight size={15} />
   </a>
 
-</div>
+</div> */}
 
 
               <div className="contact-response">

@@ -27,7 +27,7 @@ import { useEffect, useState } from "react";
 ========================================================= */
 
 const comments = Array.from(
-  { length: 19 },
+  { length: 11 },
   (_, index) => ({
     id: index,
     image: `/comments/comment-${String(index + 1).padStart(2, "0")}.webp`,

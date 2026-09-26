@@ -7,13 +7,13 @@ import {
 
 import {
   useEffect,
+  useRef,
   useState,
 } from "react";
 
 import {
   ArrowLeft,
   ArrowRight,
-  ExternalLink,
   Play,
   X,
 } from "lucide-react";
@@ -75,7 +75,6 @@ const testimonials = [
 
 /* =========================================================
    CREATOR CHANNELS
-   These appear in the TOP logo strip
 ========================================================= */
 
 const channels = [
@@ -174,7 +173,7 @@ const channels = [
 
 
 /* =========================================================
-   DUPLICATE FOR INFINITE TOP STRIP
+   DUPLICATE FOR INFINITE STRIP
 ========================================================= */
 
 const infiniteChannels = [
@@ -191,61 +190,46 @@ function getYoutubeEmbedUrl(url) {
 
   try {
 
-    const parsedUrl =
-      new URL(url);
+    const parsedUrl = new URL(url);
 
     let videoId = "";
 
 
     if (
-      parsedUrl.hostname.includes(
-        "youtu.be"
-      )
+      parsedUrl.hostname.includes("youtu.be")
     ) {
 
       videoId =
-        parsedUrl.pathname
-          .replace("/", "");
+        parsedUrl.pathname.replace("/", "");
 
     }
 
-
     else if (
-      parsedUrl.hostname.includes(
-        "youtube.com"
-      )
+      parsedUrl.hostname.includes("youtube.com")
     ) {
 
       videoId =
-        parsedUrl.searchParams.get(
-          "v"
-        );
+        parsedUrl.searchParams.get("v");
 
 
       if (
         !videoId &&
-        parsedUrl.pathname.includes(
-          "/shorts/"
-        )
+        parsedUrl.pathname.includes("/shorts/")
       ) {
 
         videoId =
-          parsedUrl.pathname
-            .split("/shorts/")[1];
+          parsedUrl.pathname.split("/shorts/")[1];
 
       }
 
 
       if (
         !videoId &&
-        parsedUrl.pathname.includes(
-          "/embed/"
-        )
+        parsedUrl.pathname.includes("/embed/")
       ) {
 
         videoId =
-          parsedUrl.pathname
-            .split("/embed/")[1];
+          parsedUrl.pathname.split("/embed/")[1];
 
       }
 
@@ -289,9 +273,7 @@ function useViewport() {
 
     const update = () => {
 
-      setWidth(
-        window.innerWidth
-      );
+      setWidth(window.innerWidth);
 
     };
 
@@ -336,14 +318,10 @@ function useViewport() {
 
 
 /* =========================================================
-   MAIN TESTIMONIAL COMPONENT
+   MAIN COMPONENT
 ========================================================= */
 
 export default function Testimonials() {
-
-  /* =======================================================
-     ACTIVE SLIDE
-  ======================================================= */
 
   const [
     active,
@@ -351,22 +329,11 @@ export default function Testimonials() {
   ] = useState(0);
 
 
-  /* =======================================================
-     SLIDE DIRECTION
-
-     1  = NEXT
-    -1  = PREVIOUS
-  ======================================================= */
-
   const [
     direction,
     setDirection,
   ] = useState(1);
 
-
-  /* =======================================================
-     VIDEO MODAL
-  ======================================================= */
 
   const [
     isVideoOpen,
@@ -375,8 +342,14 @@ export default function Testimonials() {
 
 
   /* =======================================================
-     RESPONSIVE
+     CREATOR STRIP HOVER
   ======================================================= */
+
+  const [
+    creatorHovered,
+    setCreatorHovered,
+  ] = useState(false);
+
 
   const {
     mobile,
@@ -385,23 +358,17 @@ export default function Testimonials() {
   } = useViewport();
 
 
-  /* =======================================================
-     CURRENT TESTIMONIAL
-  ======================================================= */
-
   const current =
     testimonials[active];
 
 
   /* =======================================================
-     CHANGE SLIDE
+     CHANGE TESTIMONIAL
   ======================================================= */
 
   const goTo = (index) => {
 
-    if (
-      index === active
-    ) {
+    if (index === active) {
       return;
     }
 
@@ -535,33 +502,38 @@ export default function Testimonials() {
 
 
   /* =======================================================
-     TOP CREATOR STRIP
+     CREATOR STRIP
   ======================================================= */
+const creatorStripStyle = {
+  position: "relative",
+  width: "100vw",
+  marginLeft: "calc(50% - 50vw)",
 
-  const creatorStripStyle = {
+  /* Give the hover scale enough room */
+  paddingTop: mobile ? "28px" : "38px",
+  paddingBottom: mobile ? "25px" : "30px",
 
-    position:
-      "relative",
+  /* Keep horizontal overflow hidden */
+  overflowX: "hidden",
 
-    width:
-      "100vw",
+  /* Allow the enlarged creator to show vertically */
+  overflowY: "visible",
 
-    marginLeft:
-      "calc(50% - 50vw)",
-
-    overflow:
-      "hidden",
-
-    padding:
-      mobile
-        ? "10px 0 20px"
-        : "0 0 10px",
-
-  };
-
+  boxSizing: "border-box",
+};
 
   /* =======================================================
-     CREATOR STRIP TRACK
+     CREATOR TRACK
+     
+     IMPORTANT:
+     We use CSS animation here instead of Framer Motion
+     percentage animation.
+
+     This gives us:
+     - smooth infinite movement
+     - proper pause on hover
+     - no restart when leaving hover
+     - seamless duplicated list
   ======================================================= */
 
   const creatorTrackStyle = {
@@ -584,6 +556,19 @@ export default function Testimonials() {
       mobile
         ? "15px 30px"
         : "10px 25px",
+
+    animation:
+      mobile
+        ? "chicoCreatorSliderMobile 28s linear infinite"
+        : "chicoCreatorSliderDesktop 38s linear infinite",
+
+    animationPlayState:
+      creatorHovered
+        ? "paused"
+        : "running",
+
+    willChange:
+      "transform",
 
   };
 
@@ -619,6 +604,9 @@ export default function Testimonials() {
 
     textDecoration:
       "none",
+
+    transition:
+      "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
 
   };
 
@@ -658,6 +646,9 @@ export default function Testimonials() {
 
     boxShadow:
       "0 0 0 5px rgba(137,118,253,0.035), 0 0 0 8px rgba(137,118,253,0.025)",
+
+    transition:
+      "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease",
 
   };
 
@@ -749,7 +740,6 @@ export default function Testimonials() {
       "grid",
 
     gridTemplateColumns:
-
       tablet
         ? "1fr"
         : "0.85fr 1.15fr",
@@ -758,7 +748,6 @@ export default function Testimonials() {
       "center",
 
     gap:
-
       tablet
         ? "55px"
         : "70px",
@@ -822,10 +811,6 @@ export default function Testimonials() {
   };
 
 
-  /* =======================================================
-     LABEL DOT
-  ======================================================= */
-
   const labelDotStyle = {
 
     width:
@@ -856,7 +841,6 @@ export default function Testimonials() {
       "#08080A",
 
     fontSize:
-
       smallMobile
         ? "44px"
         : mobile
@@ -952,10 +936,6 @@ export default function Testimonials() {
   };
 
 
-  /* =======================================================
-     SUBTEXT
-  ======================================================= */
-
   const subTextStyle = {
 
     margin:
@@ -1014,10 +994,6 @@ export default function Testimonials() {
   };
 
 
-  /* =======================================================
-     CREATOR LOGO
-  ======================================================= */
-
   const creatorLogoStyle = {
 
     width:
@@ -1040,10 +1016,6 @@ export default function Testimonials() {
 
   };
 
-
-  /* =======================================================
-     CREATOR META
-  ======================================================= */
 
   const creatorMetaStyle = {
 
@@ -1084,9 +1056,6 @@ export default function Testimonials() {
 
   /* =======================================================
      VIDEO WRAPPER
-
-     IMPORTANT:
-     Stable dimensions prevent carousel jumping.
   ======================================================= */
 
   const videoWrapperStyle = {
@@ -1215,10 +1184,6 @@ export default function Testimonials() {
   };
 
 
-  /* =======================================================
-     VIDEO PREVIEW
-  ======================================================= */
-
   const previewStyle = {
 
     position:
@@ -1324,10 +1289,6 @@ export default function Testimonials() {
   };
 
 
-  /* =======================================================
-     DOT
-  ======================================================= */
-
   const dotStyle = {
 
     width:
@@ -1357,7 +1318,45 @@ export default function Testimonials() {
 
   return (
     <>
-          {/* =====================================================
+
+      {/* =====================================================
+          LOCAL CSS FOR CREATOR SLIDER
+          
+          This stays inside this component.
+          Nothing needs to be added to global.css.
+      ===================================================== */}
+
+      <style jsx>{`
+
+        @keyframes chicoCreatorSliderDesktop {
+
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+
+          to {
+            transform: translate3d(-50%, 0, 0);
+          }
+
+        }
+
+
+        @keyframes chicoCreatorSliderMobile {
+
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+
+          to {
+            transform: translate3d(-50%, 0, 0);
+          }
+
+        }
+
+      `}</style>
+
+
+      {/* =====================================================
           TESTIMONIAL SECTION
       ===================================================== */}
 
@@ -1372,32 +1371,20 @@ export default function Testimonials() {
 
         <div
           style={creatorStripStyle}
+
           aria-label="Creators we work with"
+
+          onMouseEnter={() => {
+            setCreatorHovered(true);
+          }}
+
+          onMouseLeave={() => {
+            setCreatorHovered(false);
+          }}
         >
 
-          <motion.div
+          <div
             style={creatorTrackStyle}
-
-            animate={{
-              x: [
-                "0%",
-                "-50%",
-              ],
-            }}
-
-            transition={{
-              duration:
-                mobile
-                  ? 28
-                  : 38,
-
-              repeat:
-                Infinity,
-
-              ease:
-                "linear",
-
-            }}
           >
 
             {infiniteChannels.map(
@@ -1422,29 +1409,53 @@ export default function Testimonials() {
 
                   onMouseEnter={(e) => {
 
-                    e.currentTarget.style
-                      .transform =
-                      "translateY(-3px)";
+                    e.currentTarget.style.transform =
+                      "translateY(-6px) scale(1.08)";
 
                   }}
 
                   onMouseLeave={(e) => {
 
-                    e.currentTarget.style
-                      .transform =
-                      "translateY(0)";
+                    e.currentTarget.style.transform =
+                      "translateY(0) scale(1)";
 
                   }}
                 >
 
-                  {/* -----------------------------------------
+                  {/* =================================================
                       CREATOR CIRCLE
-                  ----------------------------------------- */}
+                  ================================================= */}
 
                   <div
                     style={
                       creatorCircleStyle
                     }
+
+                    onMouseEnter={(e) => {
+
+                      e.currentTarget.style.borderColor =
+                        "rgba(137,118,253,0.75)";
+
+                      e.currentTarget.style.boxShadow =
+                        "0 0 0 6px rgba(137,118,253,0.08), 0 0 30px rgba(137,118,253,0.35), 0 0 55px rgba(137,118,253,0.15)";
+
+                      e.currentTarget.style.transform =
+                        "scale(1.08)";
+
+                    }}
+
+                    onMouseLeave={(e) => {
+
+                      e.currentTarget.style.borderColor =
+                        "rgba(137,118,253,0.12)";
+
+                      e.currentTarget.style.boxShadow =
+                        "0 0 0 5px rgba(137,118,253,0.035), 0 0 0 8px rgba(137,118,253,0.025)";
+
+                      e.currentTarget.style.transform =
+                        "scale(1)";
+
+                    }}
                   >
 
                     <img
@@ -1466,16 +1477,18 @@ export default function Testimonials() {
                   </div>
 
 
-                  {/* -----------------------------------------
+                  {/* =================================================
                       CREATOR NAME
-                  ----------------------------------------- */}
+                  ================================================= */}
 
                   <span
                     style={
                       creatorStripNameStyle
                     }
                   >
+
                     {channel.name}
+
                   </span>
 
                 </a>
@@ -1483,7 +1496,7 @@ export default function Testimonials() {
               )
             )}
 
-          </motion.div>
+          </div>
 
         </div>
 
@@ -1493,11 +1506,15 @@ export default function Testimonials() {
         =================================================== */}
 
         <div
-          style={containerStyle}
+          style={
+            containerStyle
+          }
         >
 
           <div
-            style={mainGridStyle}
+            style={
+              mainGridStyle
+            }
           >
 
             {/* =================================================
@@ -1505,7 +1522,9 @@ export default function Testimonials() {
             ================================================= */}
 
             <motion.div
-              style={copyStyle}
+              style={
+                copyStyle
+              }
 
               initial={{
                 opacity: 0,
@@ -1534,16 +1553,18 @@ export default function Testimonials() {
               }}
             >
 
-              {/* ---------------------------------------------
-                  LABEL
-              --------------------------------------------- */}
+              {/* LABEL */}
 
               <div
-                style={labelStyle}
+                style={
+                  labelStyle
+                }
               >
 
                 <span
-                  style={labelDotStyle}
+                  style={
+                    labelDotStyle
+                  }
                 />
 
                 TESTIMONIALS
@@ -1551,12 +1572,12 @@ export default function Testimonials() {
               </div>
 
 
-              {/* ---------------------------------------------
-                  HEADING
-              --------------------------------------------- */}
+              {/* HEADING */}
 
               <h2
-                style={headingStyle}
+                style={
+                  headingStyle
+                }
               >
 
                 Hear from the
@@ -1578,7 +1599,9 @@ export default function Testimonials() {
                         1,
                     }}
                   >
+
                     creators
+
                   </span>
 
                   <span
@@ -1592,9 +1615,7 @@ export default function Testimonials() {
               </h2>
 
 
-              {/* ---------------------------------------------
-                  DESCRIPTION
-              --------------------------------------------- */}
+              {/* DESCRIPTION */}
 
               <p
                 style={
@@ -1611,9 +1632,7 @@ export default function Testimonials() {
               </p>
 
 
-              {/* ---------------------------------------------
-                  SUBTEXT
-              --------------------------------------------- */}
+              {/* SUBTEXT */}
 
               <p
                 style={
@@ -1633,7 +1652,9 @@ export default function Testimonials() {
             ================================================= */}
 
             <motion.div
-              style={showcaseStyle}
+              style={
+                showcaseStyle
+              }
 
               initial={{
                 opacity: 0,
@@ -1674,9 +1695,7 @@ export default function Testimonials() {
                 }
               >
 
-                {/* ---------------------------------------------
-                    CREATOR LOGO
-                --------------------------------------------- */}
+                {/* CREATOR LOGO */}
 
                 <AnimatePresence
                   mode="wait"
@@ -1747,9 +1766,7 @@ export default function Testimonials() {
                 </AnimatePresence>
 
 
-                {/* ---------------------------------------------
-                    CREATOR NAME
-                --------------------------------------------- */}
+                {/* CREATOR META */}
 
                 <AnimatePresence
                   mode="wait"
@@ -1859,9 +1876,7 @@ export default function Testimonials() {
                 }
               >
 
-                {/* ---------------------------------------------
-                    LEFT ARROW
-                --------------------------------------------- */}
+                {/* LEFT ARROW */}
 
                 <motion.button
                   type="button"
@@ -1907,16 +1922,7 @@ export default function Testimonials() {
                 </motion.button>
 
 
-                {/* =================================================
-                    STABLE VIDEO VIEWPORT
-
-                    IMPORTANT:
-                    The wrapper itself NEVER moves.
-                    Only the video inside it moves.
-
-                    This prevents the desktop/mobile
-                    layout glitch when swapping.
-                ================================================= */}
+                {/* VIDEO */}
 
                 <div
                   style={
@@ -1927,7 +1933,9 @@ export default function Testimonials() {
                   <AnimatePresence
                     mode="sync"
                     initial={false}
-                    custom={direction}
+                    custom={
+                      direction
+                    }
                   >
 
                     <motion.button
@@ -1964,9 +1972,11 @@ export default function Testimonials() {
                       animate={{
                         opacity: 1,
 
-                        x: "0%",
+                        x:
+                          "0%",
 
-                        scale: 1,
+                        scale:
+                          1,
                       }}
 
                       exit={{
@@ -2017,10 +2027,6 @@ export default function Testimonials() {
                       }
                     >
 
-                      {/* -----------------------------------------
-                          VIDEO THUMBNAIL
-                      ----------------------------------------- */}
-
                       <img
                         src={
                           current.image
@@ -2038,22 +2044,14 @@ export default function Testimonials() {
 
                         onError={(e) => {
 
-                          /*
-                           * If a thumbnail is missing,
-                           * don't break the layout.
-                           */
-
-                          e.currentTarget.style
-                            .background =
+                          e.currentTarget.style.background =
                             "#16161A";
 
                         }}
                       />
 
 
-                      {/* -----------------------------------------
-                          DARK OVERLAY
-                      ----------------------------------------- */}
+                      {/* DARK OVERLAY */}
 
                       <div
                         style={{
@@ -2072,9 +2070,7 @@ export default function Testimonials() {
                       />
 
 
-                      {/* -----------------------------------------
-                          PLAY BUTTON
-                      ----------------------------------------- */}
+                      {/* PLAY */}
 
                       <motion.div
                         style={
@@ -2105,7 +2101,6 @@ export default function Testimonials() {
                           fill="currentColor"
 
                           strokeWidth={0}
-
                         />
 
                       </motion.div>
@@ -2117,9 +2112,7 @@ export default function Testimonials() {
                 </div>
 
 
-                {/* ---------------------------------------------
-                    RIGHT ARROW
-                --------------------------------------------- */}
+                {/* RIGHT ARROW */}
 
                 <motion.button
                   type="button"
@@ -2182,7 +2175,10 @@ export default function Testimonials() {
               >
 
                 {testimonials.map(
-                  (testimonial, index) => (
+                  (
+                    testimonial,
+                    index
+                  ) => (
 
                     <motion.button
                       key={
@@ -2228,7 +2224,6 @@ export default function Testimonials() {
                         scale:
                           0.85,
                       }}
-
                     />
 
                   )
@@ -2305,13 +2300,8 @@ export default function Testimonials() {
 
                 WebkitBackdropFilter:
                   "blur(12px)",
-
               }}
             >
-
-              {/* =================================================
-                  MODAL BOX
-              ================================================= */}
 
               <motion.div
                 initial={{
@@ -2386,13 +2376,10 @@ export default function Testimonials() {
 
                   boxShadow:
                     "0 35px 100px rgba(0,0,0,0.45)",
-
                 }}
               >
 
-                {/* ---------------------------------------------
-                    CLOSE BUTTON
-                --------------------------------------------- */}
+                {/* CLOSE BUTTON */}
 
                 <motion.button
                   type="button"
@@ -2469,7 +2456,6 @@ export default function Testimonials() {
 
                     backdropFilter:
                       "blur(10px)",
-
                   }}
                 >
 
@@ -2484,9 +2470,7 @@ export default function Testimonials() {
                 </motion.button>
 
 
-                {/* ---------------------------------------------
-                    YOUTUBE IFRAME
-                --------------------------------------------- */}
+                {/* YOUTUBE */}
 
                 <iframe
                   src={
@@ -2523,7 +2507,6 @@ export default function Testimonials() {
 
                     border:
                       "0",
-
                   }}
                 />
 
@@ -2536,11 +2519,6 @@ export default function Testimonials() {
         </AnimatePresence>
 
       </section>
-
-            
-      {/* =====================================================
-          END TESTIMONIAL SECTION
-      ===================================================== */}
 
     </>
   );
