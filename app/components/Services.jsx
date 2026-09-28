@@ -352,23 +352,23 @@ const services = [
      05 — CONTENT STRATEGY
   ======================================================= */
 
-  {
-    number: "05",
+  // {
+  //   number: "05",
 
-    title:
-      "Content Strategy",
+  //   title:
+  //     "Content Strategy",
 
-    description:
-      "Turn hours of raw footage into engaging videos with strong pacing, storytelling, sound design, motion graphics and a polished cinematic finish.",
+  //   description:
+  //     "Turn hours of raw footage into engaging videos with strong pacing, storytelling, sound design, motion graphics and a polished cinematic finish.",
 
-    tag:
-      "YOUTUBE • DOCUMENTARY • EDUCATION",
+  //   tag:
+  //     "YOUTUBE • DOCUMENTARY • EDUCATION",
 
-    icon: PlaySquare,
+  //   icon: PlaySquare,
 
-    visual:
-      "youtube",
-  },
+  //   visual:
+  //     "youtube",
+  // },
 
 ];
 

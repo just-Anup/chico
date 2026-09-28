@@ -51,7 +51,7 @@ const commentPositions = [
   {
     id: "top-right",
     style: {
-      top: "11%",
+      top: "25%",
       right: "-2%",
     },
   },
@@ -59,7 +59,7 @@ const commentPositions = [
   {
     id: "bottom-left",
     style: {
-      bottom: "14%",
+      bottom: "24%",
       left: "-2%",
     },
   },
@@ -67,7 +67,7 @@ const commentPositions = [
   {
     id: "bottom-right",
     style: {
-      bottom: "9%",
+      bottom: "11%",
       right: "-2%",
     },
   },
