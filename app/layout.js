@@ -6,7 +6,7 @@ import VisualEffects from "./components/VisualEffects";
 import FloatingComments from "./components/FloatingComments";
 
 export const metadata = {
-  title: "Your Brand",
+  title: "Chico Media",
   description:
     "Premium video editing for creators.",
 };
