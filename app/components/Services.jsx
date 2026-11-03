@@ -174,6 +174,15 @@ const services = [
           "https://youtu.be/ZCPSKcMT_RI?si=8pGTxyP5yJAgm3Ci",
       },
      
+       {
+        image:
+          "/longVideo/md2.jpg",
+
+        link:
+          "https://www.youtube.com/watch?v=DqoXWRVFVQc",
+      },
+     
+
 
     ],
   },
